@@ -162,7 +162,7 @@ public class GameController implements Initializable {
 
     //}
 
-    public void nextQuestion(){
+    public void nextQuestion(){//Hello
         //if(true); //put check answers here
         nextButton.setOnAction(e -> {
             //System.out.println(check());
