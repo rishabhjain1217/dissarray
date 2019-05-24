@@ -114,7 +114,7 @@ public class GameController implements Initializable {
 
         this.questionLabel.setText(q.question);
         OneDimPane pane = new OneDimPane(q);
-        this.renderPane.getChildren().add(pane);
+        this.renderPane.getChildren().setAll(pane);
     }
 
     private void renderOneDim()
@@ -128,7 +128,7 @@ public class GameController implements Initializable {
 
         this.questionLabel.setText(q.question);
         TwoDimPane pane = new TwoDimPane(q);
-        this.renderPane.getChildren().add(pane);
+        this.renderPane.getChildren().setAll(pane);
     }
 
     private void renderTwoDim()
