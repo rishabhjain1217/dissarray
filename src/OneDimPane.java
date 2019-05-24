@@ -16,14 +16,13 @@ public class OneDimPane extends ArrayPane {
     @Override
     void render() {
 
-        this.setAlignment(Pos.CENTER);
-
-        int j = 4;
+        //this.setAlignment(Pos.CENTER);
+        this.setMaxSize(300, 200);
 
         int length = ((OneDimQuestion) this.question).getArrayLength();
         for (int i = 0; i < length; ++i) {
             this.indexButtons.add(new IndexButton(new OneDimIndex(i)));
-            this.add(this.indexButtons.get(i).getButton(), 60 +i, 0);
+            this.add(this.indexButtons.get(i).getButton(), 30 + i, 0);
         }
     }
 
