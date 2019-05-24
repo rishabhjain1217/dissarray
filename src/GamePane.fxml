@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="GameController">
+<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
   <bottom>
     <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" spacing="50.0">
       <children>
@@ -33,7 +37,7 @@
             <Insets bottom="20.0" top="20.0" />
           </VBox.margin>
         </HBox>
-        <Label fx:id="questionLabel" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textOverrun="ELLIPSIS" wrapText="true">
+        <Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textOverrun="ELLIPSIS" wrapText="true">
           <VBox.margin>
             <Insets bottom="20.0" />
           </VBox.margin>
@@ -47,7 +51,7 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="New Game" fx:id="newGameMenuItem" />
+            <MenuItem fx:id="newGameMenuItem" mnemonicParsing="false" text="New Game" />
           </items>
         </Menu>
       </menus>
