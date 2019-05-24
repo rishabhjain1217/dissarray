@@ -143,5 +143,13 @@ public class GameController implements Initializable {
             this.renderTwoDim(((TwoDimQuestion) q));
         }
     }
+    public boolean checkIndex(){
+
+    }
+
+    public void nextQuestion(){
+        if(true); //put check answers here
+        nextButton.setOnAction(e -> newQuestion());
+    }
 
 }
