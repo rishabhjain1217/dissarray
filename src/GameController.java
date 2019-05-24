@@ -40,6 +40,7 @@ public class GameController implements Initializable {
 
     private Question currentQ;
     private Pane currentP;
+    private int timesRun;
 
     private int score;
 
@@ -61,6 +62,7 @@ public class GameController implements Initializable {
 
     public void start()
     {
+        timesRun = 0;
         this.generator = new QuestionGenerator();
         this.newQuestion();
         nextQuestion();
@@ -71,18 +73,21 @@ public class GameController implements Initializable {
     private void newQuestion()
     {
         this.timeRemaining = 20;
+
         this.timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
 
-                Platform.runLater(() -> {
-                    decreaseTime();
-                });
+        if(timesRun < 1) {
+            timer.scheduleAtFixedRate(new TimerTask() {
+                @Override
+                public void run() {
 
-            }
-        }, 1000, 1000);
+                    Platform.runLater(() -> {
+                        decreaseTime();
+                    });
 
+                }
+            }, 1000, 1000);
+        } ++timesRun;
         switch (this.mode) {
             case OneDim:
                 this.renderOneDim();
@@ -106,18 +111,18 @@ public class GameController implements Initializable {
         --this.timeRemaining;
         if (this.timeRemaining == 0) {
             this.timer.cancel();
-            /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("YOU DONE");
 
             alert.showAndWait();
-            System.exit(1);*/
+            System.exit(1);
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
         String secondsFormat = seconds < 10 ? "0" + seconds : "" + seconds;
-        //this.timeLabel.setText("Time: " + minutes + ":" + secondsFormat);
+        this.timeLabel.setText("Time: " + minutes + ":" + secondsFormat);
     }
 
     private void renderOneDim(OneDimQuestion q)
