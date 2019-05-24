@@ -117,7 +117,7 @@ public class GameController implements Initializable {
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
         String secondsFormat = seconds < 10 ? "0" + seconds : "" + seconds;
-        //this.timeLabel.setText("Time: " + minutes + ":" + secondsFormat);
+        this.timeLabel.setText("Time: " + minutes + ":" + secondsFormat);
     }
 
     private void renderOneDim(OneDimQuestion q)
