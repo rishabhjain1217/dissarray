@@ -87,9 +87,11 @@ public class TwoDimQuestion extends Question {
         this.rows = rows;
         this.cols = cols;
 
-        this.question = "A for loop starts with the rows with variable i on the range of " + startRow + " to " + endRow
+        /*this.question = "A for loop starts with the rows with variable i on the range of " + startRow + " to " + endRow
                         + ", and nests into the columns with a for loop with variable j on the range of " + startCol
-                        + " to " + endCol + ". What elements will be covered in the loop?";
+                        + " to " + endCol + ". What elements will be covered in the loop?"; */
+
+        this.question = "Fill in the box of the coordinates a[" + start.toString() + ", " + end.toString() + "]";
 
 
         for (int i = startRow; i < endRow; ++i) {
