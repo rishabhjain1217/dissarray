@@ -6,6 +6,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -42,6 +43,7 @@ public class GameController implements Initializable {
 
     private Timer timer;
     private int timeRemaining;
+    private boolean isDecreased;
 
     public GameController()
     {
@@ -61,6 +63,7 @@ public class GameController implements Initializable {
 
     public void start()
     {
+        isDecreased = false;
         this.generator = new QuestionGenerator();
         this.newQuestion();
         nextQuestion();
@@ -68,6 +71,7 @@ public class GameController implements Initializable {
 
     private void newQuestion()
     {
+
         this.timeRemaining = 20;
         this.timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
@@ -75,7 +79,7 @@ public class GameController implements Initializable {
             public void run() {
 
                 Platform.runLater(() -> {
-                    decreaseTime();
+                        decreaseTime();
                 });
 
             }
@@ -100,7 +104,12 @@ public class GameController implements Initializable {
 
     private void decreaseTime()
     {
-        --this.timeRemaining;
+
+
+            int decreaseRate = 1;
+            this.timeRemaining -= decreaseRate;
+
+        isDecreased = true;
         if (this.timeRemaining == 0) {
             this.timer.cancel();
         }
@@ -116,6 +125,7 @@ public class GameController implements Initializable {
         this.questionLabel.setText(q.question);
         OneDimPane pane = new OneDimPane(q);
         this.renderPane.getChildren().setAll(pane);
+
     }
 
     private void renderOneDim()
