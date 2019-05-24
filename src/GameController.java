@@ -92,6 +92,7 @@ public class GameController implements Initializable {
                 this.renderRandom();
                 break;
         }
+        nextQuestion();
     }
 
     private void decreaseTime()
@@ -143,12 +144,13 @@ public class GameController implements Initializable {
             this.renderTwoDim(((TwoDimQuestion) q));
         }
     }
-    public boolean checkIndex(){
+   // public boolean checkIndex(){
 
-    }
+    //}
 
     public void nextQuestion(){
         if(true); //put check answers here
+        nextButton.setOnAction(e -> renderPane.getChildren().clear());
         nextButton.setOnAction(e -> newQuestion());
     }
 
