@@ -61,20 +61,21 @@ public class GameController implements Initializable {
     public void start()
     {
         this.generator = new QuestionGenerator();
+
         this.newQuestion();
         nextQuestion();
     }
 
     private void newQuestion()
     {
-        this.timeRemaining = 20;
-        this.timer = new Timer();
+        //this.timeRemaining = 20;
+        FXTImer fxtImer = new FXTImer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
 
                 Platform.runLater(() -> {
-                    decreaseTime();
+                 //   decreaseTime();
                 });
 
             }
