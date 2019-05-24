@@ -49,8 +49,8 @@ public class GameController implements Initializable {
 
     public void setGameMode(GameMode mode)
     {
-        this.mode = mode;
-    }
+        this.mode = mode.Both;
+    } //CHANGE THIS
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -62,6 +62,7 @@ public class GameController implements Initializable {
     {
         this.generator = new QuestionGenerator();
         this.newQuestion();
+        nextQuestion();
     }
 
     private void newQuestion()
@@ -85,14 +86,15 @@ public class GameController implements Initializable {
             case TwoDim:
                 this.renderTwoDim();
                 break;
-            case Both:
+            /*case Both:
                 this.renderRandom();
-                break;
+                break;*/
             default:
-                this.renderRandom();
+                //this.renderRandom();
+                this.renderOneDim();
                 break;
         }
-        nextQuestion();
+        //nextQuestion();
     }
 
     private void decreaseTime()
@@ -149,8 +151,11 @@ public class GameController implements Initializable {
     //}
 
     public void nextQuestion(){
-        if(true); //put check answers here
-        nextButton.setOnAction(e -> renderPane.getChildren().clear());
+        //if(true); //put check answers here
+        nextButton.setOnAction(e -> {
+            renderPane.getChildren().clear();
+            //newQuestion();
+        });
         nextButton.setOnAction(e -> newQuestion());
     }
 
