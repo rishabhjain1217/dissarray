@@ -6,18 +6,14 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
+import javafx.scene.Node;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 
 import java.net.URL;
-import java.util.Random;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 
 public class GameController implements Initializable {
 
@@ -42,6 +38,11 @@ public class GameController implements Initializable {
     private Timer timer;
     private int timeRemaining;
 
+    private Question currentQ;
+    private Pane currentP;
+
+    private int score;
+
     public GameController()
     {
         this.generator = new QuestionGenerator();
@@ -49,7 +50,7 @@ public class GameController implements Initializable {
 
     public void setGameMode(GameMode mode)
     {
-        this.mode = mode.Both;
+        this.mode = mode;
     } //CHANGE THIS
 
     @Override
@@ -63,6 +64,8 @@ public class GameController implements Initializable {
         this.generator = new QuestionGenerator();
         this.newQuestion();
         nextQuestion();
+        score = 0;
+        //scoreLabel.textProperty().bind(new SimpleIntegerProperty(score).asString());
     }
 
     private void newQuestion()
@@ -79,6 +82,7 @@ public class GameController implements Initializable {
 
             }
         }, 1000, 1000);
+
         switch (this.mode) {
             case OneDim:
                 this.renderOneDim();
@@ -102,20 +106,29 @@ public class GameController implements Initializable {
         --this.timeRemaining;
         if (this.timeRemaining == 0) {
             this.timer.cancel();
+            /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Information Dialog");
+            alert.setHeaderText(null);
+            alert.setContentText("YOU DONE");
+
+            alert.showAndWait();
+            System.exit(1);*/
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
         String secondsFormat = seconds < 10 ? "0" + seconds : "" + seconds;
-        this.timeLabel.setText("Time: " + minutes + ":" + secondsFormat);
+        //this.timeLabel.setText("Time: " + minutes + ":" + secondsFormat);
     }
 
     private void renderOneDim(OneDimQuestion q)
     {
-
+        currentQ = q;
         this.questionLabel.setText(q.question);
         OneDimPane pane = new OneDimPane(q);
+        currentP = pane;
         this.renderPane.getChildren().setAll(pane);
     }
+
 
     private void renderOneDim()
     {
@@ -125,7 +138,6 @@ public class GameController implements Initializable {
 
     private void renderTwoDim(TwoDimQuestion q)
     {
-
         this.questionLabel.setText(q.question);
         TwoDimPane pane = new TwoDimPane(q);
         this.renderPane.getChildren().setAll(pane);
@@ -153,10 +165,36 @@ public class GameController implements Initializable {
     public void nextQuestion(){
         //if(true); //put check answers here
         nextButton.setOnAction(e -> {
-            renderPane.getChildren().clear();
-            //newQuestion();
+            //System.out.println(check());
+            if(check()) {
+                score++;
+                scoreLabel.setText("Score: " + score);
+                renderPane.getChildren().clear();
+                newQuestion();
+            }
+            else{
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("YOU MADE A MISTAKE");
+
+                alert.showAndWait();
+                System.exit(1);
+            }
         });
-        nextButton.setOnAction(e -> newQuestion());
+        //nextButton.setOnAction(e -> newQuestion());
+    }
+
+    private boolean check() {
+        ArrayList<Index> selected = new ArrayList<>();
+
+        for (Node node: currentP.getChildren()){
+            if(((IndexButton)(node)).getButton().isSelected()){
+                selected.add(((IndexButton)(node)).getIndex());
+            }
+        }
+         return currentQ.checkAnswer(selected);
+
     }
 
         /*
