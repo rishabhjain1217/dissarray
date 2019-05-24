@@ -52,7 +52,7 @@ public class TwoDimQuestion extends Question {
         this.correctIndices.add(element);
     }
 
-    private void generateRangeQuestionHard()
+    private void generateRangeQuestion()
     {
         Random rand = new Random();
         int rows = rand.nextInt(10) + 3;
@@ -100,9 +100,6 @@ public class TwoDimQuestion extends Question {
 
     }
 
-    public void generateRangeQuestion(){
-        Random row = new Random();
-    }
 
     @Override
     boolean checkAnswer(ArrayList<Index> selectedIndices) {
