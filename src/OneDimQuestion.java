@@ -25,7 +25,6 @@ public class OneDimQuestion extends Question {
         Random rand = new Random();
         int randQuestionType = rand.nextInt(types.length);
         QuestionType type = types[randQuestionType];
-
         switch (type) {
             case Element:
                 generateElementQuestion();

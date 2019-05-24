@@ -49,8 +49,8 @@ public class GameController implements Initializable {
 
     public void setGameMode(GameMode mode)
     {
-        this.mode = mode;
-    }
+        this.mode = mode.Both;
+    } //CHANGE THIS
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -62,6 +62,7 @@ public class GameController implements Initializable {
     {
         this.generator = new QuestionGenerator();
         this.newQuestion();
+        nextQuestion();
     }
 
     private void newQuestion()
@@ -85,13 +86,15 @@ public class GameController implements Initializable {
             case TwoDim:
                 this.renderTwoDim();
                 break;
-            case Both:
+            /*case Both:
                 this.renderRandom();
-                break;
+                break;*/
             default:
-                this.renderRandom();
+                //this.renderRandom();
+                this.renderOneDim();
                 break;
         }
+        //nextQuestion();
     }
 
     private void decreaseTime()
@@ -111,7 +114,7 @@ public class GameController implements Initializable {
 
         this.questionLabel.setText(q.question);
         OneDimPane pane = new OneDimPane(q);
-        this.renderPane.getChildren().add(pane);
+        this.renderPane.getChildren().setAll(pane);
     }
 
     private void renderOneDim()
@@ -125,7 +128,7 @@ public class GameController implements Initializable {
 
         this.questionLabel.setText(q.question);
         TwoDimPane pane = new TwoDimPane(q);
-        this.renderPane.getChildren().add(pane);
+        this.renderPane.getChildren().setAll(pane);
     }
 
     private void renderTwoDim()
@@ -142,6 +145,18 @@ public class GameController implements Initializable {
         } else {
             this.renderTwoDim(((TwoDimQuestion) q));
         }
+    }
+   // public boolean checkIndex(){
+
+    //}
+
+    public void nextQuestion(){
+        //if(true); //put check answers here
+        nextButton.setOnAction(e -> {
+            renderPane.getChildren().clear();
+            //newQuestion();
+        });
+        nextButton.setOnAction(e -> newQuestion());
     }
 
         /*
