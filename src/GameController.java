@@ -7,7 +7,10 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
@@ -40,6 +43,7 @@ public class GameController implements Initializable {
 
     private Timer timer;
     private int timeRemaining;
+    private boolean isDecreased;
 
     public GameController()
     {
@@ -59,6 +63,7 @@ public class GameController implements Initializable {
 
     public void start()
     {
+        isDecreased = false;
         this.generator = new QuestionGenerator();
         this.newQuestion();
         nextQuestion();
@@ -67,6 +72,18 @@ public class GameController implements Initializable {
     private void newQuestion()
     {
 
+        this.timeRemaining = 20;
+        this.timer = new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+
+                Platform.runLater(() -> {
+                        decreaseTime();
+                });
+
+            }
+        }, 1000, 1000);
         switch (this.mode) {
             case OneDim:
                 this.renderOneDim();
@@ -82,34 +99,19 @@ public class GameController implements Initializable {
                 this.renderOneDim();
                 break;
         }
-
-        this.timeRemaining = 20;
-        //this.timer = new Timer();
-        this.timer = new Timer();
-        timer.scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-
-                Platform.runLater(() -> {
-                    decreaseTime();
-                });
-
-            }
-        }, 1000, 1000);
-
-
         //nextQuestion();
     }
 
     private void decreaseTime()
     {
-        --this.timeRemaining;
+
+
+            int decreaseRate = 1;
+            this.timeRemaining -= decreaseRate;
+
+        isDecreased = true;
         if (this.timeRemaining == 0) {
             this.timer.cancel();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "YOU DONE", ButtonType.OK);
-            alert.showAndWait();
-            System.exit(1);
-            return;
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
@@ -121,11 +123,8 @@ public class GameController implements Initializable {
     {
 
         this.questionLabel.setText(q.question);
-        this.questionLabel.setAlignment(Pos.CENTER);
         OneDimPane pane = new OneDimPane(q);
-        //pane.setAlignment(Pos.CENTER);
         this.renderPane.getChildren().setAll(pane);
-        //this.renderPane.setP(Pos.CENTER);
 
     }
 
@@ -163,7 +162,7 @@ public class GameController implements Initializable {
     //}
 
     public void nextQuestion(){
-        //if(isCorrect()); //put check answers here
+        //if(true); //put check answers here
         nextButton.setOnAction(e -> {
             renderPane.getChildren().clear();
             //newQuestion();

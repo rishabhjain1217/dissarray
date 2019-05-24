@@ -1,13 +1,10 @@
-import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-
-import java.awt.*;
-import java.net.URL;
-import java.util.ResourceBundle;
+import javafx.scene.control.CheckBox;
 
 /**
  * Created by Rishabh Jain AKA CodeGod on 05 24, 2019 at 09:26
  */
 public class MenuController {
+    //@FXML
+   // CheckBox
 }
