@@ -144,4 +144,19 @@ public class GameController implements Initializable {
         }
     }
 
+        /*
+    public boolean isCorrect(boolean [][] userInput){ // checks to see if a question is right, does not check for
+        boolean correct = true;
+        for(int i = 0; i < gameBoard.length;++i){
+            for(int j = 0; j < gameBoard[0].length;++j){
+                if(gameBoard[i][j] != userInput[i][j]){ correct = false;}
+            }
+        }
+      return correct;
+
+    }
+
+     */
+
+
 }
