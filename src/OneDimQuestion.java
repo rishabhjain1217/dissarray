@@ -42,7 +42,8 @@ public class OneDimQuestion extends Question {
         int arrayLength = rand.nextInt(10) + 3;
         int correctIndex = rand.nextInt(arrayLength);
         this.arrayLength = arrayLength;
-        this.question = "a[" + correctIndex + "]";
+        OneDimIndex element = new OneDimIndex(correctIndex);
+        this.question = element.toString();
         this.correctIndices.add(new OneDimIndex(correctIndex));
     }
 

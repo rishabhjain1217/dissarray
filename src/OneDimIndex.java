@@ -41,4 +41,8 @@ public class OneDimIndex extends Index {
         if (this.getIndex() < other.getIndex()) return -1;
         return 1;
     }
+
+    public String toString(){
+        return "a" + "[" + index + "]";
+    }
 }

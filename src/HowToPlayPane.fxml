@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.AmbientLight?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="HowToPlayPane">
    <children>
-      <SplitPane dividerPositions="0.5" layoutX="171.0" layoutY="50.0" orientation="VERTICAL" prefHeight="301.0" prefWidth="259.0">
+      <SplitPane dividerPositions="0.26535626535626533" layoutX="81.0" orientation="VERTICAL" prefHeight="409.0" prefWidth="439.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <Label alignment="CENTER" layoutX="-3.0" layoutY="-2.0" prefHeight="147.0" prefWidth="259.0" text="How To Play" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
+                  <Label layoutX="74.0" layoutY="19.0" prefHeight="57.0" prefWidth="290.0" text="How To Play" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS">
                      <font>
                         <Font size="46.0" />
                      </font>
@@ -21,11 +22,14 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="175.0" prefWidth="274.0">
                <children>
-                  <Label alignment="CENTER" layoutX="1.0" layoutY="1.0" prefHeight="146.0" prefWidth="259.0" text="Click on the boxes that Corrispond to the indexes or for loop given" textAlignment="CENTER" wrapText="true" />
+                  <ImageView fitHeight="296.0" fitWidth="437.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Pictures/Screenshots/HowToPlay1.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <AmbientLight color="CHARTREUSE" layoutX="46.0" layoutY="129.0" lightOn="true" />
    </children>
 </AnchorPane>
