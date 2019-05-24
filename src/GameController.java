@@ -104,7 +104,7 @@ public class GameController implements Initializable {
     private void decreaseTime()
     {
         --this.timeRemaining;
-        if (this.timeRemaining <= 0) {
+        if (this.timeRemaining == 0) {
             this.timer.cancel();
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "YOU DONE", ButtonType.OK);
             alert.showAndWait();
