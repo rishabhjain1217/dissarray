@@ -8,12 +8,12 @@ import javafx.stage.Stage;
 
 public class ArrayApplication extends Application {
 
-    private MainPane main;
+    //private MainPane main;
 
     public ArrayApplication()
     {
         super();
-        this.main = new MainPane();
+        //this.main = new MainPane();
 
     }//hello
 
@@ -45,7 +45,7 @@ public class ArrayApplication extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
-        this.main.changeText();
+        //this.main.changeText();
     }
 
 }

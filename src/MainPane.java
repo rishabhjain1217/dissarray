@@ -55,9 +55,9 @@ public class MainPane extends GridPane {
         this.add(this.buttons,2, 1);
     }
 
-    public void changeText(){
+    /*public void changeText(){
         question.setText("THIS TEXT HAS BEEN CHANGED");
-    }
+    }*/
 
     public void timer() {
         if (timeline != null) {

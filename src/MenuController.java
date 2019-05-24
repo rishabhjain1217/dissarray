@@ -43,7 +43,7 @@ public class MenuController implements Initializable {
     public void startButton(){
         startButton.setOnAction(e -> {
                 ArrayApplication aa = new ArrayApplication();
-                aa.start();
+                //aa.start();
         });
 
     }
