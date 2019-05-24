@@ -1,3 +1,4 @@
+import javafx.geometry.Pos;
 import javafx.scene.control.ToggleButton;
 
 public class IndexButton {
@@ -10,6 +11,7 @@ public class IndexButton {
         this.index = index;
         this.button = new ToggleButton();
         this.button.setPrefSize(25, 25);
+        button.setAlignment(Pos.CENTER);
     }
 
     public ToggleButton getButton() {
