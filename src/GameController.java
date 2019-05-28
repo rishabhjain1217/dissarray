@@ -19,8 +19,10 @@ public class GameController implements Initializable {
     @FXML
     Pane renderPane;
 
-    private GameMode mode;
-    private QuestionType difficulty;
+    private GameMode mode; //1d questions or 2d questions
+    private QuestionType difficulty; //Element or Range and Element questions given
+    private TimerEnum timerStatus; //Is the timer on or off
+
     private QuestionGenerator generator;
 
     private Timer timer;
@@ -46,6 +48,8 @@ public class GameController implements Initializable {
         this.difficulty = difficulty;
     }
 
+    public void setTimerStatus(TimerEnum timerStatus){this.timerStatus = timerStatus;}
+
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -65,37 +69,44 @@ public class GameController implements Initializable {
 
     private void newQuestion()
     {
-        this.timeRemaining = 20;
+        int timeGiven = 20;
 
-        this.timer = new Timer();
+        if(timerStatus.equals(TimerEnum.On)) {
+                this.timeRemaining = timeGiven;
 
-        if(timesRun < 1) {
-            timer.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
+                this.timer = new Timer();
 
-                    Platform.runLater(() -> {
-                        decreaseTime();
-                    });
+                if (timesRun < 1) {
+                    timer.scheduleAtFixedRate(new TimerTask() {
+                        @Override
+                        public void run() {
 
+                            Platform.runLater(() -> {
+                                decreaseTime();
+                            });
+
+                        }
+                    }, 1000, 1000);
                 }
-            }, 1000, 1000);
-        } ++timesRun;
+        }
+        ++timesRun;
         switch (this.mode) {
             case OneDim:
-                this.renderOneDim();
+                this.timeRemaining = this.renderOneDim();
                 break;
             case TwoDim:
-                this.renderTwoDim();
+                //timeGiven =
+                this.timeRemaining = this.renderTwoDim();
                 break;
             case Both:
-                this.renderRandom();
+                this.timeRemaining = this.renderRandom();
                 break;
             default:
-                //this.renderRandom();
-                this.renderOneDim();
+                this.timeRemaining = (this.renderOneDim());
                 break;
+
         }
+
         //nextQuestion();
     }
 
@@ -128,10 +139,11 @@ public class GameController implements Initializable {
     }
 
 
-    private void renderOneDim()
+    private int renderOneDim()
     {
         OneDimQuestion q = ((OneDimQuestion) this.generator.generateOneDim(difficulty));
         this.renderOneDim(q);
+        return q.getTimeForQuestion();
     }
 
     private void renderTwoDim(TwoDimQuestion q)
@@ -143,19 +155,22 @@ public class GameController implements Initializable {
         this.renderPane.getChildren().setAll(pane);
     }
 
-    private void renderTwoDim()
+    private int renderTwoDim()
     {
         TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty));
         this.renderTwoDim(q);
+        return q.getTimeForQuestion();
     }
 
-   private void renderRandom() //Creates random question of the specified difficulty
+   private int renderRandom() //Creates random question of the specified difficulty
     {
         Question q = this.generator.generateRandom(difficulty);
         if (q instanceof OneDimQuestion) {
             this.renderOneDim(((OneDimQuestion) q));
+            return ((OneDimQuestion) q).getTimeForQuestion();
         } else {
             this.renderTwoDim(((TwoDimQuestion) q));
+            return ((TwoDimQuestion) q).getTimeForQuestion();
         }
     }
    // public boolean checkIndex(){
@@ -186,15 +201,18 @@ public class GameController implements Initializable {
     }
 
     private boolean check() {//Checks if answer is correct
-        /*ArrayList<Index> selected = new ArrayList<>();
+        ArrayList<Index> selected = new ArrayList<>();
 
         for (Node node: currentP.getChildren()){
             if(((IndexButton)(node)).getButton().isSelected()){
                 selected.add(((IndexButton)(node)).getIndex());
+                System.out.println(((IndexButton)(node)).getIndex());
             }
         }
-         return currentQ.checkAnswer(selected);*/
+        //System.out.println(selected.size());
+        System.out.println(currentQ.checkAnswer(selected));
         return true;
+        //return true;
 
     }
 

@@ -62,6 +62,7 @@ public class MenuController implements Initializable {
                     GameController gameController = (GameController) fxmlLoader.getController();
                     gameController.setGameMode(findGamemode());
                     gameController.setDifficulty(findDifficulty());
+                    gameController.setTimerStatus(findTimerStatus());
                     gameController.start();
 
                     Scene scene = new Scene(gamePane, 600, 400);
@@ -97,5 +98,12 @@ public class MenuController implements Initializable {
         else return QuestionType.Element;
     }
 
+    public TimerEnum findTimerStatus(){
+        if(timerCheckBox.isSelected()) {
+            return TimerEnum.On;
+        }
+            else
+                return TimerEnum.Off;
+        }
+    }
 
-}

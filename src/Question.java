@@ -4,6 +4,7 @@ public abstract class Question {
 
     protected String question;
     protected ArrayList<Index> correctIndices;
+    protected int timeForQuestion;
 
     public Question()
     {

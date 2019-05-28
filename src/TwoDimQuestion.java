@@ -1,14 +1,23 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class TwoDimQuestion extends Question {
 
     private int rows, cols;
 
+    private final int timeForElementQuestion = 15;
+    private final int timeForRangeQuestion = 25;
+    private int timeForQuestion;
+
     public TwoDimQuestion(QuestionType difficulty)
     {
         super();
         this.generateQuestion(difficulty);
+    }
+
+    public int getTimeForQuestion(){
+        return timeForQuestion;
     }
 
     @Override
@@ -32,6 +41,7 @@ public class TwoDimQuestion extends Question {
 
     private void generateElementQuestion()
     {
+        this.timeForQuestion = this.timeForElementQuestion; //Changes time for question
         Random rand = new Random();
         int rows = rand.nextInt(5) + 3;
         int cols = rand.nextInt(5) + 3;
@@ -51,6 +61,7 @@ public class TwoDimQuestion extends Question {
 
     private void generateRangeQuestion()
     {
+        this.timeForQuestion = this.timeForRangeQuestion;
         Random rand = new Random();
         int rows = rand.nextInt(5) + 3;
         int cols = rand.nextInt(5) + 3;
@@ -104,8 +115,15 @@ public class TwoDimQuestion extends Question {
 
     @Override
     boolean checkAnswer(ArrayList<Index> selectedIndices) {
-        return false;
+        if (this.correctIndices.size() != selectedIndices.size()) return false;
 
+        Collections.sort(selectedIndices);
+
+        for (int i = 0; i < this.correctIndices.size(); ++i) {
+            if (!correctIndices.get(i).equals(selectedIndices.get(i))) return false;
+        }
+
+        return true;
     }
 
 
