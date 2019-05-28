@@ -19,8 +19,10 @@ public class GameController implements Initializable {
     @FXML
     Pane renderPane;
 
-    private GameMode mode;
-    private QuestionType difficulty;
+    private GameMode mode; //1d questions or 2d questions
+    private QuestionType difficulty; //Element or Range and Element questions given
+    private TimerEnum timerStatus; //Is the timer on or off
+
     private QuestionGenerator generator;
 
     private Timer timer;
@@ -46,6 +48,8 @@ public class GameController implements Initializable {
         this.difficulty = difficulty;
     }
 
+    public void setTimerStatus(TimerEnum timerStatus){this.timerStatus = timerStatus;}
+
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -65,22 +69,25 @@ public class GameController implements Initializable {
 
     private void newQuestion()
     {
-        this.timeRemaining = 20;
+        if(timerStatus.equals(TimerEnum.On)) {
+                this.timeRemaining = 20;
 
-        this.timer = new Timer();
+                this.timer = new Timer();
 
-        if(timesRun < 1) {
-            timer.scheduleAtFixedRate(new TimerTask() {
-                @Override
-                public void run() {
+                if (timesRun < 1) {
+                    timer.scheduleAtFixedRate(new TimerTask() {
+                        @Override
+                        public void run() {
 
-                    Platform.runLater(() -> {
-                        decreaseTime();
-                    });
+                            Platform.runLater(() -> {
+                                decreaseTime();
+                            });
 
+                        }
+                    }, 1000, 1000);
                 }
-            }, 1000, 1000);
-        } ++timesRun;
+        }
+        ++timesRun;
         switch (this.mode) {
             case OneDim:
                 this.renderOneDim();
@@ -95,6 +102,7 @@ public class GameController implements Initializable {
                 //this.renderRandom();
                 this.renderOneDim();
                 break;
+
         }
         //nextQuestion();
     }

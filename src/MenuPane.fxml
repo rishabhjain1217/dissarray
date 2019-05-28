@@ -70,7 +70,7 @@
                               <Insets bottom="5.0" top="5.0" />
                            </padding>
                         </CheckBox>
-                        <CheckBox fx:id="timerCheckBox" layoutX="20.0" layoutY="38.0" mnemonicParsing="false" prefWidth="300.0" text="TimerEnum" textFill="YELLOW">
+                        <CheckBox fx:id="timerCheckBox" layoutX="20.0" layoutY="38.0" mnemonicParsing="false" prefWidth="300.0" text="Timer" textFill="YELLOW">
                            <padding>
                               <Insets bottom="5.0" top="5.0" />
                            </padding>
