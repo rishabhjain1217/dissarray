@@ -183,7 +183,7 @@ public class GameController implements Initializable {
         //nextButton.setOnAction(e -> newQuestion());
     }
 
-    private boolean check() {//He
+    private boolean check() {//Checks if answer is correct
         /*ArrayList<Index> selected = new ArrayList<>();
 
         for (Node node: currentP.getChildren()){
