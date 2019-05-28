@@ -119,7 +119,7 @@ public class GameController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("YOU DONE");
+            alert.setContentText("YOU DONE"+ "     Score: " + score);
 
             alert.showAndWait();
             System.exit(1);
@@ -192,7 +192,7 @@ public class GameController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
                 alert.setHeaderText(null);
-                alert.setContentText("YOU MADE A MISTAKE");
+                alert.setContentText("YOU MADE A MISTAKE" + "     Score: " + score);
 
                 alert.showAndWait();
                 System.exit(1);
