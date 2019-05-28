@@ -148,8 +148,10 @@ public class GameController implements Initializable {
 
     private void renderTwoDim(TwoDimQuestion q)
     {
+        currentQ = q;
         this.questionLabel.setText(q.question);
         TwoDimPane pane = new TwoDimPane(q);
+        currentP = pane;
         this.renderPane.getChildren().setAll(pane);
     }
 
@@ -199,15 +201,18 @@ public class GameController implements Initializable {
     }
 
     private boolean check() {//Checks if answer is correct
-        /*ArrayList<Index> selected = new ArrayList<>();
+        ArrayList<Index> selected = new ArrayList<>();
 
         for (Node node: currentP.getChildren()){
             if(((IndexButton)(node)).getButton().isSelected()){
                 selected.add(((IndexButton)(node)).getIndex());
+                System.out.println(((IndexButton)(node)).getIndex());
             }
         }
-         return currentQ.checkAnswer(selected);*/
+        //System.out.println(selected.size());
+        System.out.println(currentQ.checkAnswer(selected));
         return true;
+        //return true;
 
     }
 

@@ -1,3 +1,5 @@
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -29,6 +31,7 @@ public class MenuController implements Initializable {
     Button startButton, quitButton;
 
     public Stage pStage;
+    public TSwitch tSwitch;
 
 
     public MenuController(){
@@ -42,7 +45,11 @@ public class MenuController implements Initializable {
 
     public void start(){
 
+
+        oneCheckBox.setSelected(true);
+
         startButton();
+        quitButton();
     }
 
     public void startButton(){
@@ -85,7 +92,8 @@ public class MenuController implements Initializable {
     }
 
     public QuestionType findDifficulty(){
-        if (hardToggle.isSelected())
+
+        if (tSwitch.switchedOnProperty().getValue())
             return QuestionType.Range;
         else return QuestionType.Element;
     }

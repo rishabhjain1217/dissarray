@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 public class TwoDimQuestion extends Question {
@@ -114,8 +115,15 @@ public class TwoDimQuestion extends Question {
 
     @Override
     boolean checkAnswer(ArrayList<Index> selectedIndices) {
-        return false;
+        if (this.correctIndices.size() != selectedIndices.size()) return false;
 
+        Collections.sort(selectedIndices);
+
+        for (int i = 0; i < this.correctIndices.size(); ++i) {
+            if (!correctIndices.get(i).equals(selectedIndices.get(i))) return false;
+        }
+
+        return true;
     }
 
 
