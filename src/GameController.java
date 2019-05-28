@@ -85,42 +85,34 @@ public class GameController implements Initializable {
     private void menuItem() {
         newGameMenuItem.setOnAction(e -> {
                 //RESTART CODE
-                pStage.close();
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-
-                        try{
-                            Starter  s = new Starter();
-                            s.start(new Stage());
-                        }
-                        catch (Exception e){
-                            System.out.println("Wassup 2.0");
-                        }
-                    }
-                });
+                restart();
         });
     }
 
     private void newQuestion()
     {
-        switch (this.mode) {
-            case OneDim:
-                this.timeRemaining = this.renderOneDim();
-                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
-                break;
-            case TwoDim:
-                //timeGiven =
-                this.timeRemaining = this.renderTwoDim();
-                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
-                break;
-            case Both:
-                this.timeRemaining = this.renderRandom();
-                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
-                break;
-            default:
-                this.timeRemaining = (this.renderOneDim());
-                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
-                break;
+            switch (this.mode) {
+                case OneDim:
+                    this.timeRemaining = this.renderOneDim();
+                    this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                    break;
+                case TwoDim:
+                    //timeGiven =
+                    this.timeRemaining = this.renderTwoDim();
+                    this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                    break;
+                case Both:
+                    this.timeRemaining = this.renderRandom();
+                    this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                    break;
+                default:
+                    this.timeRemaining = (this.renderOneDim());
+                    this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                    break;
+            }
+
+        if((timerStatus.equals(TimerEnum.Off))){
+            this.timeLabel.setText("Time: N/A");
         }
 
         if(timerStatus.equals(TimerEnum.On)) {
@@ -150,13 +142,14 @@ public class GameController implements Initializable {
         --this.timeRemaining;
         if (this.timeRemaining == 0) {
             this.timer.cancel();
+            timeLabel.setText("DONE");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("YOU DONE"+ "     Score: " + score);
 
             alert.showAndWait();
-            System.exit(1);
+            restart();
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
@@ -233,7 +226,7 @@ public class GameController implements Initializable {
                 alert.setContentText("YOU MADE A MISTAKE" + "     Score: " + score);
 
                 alert.showAndWait();
-                System.exit(1);
+                restart();
             }
         });
         //nextButton.setOnAction(e -> newQuestion());
@@ -250,9 +243,24 @@ public class GameController implements Initializable {
         }
         //System.out.println(selected.size());
         System.out.println(currentQ.checkAnswer(selected));
-        return true;
+        return currentQ.checkAnswer(selected);
         //return true;
+    }
 
+    public void restart(){
+        pStage.close();
+        Platform.runLater(new Runnable() {
+            @Override public void run() {
+
+                try{
+                    Starter  s = new Starter();
+                    s.start(new Stage());
+                }
+                catch (Exception e){
+                    System.out.println("Wassup 2.0");
+                }
+            }
+        });
     }
 
         /*

@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -71,20 +72,18 @@ public class MenuController implements Initializable {
                 }*/
             FXMLLoader fxmlLoader = new FXMLLoader();
             try {
-                BorderPane gamePane = fxmlLoader.load(getClass().getResource("GamePane.fxml").openStream());
-                GameController gameController = (GameController) fxmlLoader.getController();
-                gameController.setGameMode(findGamemode());
-                gameController.setDifficulty(findDifficulty());
-                gameController.setTimerStatus(findTimerStatus());
-                gameController.pStage = pStage;
-                gameController.start();
+                VBox instructionsPane = fxmlLoader.load(getClass().getResource("Instructions.fxml").openStream());
+                InstructionsController instructionsController = (InstructionsController) fxmlLoader.getController();
+                instructionsController.pStage = pStage;
+                instructionsController.start();
 
-                Scene scene = new Scene(gamePane, 600, 400);
+                Scene scene = new Scene(instructionsPane, 600, 400);
                 pStage.setTitle("Array Game");
 
 
                 pStage.setScene(scene);
                 pStage.show();
+
             } catch (Exception ex) {
                 System.out.println("Wassup");
             }
