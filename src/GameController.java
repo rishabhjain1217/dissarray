@@ -4,6 +4,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
 
 import java.net.URL;
 import java.util.*;
@@ -24,6 +25,9 @@ public class GameController implements Initializable {
     private TimerEnum timerStatus; //Is the timer on or off
 
     private QuestionGenerator generator;
+
+    private final String correctSound = "CorrectSound.wav"; //Sound file for the correct answer
+
 
     private Timer timer;
     private int timeRemaining;
@@ -186,6 +190,10 @@ public class GameController implements Initializable {
                 score++;
                 scoreLabel.setText("Score: " + score);
                 renderPane.getChildren().clear();
+
+
+                AudioClip note = new AudioClip(this.getClass().getResource(correctSound).toString());
+                note.play();
                 newQuestion();
             }
             else{
