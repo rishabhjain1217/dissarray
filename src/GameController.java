@@ -14,7 +14,7 @@ public class GameController implements Initializable {
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
     @FXML
-    Button nextButton, errorButton;
+    Button nextButton, restartButton;
     @FXML
     MenuItem newGameMenuItem;
     @FXML
@@ -123,10 +123,12 @@ public class GameController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("YOU DONE"+ "     Score: " + score);
+            alert.setContentText("You lost, press ok to restart"+ "     Score: " + score);
 
             alert.showAndWait();
-            System.exit(1);
+            this.score = 0;
+            nextQuestion();
+            //System.exit(1);
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
@@ -203,7 +205,10 @@ public class GameController implements Initializable {
                 alert.setContentText("YOU MADE A MISTAKE" + "     Score: " + score);
 
                 alert.showAndWait();
-                System.exit(1);
+                alert.showAndWait();
+                this.score = 0;
+                nextQuestion();
+               // System.exit(1);
             }
         });
         //nextButton.setOnAction(e -> newQuestion());
@@ -223,6 +228,13 @@ public class GameController implements Initializable {
         return true;
         //return true;
 
+    }
+
+    public void restartButton(){
+        restartButton.setOnAction( e -> {
+            score = 0;
+            nextQuestion();
+        });
     }
 
         /*

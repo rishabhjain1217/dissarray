@@ -20,7 +20,6 @@ public class OneDimIndex extends Index {
     @Override
     boolean equals(Index o)
     {
-
         if (o instanceof OneDimIndex) {
             if (this.getIndex() == ((OneDimIndex) o).getIndex()) {
                 return true;

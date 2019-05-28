@@ -22,7 +22,6 @@ public class QuestionGenerator {
      */
     public Question generateTwoDim(QuestionType difficulty)
     {
-
         return new TwoDimQuestion(difficulty);
     }
 

@@ -16,7 +16,7 @@
   <bottom>
     <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: Purple;">
       <children>
-        <Button fx:id="errorButton" mnemonicParsing="false" style="-fx-border-color: Gold;" text="Error" />
+        <Button fx:id="restartButton" mnemonicParsing="false" style="-fx-border-color: Gold;" text="Restart" />
         <Button fx:id="nextButton" mnemonicParsing="false" style="-fx-border-color: Gold;" text="Next" />
       </children>
     </HBox>
