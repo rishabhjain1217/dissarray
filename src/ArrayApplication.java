@@ -41,7 +41,7 @@ public class ArrayApplication extends Application {
 
 
         Scene scene = new Scene(gamePane, 600, 400);
-        primaryStage.setTitle("Array Game");
+        primaryStage.setTitle("Array Game 1.0");
 
         primaryStage.setScene(scene);
         primaryStage.show();
