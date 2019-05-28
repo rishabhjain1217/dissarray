@@ -83,10 +83,21 @@ public class GameController implements Initializable {
     }
 
     private void menuItem() {
-        newGameMenuItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
+        newGameMenuItem.setOnAction(e -> {
                 //RESTART CODE
-            }
+                pStage.close();
+                Platform.runLater(new Runnable() {
+                    @Override public void run() {
+
+                        try{
+                            Starter  s = new Starter();
+                            s.start(new Stage());
+                        }
+                        catch (Exception e){
+                            System.out.println("Wassup 2.0");
+                        }
+                    }
+                });
         });
     }
 

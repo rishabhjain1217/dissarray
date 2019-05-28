@@ -53,9 +53,8 @@ public class MenuController implements Initializable {
     }
 
     private void menuItem() {
-        instructionsMenuItem.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                FXMLLoader fxmlLoader = new FXMLLoader();
+        instructionsMenuItem.setOnAction(e -> {
+               /* FXMLLoader fxmlLoader = new FXMLLoader();
                 try {
                     AnchorPane instructionPane = fxmlLoader.load(getClass().getResource("HowToPlayPane.fxml").openStream());
                     HowToPlayController instructionController = (HowToPlayController) fxmlLoader.getController();
@@ -69,7 +68,25 @@ public class MenuController implements Initializable {
                     pStage.show();
                 } catch (Exception ex) {
                     System.out.println(ex);
-                }
+                }*/
+            FXMLLoader fxmlLoader = new FXMLLoader();
+            try {
+                BorderPane gamePane = fxmlLoader.load(getClass().getResource("GamePane.fxml").openStream());
+                GameController gameController = (GameController) fxmlLoader.getController();
+                gameController.setGameMode(findGamemode());
+                gameController.setDifficulty(findDifficulty());
+                gameController.setTimerStatus(findTimerStatus());
+                gameController.pStage = pStage;
+                gameController.start();
+
+                Scene scene = new Scene(gamePane, 600, 400);
+                pStage.setTitle("Array Game");
+
+
+                pStage.setScene(scene);
+                pStage.show();
+            } catch (Exception ex) {
+                System.out.println("Wassup");
             }
         });
     }
