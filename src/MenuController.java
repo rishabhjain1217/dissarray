@@ -1,3 +1,5 @@
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
@@ -21,16 +23,15 @@ import java.util.ResourceBundle;
 public class MenuController implements Initializable {
 
     @FXML
-    CheckBox oneCheckBox, twoCheckBox, timerCheckBox;
-
-    @FXML
     MenuItem instructionsMenuItem;
 
     @FXML
-    Button startButton, quitButton;
+    JFXButton startButton, quitButton;
+
+    @FXML
+    JFXToggleButton oneDimToggle, twoDimToggle, timerToggle, hardModeToggle;
 
     public Stage pStage;
-    public TSwitch tSwitch;
 
 
     public MenuController(){
@@ -44,9 +45,7 @@ public class MenuController implements Initializable {
 
     public void start(){
 
-
-        oneCheckBox.setSelected(true);
-
+        oneDimToggle.setSelected(true);
 
         menuItem();
         startButton();
@@ -122,9 +121,9 @@ public class MenuController implements Initializable {
     }
 
     public GameMode findGamemode(){
-        if (oneCheckBox.isSelected() && twoCheckBox.isSelected())
+        if (oneDimToggle.isSelected() && twoDimToggle.isSelected())
             return GameMode.Both;
-        if(oneCheckBox.isSelected() && !twoCheckBox.isSelected())
+        if(oneDimToggle.isSelected() && !twoDimToggle.isSelected())
             return GameMode.OneDim;
         else
             return GameMode.TwoDim;
@@ -132,13 +131,13 @@ public class MenuController implements Initializable {
 
     public QuestionType findDifficulty(){
 
-        if (tSwitch.switchedOnProperty().getValue())
+        if (hardModeToggle.isSelected())
             return QuestionType.Range;
         else return QuestionType.Element;
     }
 
     public TimerEnum findTimerStatus(){
-        if(timerCheckBox.isSelected()) {
+        if(timerToggle.isSelected()) {
             return TimerEnum.On;
         }
             else

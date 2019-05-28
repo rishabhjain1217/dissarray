@@ -33,21 +33,15 @@ public class Starter extends Application {
         BorderPane menuPane = fxmlLoader.load(getClass().getResource("MenuPane.fxml").openStream());
         MenuController menuController = (MenuController) fxmlLoader.getController();
 
-        TSwitch toggle = new TSwitch();
-        toggle.setTranslateX(330);
-        toggle.setTranslateY(360);
-
         Text text = new Text();
         text.setFont(Font.font(14));
         text.setFill(Color.GOLD);
         text.setTranslateX(336);
         text.setTranslateY(350);
-        text.textProperty().bind(Bindings.when(toggle.switchedOnProperty()).then("HARD").otherwise("EASY"));
 
-        menuPane.getChildren().addAll(toggle, text);
+        menuPane.getChildren().add(text);
 
         menuController.pStage = primaryStage;
-        menuController.tSwitch = toggle;
 
         menuController.start();
 
