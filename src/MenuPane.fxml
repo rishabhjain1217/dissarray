@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
+<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
   <bottom>
     <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="600.0" spacing="5.0">
       <children>
-            <ToggleButton fx:id="easyToggle" mnemonicParsing="false" prefWidth="50.0" text="Easy" textOverrun="CLIP">
+            <ToggleButton fx:id="easyToggle" mnemonicParsing="false" prefWidth="50.0" text="Easy" textAlignment="CENTER" textOverrun="CLIP">
                <HBox.margin>
                   <Insets bottom="10.0" />
                </HBox.margin>
@@ -42,7 +42,7 @@
     </HBox>
   </bottom>
   <center>
-    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: WHITE;">
       <children>
             <Label text="Computer Science A Game">
                <font>
