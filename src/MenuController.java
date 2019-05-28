@@ -53,11 +53,13 @@ public class MenuController implements Initializable {
                 try {
                     BorderPane gamePane = fxmlLoader.load(getClass().getResource("GamePane.fxml").openStream());
                     GameController gameController = (GameController) fxmlLoader.getController();
-                    gameController.setGameMode(GameController.GameMode.Both);
+                    gameController.setGameMode(findGamemode());
+                    gameController.setDifficulty(findDifficulty());
                     gameController.start();
 
                     Scene scene = new Scene(gamePane, 600, 400);
                     pStage.setTitle("Array Game");
+
 
                     pStage.setScene(scene);
                     pStage.show();
@@ -67,5 +69,20 @@ public class MenuController implements Initializable {
             }
         });
 
+    }
+
+    public GameMode findGamemode(){
+        if (oneCheckBox.isSelected() && twoCheckBox.isSelected())
+            return GameMode.Both;
+        if(oneCheckBox.isSelected() && !twoCheckBox.isSelected())
+            return GameMode.OneDim;
+        else
+            return GameMode.TwoDim;
+    }
+
+    public QuestionType findDifficulty(){
+        if (hardToggle.isSelected())
+            return QuestionType.Range;
+        else return QuestionType.Element;
     }
 }

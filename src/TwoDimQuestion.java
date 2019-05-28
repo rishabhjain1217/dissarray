@@ -5,30 +5,27 @@ public class TwoDimQuestion extends Question {
 
     private int rows, cols;
 
-    private enum QuestionType {
-        Element,
-        Range
-    }
-
-    public TwoDimQuestion()
+    public TwoDimQuestion(QuestionType difficulty)
     {
         super();
-        this.generateQuestion();
+        this.generateQuestion(difficulty);
     }
 
     @Override
-    void generateQuestion() {
-        QuestionType[] types = QuestionType.values();
-        Random rand = new Random();
-        int randQuestionType = rand.nextInt(types.length);
-        QuestionType type = types[randQuestionType];
+    void generateQuestion(QuestionType difficulty) {
 
-        switch (type) {
+        switch (difficulty) {
             case Element:
                 generateElementQuestion();
                 break;
-            case Range:
+            case Range: //Hard mode, which can have either an element question or a range question
+                Random r = new Random();
+                int nextQ = r.nextInt(100);
+
+                if(nextQ > 50)
                 generateRangeQuestion();
+                else
+                    generateElementQuestion();
                 break;
         }
     }
@@ -36,8 +33,8 @@ public class TwoDimQuestion extends Question {
     private void generateElementQuestion()
     {
         Random rand = new Random();
-        int rows = rand.nextInt(10) + 3;
-        int cols = rand.nextInt(10) + 3;
+        int rows = rand.nextInt(5) + 3;
+        int cols = rand.nextInt(5) + 3;
 
         int elementRow = rand.nextInt(rows);
         int elementCol = rand.nextInt(cols);
@@ -55,8 +52,8 @@ public class TwoDimQuestion extends Question {
     private void generateRangeQuestion()
     {
         Random rand = new Random();
-        int rows = rand.nextInt(10) + 3;
-        int cols = rand.nextInt(10) + 3;
+        int rows = rand.nextInt(5) + 3;
+        int cols = rand.nextInt(5) + 3;
 
         int startRow = rand.nextInt(rows);
         int startCol = rand.nextInt(cols);

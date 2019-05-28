@@ -7,30 +7,27 @@ public class OneDimQuestion extends Question {
 
     private int arrayLength;
 
-    private enum QuestionType {
-        Element,
-        Range
-    }
-
-    public OneDimQuestion()
+    public OneDimQuestion(QuestionType difficulty)
     {
         super();
-        this.generateQuestion();
+        this.generateQuestion(difficulty);
     }
 
     @Override
-    void generateQuestion() //Selects what type of question is given
+    void generateQuestion(QuestionType difficulty) //Selects what type of question is given
     {
-        QuestionType[] types = QuestionType.values();
-        Random rand = new Random();
-        int randQuestionType = rand.nextInt(types.length);
-        QuestionType type = types[randQuestionType];
-        switch (type) {
+        switch (difficulty) {
             case Element:
                 generateElementQuestion();
                 break;
-            case Range:
-                generateRangeQuestion();
+            case Range: //Hard mode, which can have either an element question or a range question
+                Random r = new Random();
+                int nextQ = r.nextInt(100);
+
+                if(nextQ > 50)
+                    generateRangeQuestion();
+                else
+                    generateElementQuestion();
                 break;
         }
 

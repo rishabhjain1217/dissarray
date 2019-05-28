@@ -1,27 +1,14 @@
-import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
-import javafx.scene.text.TextAlignment;
-import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.*;
 
 public class GameController implements Initializable {
-
-    public enum GameMode {
-        OneDim,
-        TwoDim,
-        Both
-    }
 
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
@@ -33,6 +20,7 @@ public class GameController implements Initializable {
     Pane renderPane;
 
     private GameMode mode;
+    private QuestionType difficulty;
     private QuestionGenerator generator;
 
     private Timer timer;
@@ -54,6 +42,10 @@ public class GameController implements Initializable {
         this.mode = mode;
     } //CHANGE THIS
 
+    public void setDifficulty(QuestionType difficulty){
+        this.difficulty = difficulty;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
@@ -62,6 +54,7 @@ public class GameController implements Initializable {
 
     public void start()
     {
+
         timesRun = 0;
         this.generator = new QuestionGenerator();
         this.newQuestion();
@@ -95,9 +88,9 @@ public class GameController implements Initializable {
             case TwoDim:
                 this.renderTwoDim();
                 break;
-            /*case Both:
+            case Both:
                 this.renderRandom();
-                break;*/
+                break;
             default:
                 //this.renderRandom();
                 this.renderOneDim();
@@ -137,7 +130,7 @@ public class GameController implements Initializable {
 
     private void renderOneDim()
     {
-        OneDimQuestion q = ((OneDimQuestion) this.generator.generateOneDim());
+        OneDimQuestion q = ((OneDimQuestion) this.generator.generateOneDim(difficulty));
         this.renderOneDim(q);
     }
 
@@ -150,13 +143,13 @@ public class GameController implements Initializable {
 
     private void renderTwoDim()
     {
-        TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim());
+        TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty));
         this.renderTwoDim(q);
     }
 
-    private void renderRandom()
+   private void renderRandom() //Creates random question of the specified difficulty
     {
-        Question q = this.generator.generateRandom();
+        Question q = this.generator.generateRandom(difficulty);
         if (q instanceof OneDimQuestion) {
             this.renderOneDim(((OneDimQuestion) q));
         } else {
@@ -191,14 +184,15 @@ public class GameController implements Initializable {
     }
 
     private boolean check() {
-        ArrayList<Index> selected = new ArrayList<>();
+        /*ArrayList<Index> selected = new ArrayList<>();
 
         for (Node node: currentP.getChildren()){
             if(((IndexButton)(node)).getButton().isSelected()){
                 selected.add(((IndexButton)(node)).getIndex());
             }
         }
-         return currentQ.checkAnswer(selected);
+         return currentQ.checkAnswer(selected);*/
+        return true;
 
     }
 

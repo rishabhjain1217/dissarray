@@ -27,7 +27,7 @@ public class ArrayApplication extends Application {
         //GridPane menuPane = fxmlLoader.load(getClass().getResource("MenuPane.fxml").openStream());
         //MenuController menuController = (MenuController) fxmlLoader.getController();
 
-        gameController.setGameMode(GameController.GameMode.Both);
+        gameController.setGameMode(GameMode.Both);
         gameController.start();
 
         //menuController.start();

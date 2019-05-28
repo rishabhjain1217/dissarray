@@ -11,30 +11,31 @@ public class QuestionGenerator {
      * Generates a one-dimensional array question.
      * @return a OneDimQuestion
      */
-    public Question generateOneDim()
+    public Question generateOneDim(QuestionType difficulty)
     {
-        return new OneDimQuestion();
+        return new OneDimQuestion(difficulty);
     }
 
     /**
      * Generates a two-dimensional array question.
      * @return a TwoDimQuestion
      */
-    public Question generateTwoDim()
+    public Question generateTwoDim(QuestionType difficulty)
     {
-        return new TwoDimQuestion();
+
+        return new TwoDimQuestion(difficulty);
     }
 
     /**
      * Generates either a one dimension or two dimension question.
      * @return either a OneDimQuestion or a TwoDimQuestion
      */
-    public Question generateRandom()
+    public Question generateRandom(QuestionType difficulty)
     {
         Random rand =  new Random();
         int n = rand.nextInt(2);
 
-        return n == 0 ? generateOneDim() : generateTwoDim();
+        return n == 0 ? generateOneDim(difficulty) : generateTwoDim(difficulty);
     }
 
 }

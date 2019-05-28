@@ -29,7 +29,7 @@ public class FXTImer extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("FX Timer with Binding");
+        primaryStage.setTitle("FX TimerEnum with Binding");
         Group root = new Group();
         Scene scene = new Scene(root, 300, 250);
 
@@ -40,7 +40,7 @@ public class FXTImer extends Application {
         //eat the penis
 
         Button button = new Button();
-        button.setText("Start Timer");
+        button.setText("Start TimerEnum");
         button.setOnAction(new EventHandler<ActionEvent>() {
 
             public void handle(ActionEvent event) {
