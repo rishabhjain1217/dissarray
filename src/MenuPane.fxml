@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -17,16 +16,6 @@
   <bottom>
     <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="600.0" spacing="5.0" style="-fx-background-color: purple;">
       <children>
-            <ToggleButton fx:id="easyToggle" mnemonicParsing="false" prefWidth="50.0" style="-fx-border-color: gold;" text="Easy" textAlignment="CENTER" textOverrun="CLIP">
-               <HBox.margin>
-                  <Insets bottom="10.0" />
-               </HBox.margin>
-            </ToggleButton>
-            <ToggleButton fx:id="hardToggle" mnemonicParsing="false" prefWidth="50.0" style="-fx-border-color: gold;" text="Hard">
-               <HBox.margin>
-                  <Insets bottom="10.0" />
-               </HBox.margin>
-            </ToggleButton>
         <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0" style="-fx-border-color: gold;" text="Cancel">
                <HBox.margin>
                   <Insets bottom="10.0" left="50.0" />
