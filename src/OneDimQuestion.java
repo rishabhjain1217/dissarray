@@ -30,7 +30,6 @@ public class OneDimQuestion extends Question {
                     generateElementQuestion();
                 break;
         }
-
     }
 
     private void generateElementQuestion() //Creates a question for a specific cell
