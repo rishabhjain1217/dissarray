@@ -6,10 +6,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ToggleButton;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -25,7 +23,7 @@ public class MenuController implements Initializable {
     CheckBox oneCheckBox, twoCheckBox, timerCheckBox;
 
     @FXML
-    ToggleButton easyToggle, hardToggle;
+    MenuItem instructionsMenuItem;
 
     @FXML
     Button startButton, quitButton;
@@ -48,8 +46,30 @@ public class MenuController implements Initializable {
 
         oneCheckBox.setSelected(true);
 
+
+        menuItem();
         startButton();
         quitButton();
+    }
+
+    private void menuItem() {
+        instructionsMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                try {
+                    AnchorPane instructionPane = fxmlLoader.load(getClass().getResource("HowToPlayPane.fxml").openStream());
+
+                    Scene scene = new Scene(instructionPane, 600, 400);
+                    pStage.setTitle("Array Game");
+
+
+                    pStage.setScene(scene);
+                    pStage.show();
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                }
+            }
+        });
     }
 
     public void startButton(){
