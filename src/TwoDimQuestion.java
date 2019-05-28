@@ -5,10 +5,18 @@ public class TwoDimQuestion extends Question {
 
     private int rows, cols;
 
+    private final int timeForElementQuestion = 15;
+    private final int timeForRangeQuestion = 25;
+    private int timeForQuestion;
+
     public TwoDimQuestion(QuestionType difficulty)
     {
         super();
         this.generateQuestion(difficulty);
+    }
+
+    public int getTimeForQuestion(){
+        return timeForQuestion;
     }
 
     @Override
@@ -32,6 +40,7 @@ public class TwoDimQuestion extends Question {
 
     private void generateElementQuestion()
     {
+        this.timeForQuestion = this.timeForElementQuestion; //Changes time for question
         Random rand = new Random();
         int rows = rand.nextInt(5) + 3;
         int cols = rand.nextInt(5) + 3;
@@ -51,6 +60,7 @@ public class TwoDimQuestion extends Question {
 
     private void generateRangeQuestion()
     {
+        this.timeForQuestion = this.timeForRangeQuestion;
         Random rand = new Random();
         int rows = rand.nextInt(5) + 3;
         int cols = rand.nextInt(5) + 3;

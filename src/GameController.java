@@ -69,8 +69,10 @@ public class GameController implements Initializable {
 
     private void newQuestion()
     {
+        int timeGiven = 20;
+
         if(timerStatus.equals(TimerEnum.On)) {
-                this.timeRemaining = 20;
+                this.timeRemaining = timeGiven;
 
                 this.timer = new Timer();
 
@@ -90,20 +92,21 @@ public class GameController implements Initializable {
         ++timesRun;
         switch (this.mode) {
             case OneDim:
-                this.renderOneDim();
+                this.timeRemaining = this.renderOneDim();
                 break;
             case TwoDim:
-                this.renderTwoDim();
+                //timeGiven =
+                this.timeRemaining = this.renderTwoDim();
                 break;
             case Both:
-                this.renderRandom();
+                this.timeRemaining = this.renderRandom();
                 break;
             default:
-                //this.renderRandom();
-                this.renderOneDim();
+                this.timeRemaining = (this.renderOneDim());
                 break;
 
         }
+
         //nextQuestion();
     }
 
@@ -136,10 +139,11 @@ public class GameController implements Initializable {
     }
 
 
-    private void renderOneDim()
+    private int renderOneDim()
     {
         OneDimQuestion q = ((OneDimQuestion) this.generator.generateOneDim(difficulty));
         this.renderOneDim(q);
+        return q.getTimeForQuestion();
     }
 
     private void renderTwoDim(TwoDimQuestion q)
@@ -149,19 +153,22 @@ public class GameController implements Initializable {
         this.renderPane.getChildren().setAll(pane);
     }
 
-    private void renderTwoDim()
+    private int renderTwoDim()
     {
         TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty));
         this.renderTwoDim(q);
+        return q.getTimeForQuestion();
     }
 
-   private void renderRandom() //Creates random question of the specified difficulty
+   private int renderRandom() //Creates random question of the specified difficulty
     {
         Question q = this.generator.generateRandom(difficulty);
         if (q instanceof OneDimQuestion) {
             this.renderOneDim(((OneDimQuestion) q));
+            return ((OneDimQuestion) q).getTimeForQuestion();
         } else {
             this.renderTwoDim(((TwoDimQuestion) q));
+            return ((TwoDimQuestion) q).getTimeForQuestion();
         }
     }
    // public boolean checkIndex(){

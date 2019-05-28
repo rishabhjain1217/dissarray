@@ -6,11 +6,18 @@ import java.util.Random;
 public class OneDimQuestion extends Question {
 
     private int arrayLength;
+    private final int timeForElementQuestion = 10;
+    private final int timeForRangeQuestion = 20;
+    private int timeForQuestion;
 
     public OneDimQuestion(QuestionType difficulty)
     {
         super();
         this.generateQuestion(difficulty);
+    }
+
+    public int getTimeForQuestion() {
+        return timeForQuestion;
     }
 
     @Override
@@ -35,6 +42,7 @@ public class OneDimQuestion extends Question {
 
     private void generateElementQuestion() //Creates a question for a specific cell
     {
+        this.timeForQuestion = timeForElementQuestion;
         Random rand = new Random();
         int arrayLength = rand.nextInt(10) + 3;
         int correctIndex = rand.nextInt(arrayLength);
@@ -46,6 +54,7 @@ public class OneDimQuestion extends Question {
 
     private void generateRangeQuestion() //Creates a Range question where user selects multiple
     {
+        this.timeForQuestion = timeForRangeQuestion;
         Random rand = new Random();
         int arrayLength = rand.nextInt(10) + 3;
         int bound1 = rand.nextInt(arrayLength);
