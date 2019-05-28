@@ -1,10 +1,16 @@
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.media.AudioClip;
+import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.*;
@@ -38,6 +44,8 @@ public class GameController implements Initializable {
 
     private int score;
 
+    public Stage pStage;
+
     public GameController()
     {
         this.generator = new QuestionGenerator();
@@ -68,7 +76,18 @@ public class GameController implements Initializable {
         this.newQuestion();
         nextQuestion();
         score = 0;
+
+        menuItem();
+
         //scoreLabel.textProperty().bind(new SimpleIntegerProperty(score).asString());
+    }
+
+    private void menuItem() {
+        newGameMenuItem.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                //RESTART CODE
+            }
+        });
     }
 
     private void newQuestion()

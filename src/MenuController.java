@@ -83,6 +83,7 @@ public class MenuController implements Initializable {
                     gameController.setGameMode(findGamemode());
                     gameController.setDifficulty(findDifficulty());
                     gameController.setTimerStatus(findTimerStatus());
+                    gameController.pStage = pStage;
                     gameController.start();
 
                     Scene scene = new Scene(gamePane, 600, 400);
