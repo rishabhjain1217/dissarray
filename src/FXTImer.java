@@ -37,7 +37,7 @@ public class FXTImer extends Application {
         timerLabel.textProperty().bind(timeSeconds.asString());
         timerLabel.setTextFill(Color.RED);
         timerLabel.setStyle("-fx-font-size: 4em;");
-        //eat the penis
+        //eat the penis ok rishabh
 
         Button button = new Button();
         button.setText("Start Timer");
