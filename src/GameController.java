@@ -136,8 +136,10 @@ public class GameController implements Initializable {
 
     private void renderTwoDim(TwoDimQuestion q)
     {
+        currentQ = q;
         this.questionLabel.setText(q.question);
         TwoDimPane pane = new TwoDimPane(q);
+        currentP = pane;
         this.renderPane.getChildren().setAll(pane);
     }
 
