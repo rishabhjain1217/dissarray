@@ -68,4 +68,8 @@ public class MenuController implements Initializable {
         });
 
     }
+
+    public void quitButton(){
+        quitButton.setOnAction(e -> pStage.close());
+    }
 }
