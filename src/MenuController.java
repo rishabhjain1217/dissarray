@@ -68,7 +68,10 @@ public class MenuController implements Initializable {
                 }
             }
         });
+    }
 
+    public void quitButton(){
+        quitButton.setOnAction(e ->  pStage.close());
     }
 
     public GameMode findGamemode(){
@@ -85,4 +88,6 @@ public class MenuController implements Initializable {
             return QuestionType.Range;
         else return QuestionType.Element;
     }
+
+
 }
