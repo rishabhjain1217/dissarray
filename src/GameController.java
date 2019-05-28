@@ -4,6 +4,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
+import javafx.scene.media.AudioClip;
 
 import java.net.URL;
 import java.util.*;
@@ -24,6 +25,9 @@ public class GameController implements Initializable {
     private TimerEnum timerStatus; //Is the timer on or off
 
     private QuestionGenerator generator;
+
+    private final String correctSound = "CorrectSound.wav"; //Sound file for the correct answer
+
 
     private Timer timer;
     private int timeRemaining;
@@ -69,10 +73,27 @@ public class GameController implements Initializable {
 
     private void newQuestion()
     {
-        int timeGiven = 20;
+        switch (this.mode) {
+            case OneDim:
+                this.timeRemaining = this.renderOneDim();
+                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                break;
+            case TwoDim:
+                //timeGiven =
+                this.timeRemaining = this.renderTwoDim();
+                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                break;
+            case Both:
+                this.timeRemaining = this.renderRandom();
+                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                break;
+            default:
+                this.timeRemaining = (this.renderOneDim());
+                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                break;
+        }
 
         if(timerStatus.equals(TimerEnum.On)) {
-                this.timeRemaining = timeGiven;
 
                 this.timer = new Timer();
 
@@ -86,26 +107,10 @@ public class GameController implements Initializable {
                             });
 
                         }
-                    }, 1000, 1000);
+                    },10, 1000);
                 }
         }
         ++timesRun;
-        switch (this.mode) {
-            case OneDim:
-                this.timeRemaining = this.renderOneDim();
-                break;
-            case TwoDim:
-                //timeGiven =
-                this.timeRemaining = this.renderTwoDim();
-                break;
-            case Both:
-                this.timeRemaining = this.renderRandom();
-                break;
-            default:
-                this.timeRemaining = (this.renderOneDim());
-                break;
-
-        }
 
         //nextQuestion();
     }
@@ -118,7 +123,7 @@ public class GameController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
-            alert.setContentText("YOU DONE");
+            alert.setContentText("YOU DONE"+ "     Score: " + score);
 
             alert.showAndWait();
             System.exit(1);
@@ -185,13 +190,17 @@ public class GameController implements Initializable {
                 score++;
                 scoreLabel.setText("Score: " + score);
                 renderPane.getChildren().clear();
+
+
+                AudioClip note = new AudioClip(this.getClass().getResource(correctSound).toString());
+                note.play();
                 newQuestion();
             }
             else{
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
                 alert.setHeaderText(null);
-                alert.setContentText("YOU MADE A MISTAKE");
+                alert.setContentText("YOU MADE A MISTAKE" + "     Score: " + score);
 
                 alert.showAndWait();
                 System.exit(1);

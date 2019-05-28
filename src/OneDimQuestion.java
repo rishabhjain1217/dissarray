@@ -1,3 +1,8 @@
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -83,7 +88,9 @@ public class OneDimQuestion extends Question {
     @Override
     boolean checkAnswer(ArrayList<Index> selectedIndices)
     {
-        if (this.correctIndices.size() != selectedIndices.size()) return false;
+        if (this.correctIndices.size() != selectedIndices.size()) {
+            return false;
+        }
 
         Collections.sort(selectedIndices);
 
