@@ -77,20 +77,39 @@ public class TwoDimQuestion extends Question {
         /* Prevent duplicates. */
         while (start.equals(end)) {
             endCol = rand.nextInt(cols);
+            endRow = rand.nextInt(rows);
             end = new TwoDimIndex(endRow, endCol);
         }
 
-        if (startRow > endRow) {
-            int temp = startRow;
-            startRow = endRow;
-            endRow = temp;
+        while(startRow >= endRow) {
+            if (startRow > endRow) {
+                int temp = startRow;
+                startRow = endRow;
+                endRow = temp;
+            }
+            if (startRow == endRow && startRow != 0) {
+                startRow--;
+            }
+            if (startRow == endRow && startRow == 0) {
+                endRow++;
+            }
         }
 
-        if (startRow == endRow && startCol > endCol) {
-            int temp = startCol;
-            startCol = endCol;
-            endCol = temp;
+        while(startCol >= endCol) {
+            if (startCol > endCol) {
+                int temp = startCol;
+                startCol = endCol;
+                endCol = temp;
+            }
+            if (startCol == endCol && startCol != 0) {
+                --startCol;
+            }
+            if (startCol == endCol && startCol == 0) {
+                ++endCol;
+            }
         }
+        start = new TwoDimIndex(startRow, startCol);
+        end = new TwoDimIndex(endRow, endCol);
 
         this.rows = rows;
         this.cols = cols;
