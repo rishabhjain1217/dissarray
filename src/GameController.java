@@ -69,10 +69,27 @@ public class GameController implements Initializable {
 
     private void newQuestion()
     {
-        int timeGiven = 20;
+        switch (this.mode) {
+            case OneDim:
+                this.timeRemaining = this.renderOneDim();
+                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                break;
+            case TwoDim:
+                //timeGiven =
+                this.timeRemaining = this.renderTwoDim();
+                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                break;
+            case Both:
+                this.timeRemaining = this.renderRandom();
+                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                break;
+            default:
+                this.timeRemaining = (this.renderOneDim());
+                this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                break;
+        }
 
         if(timerStatus.equals(TimerEnum.On)) {
-                this.timeRemaining = timeGiven;
 
                 this.timer = new Timer();
 
@@ -86,26 +103,10 @@ public class GameController implements Initializable {
                             });
 
                         }
-                    }, 1000, 1000);
+                    },10, 1000);
                 }
         }
         ++timesRun;
-        switch (this.mode) {
-            case OneDim:
-                this.timeRemaining = this.renderOneDim();
-                break;
-            case TwoDim:
-                //timeGiven =
-                this.timeRemaining = this.renderTwoDim();
-                break;
-            case Both:
-                this.timeRemaining = this.renderRandom();
-                break;
-            default:
-                this.timeRemaining = (this.renderOneDim());
-                break;
-
-        }
 
         //nextQuestion();
     }
