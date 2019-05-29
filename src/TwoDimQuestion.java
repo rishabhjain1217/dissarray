@@ -6,9 +6,10 @@ public class TwoDimQuestion extends Question {
 
     private int rows, cols;
 
-    private final int timeForElementQuestion = 15;
-    private final int timeForRangeQuestion = 25;
+    private final int TIMEFORELEMENTQUESTION = 15;
+    private final int TIMEFORRANGEDQUESTION = 25;
     private int timeForQuestion;
+    private QuestionType difficulty;
 
     public TwoDimQuestion(QuestionType difficulty)
     {
@@ -18,6 +19,10 @@ public class TwoDimQuestion extends Question {
 
     public int getTimeForQuestion(){
         return timeForQuestion;
+    }
+
+    public QuestionType getDifficulty(){
+        return difficulty;
     }
 
     @Override
@@ -41,7 +46,8 @@ public class TwoDimQuestion extends Question {
 
     private void generateElementQuestion()
     {
-        this.timeForQuestion = this.timeForElementQuestion; //Changes time for question
+        difficulty = QuestionType.Element;
+        this.timeForQuestion = this.TIMEFORELEMENTQUESTION; //Changes time for question
         Random rand = new Random();
         int rows = rand.nextInt(5) + 3;
         int cols = rand.nextInt(5) + 3;
@@ -61,7 +67,8 @@ public class TwoDimQuestion extends Question {
 
     private void generateRangeQuestion()
     {
-        this.timeForQuestion = this.timeForRangeQuestion;
+        difficulty = QuestionType.Range;
+        this.timeForQuestion = this.TIMEFORRANGEDQUESTION;
         Random rand = new Random();
         int rows = rand.nextInt(5) + 3;
         int cols = rand.nextInt(5) + 3;
@@ -120,8 +127,7 @@ public class TwoDimQuestion extends Question {
 
         this.question = "for(int i = " + start.getRowIndex() + "; i < " + end.getRowIndex() + "; ++i){\n" +
         "   for(int j = " + start.getColIndex() + "; j < " + end.getColIndex() + "; ++j){\n" +
-                "       a[i][j];\n" +
-                "   }\n}";
+                "       a[i][j]; }}";
 
 
         for (int i = startRow; i < endRow; ++i) {
