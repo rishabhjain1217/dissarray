@@ -8,9 +8,11 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+
+<!--<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">-->
 
 <BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
   <bottom>
@@ -22,7 +24,8 @@
       </HBox>
     </bottom>
     <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: Purple;">
+      <!--<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: Purple;">-->
+      <VBox fx:id="centerVBox" alignment="CENTER" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: Purple;">
         <children>
           <HBox alignment="CENTER" prefHeight="24.0" prefWidth="600.0" spacing="100.0">
             <children>
@@ -37,12 +40,14 @@
               <Insets bottom="20.0" top="20.0" />
             </VBox.margin>
           </HBox>
-          <Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textFill="YELLOW" textOverrun="ELLIPSIS" wrapText="true">
+          <!--<Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textFill="YELLOW" textOverrun="ELLIPSIS" wrapText="true">-->
+          <Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Question" textAlignment="CENTER" textOverrun="ELLIPSIS" wrapText="true">
             <VBox.margin>
               <Insets bottom="20.0" />
             </VBox.margin>
           </Label>
-          <Pane fx:id="renderPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="600.0" />
+          <!--<Pane fx:id="renderPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="600.0" />-->
+          <StackPane fx:id="renderPane" prefHeight="200.0" prefWidth="600.0" />
         </children>
       </VBox>
     </center>
