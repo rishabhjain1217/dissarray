@@ -1,7 +1,12 @@
+import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXToggleButton;
 import javafx.geometry.Pos;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ToggleButton;
 
-public class IndexButton extends ToggleButton{
+import static javafx.application.Application.setUserAgentStylesheet;
+
+public class IndexButton extends JFXCheckBox {
 /*
     private ToggleButton button;
     private Index index;
@@ -26,7 +31,7 @@ public class IndexButton extends ToggleButton{
 */
 
     private Index index;
-    public static double BUTTON_SIZE = 30.0;
+    public static double BUTTON_SIZE = 65;
 
     public IndexButton(Index index)
     {
@@ -35,9 +40,11 @@ public class IndexButton extends ToggleButton{
         //this.setPrefSize(25, 25);
         this.setPrefSize(BUTTON_SIZE, BUTTON_SIZE);
         this.setAlignment(Pos.CENTER);
+        this.setStyle("-jfx-checked-color:gold;" +
+                "-jfx-unchecked-color:black;" );
     }
 
-    public ToggleButton getButton() {
+    public CheckBox getButton() {
         return this;
     }
 
@@ -45,3 +52,4 @@ public class IndexButton extends ToggleButton{
         return index;
     }
 }
+
