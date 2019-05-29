@@ -17,7 +17,7 @@
 
 <BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
   <bottom>
-    <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: Purple;">
+    <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: cornflowerblue;">
          <children>
             <JFXButton fx:id="nextButton" buttonType="RAISED" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" ripplerFill="#ffc300" style="-fx-background-color:gold ;" text="Next" textFill="#72004e">
                <effect>
@@ -31,7 +31,7 @@
     </bottom>
     <center>
       <!--<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: Purple;">-->
-      <VBox fx:id="centerVBox" alignment="CENTER" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: Purple;">
+      <VBox fx:id="centerVBox" alignment="CENTER" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: powderblue;">
         <children>
           <HBox alignment="CENTER" prefHeight="110.0" prefWidth="600.0" spacing="100.0">
             <children>
