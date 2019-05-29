@@ -202,11 +202,11 @@ public class GameController implements Initializable {
         TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty));
         if(q.getDifficulty().equals(QuestionType.Range)){
             questionLabel.setStyle("-fx-font: 18 Nirmala_UI;" +
-                    "-fx-text-fill: gold;");
+                    "-fx-text-fill: black;");
         }
         else{
             questionLabel.setStyle("-fx-font: 45 Nirmala_UI;" +
-                    "-fx-text-fill: gold;");
+                    "-fx-text-fill: black;");
         }
         this.renderTwoDim(q);
         return q.getTimeForQuestion();
