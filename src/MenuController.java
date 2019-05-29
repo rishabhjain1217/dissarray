@@ -1,15 +1,12 @@
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXToggleButton;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -58,11 +55,9 @@ public class MenuController implements Initializable {
                 try {
                     AnchorPane instructionPane = fxmlLoader.load(getClass().getResource("HowToPlayPane.fxml").openStream());
                     HowToPlayController instructionController = (HowToPlayController) fxmlLoader.getController();
-
                     instructionController.pStage = pStage;
                     Scene scene = new Scene(instructionPane, 600, 400);
                     pStage.setTitle("Array Game");
-
                     instructionController.start();
                     pStage.setScene(scene);
                     pStage.show();
@@ -140,8 +135,7 @@ public class MenuController implements Initializable {
         if(timerToggle.isSelected()) {
             return TimerEnum.On;
         }
-            else
-                return TimerEnum.Off;
-        }
+        else
+            return TimerEnum.Off;
     }
-
+}
