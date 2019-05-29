@@ -98,11 +98,12 @@ public class MenuController implements Initializable {
                     gameController.pStage = pStage;
                     gameController.start();
 
-                    Scene scene = new Scene(gamePane, 600, 400);
+                    Scene scene = new Scene(gamePane, 1200, 800);
                     pStage.setTitle("Array Game");
 
 
                     pStage.setScene(scene);
+                    pStage.setFullScreen(true);
                     pStage.show();
                 } catch (Exception ex) {
                     System.out.println("Wassup");
