@@ -40,7 +40,7 @@ public class ArrayApplication extends Application {
         this.main.changeText();*/
 
 
-        Scene scene = new Scene(gamePane, 600, 400);
+        Scene scene = new Scene(gamePane);
         primaryStage.setTitle("Array Game 1.0");
 
         primaryStage.setScene(scene);

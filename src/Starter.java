@@ -45,7 +45,7 @@ public class Starter extends Application {
 
         menuController.start();
 
-        Scene scene = new Scene(menuPane, 600, 400);
+        Scene scene = new Scene(menuPane,600, 400);
         primaryStage.setTitle("Array Game");
 
         primaryStage.setScene(scene);

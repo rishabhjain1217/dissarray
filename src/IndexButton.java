@@ -26,12 +26,14 @@ public class IndexButton extends ToggleButton{
 */
 
     private Index index;
+    public static double BUTTON_SIZE = 30.0;
 
     public IndexButton(Index index)
     {
         super();
         this.index = index;
-        this.setPrefSize(25, 25);
+        //this.setPrefSize(25, 25);
+        this.setPrefSize(BUTTON_SIZE, BUTTON_SIZE);
         this.setAlignment(Pos.CENTER);
     }
 

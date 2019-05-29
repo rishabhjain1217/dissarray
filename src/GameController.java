@@ -5,11 +5,15 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.AudioClip;
 import javafx.stage.Stage;
 
@@ -25,7 +29,10 @@ public class GameController implements Initializable {
     @FXML
     MenuItem newGameMenuItem;
     @FXML
-    Pane renderPane;
+    StackPane renderPane;
+
+    @FXML
+    VBox centerVBox;
 
     private GameMode mode; //1d questions or 2d questions
     private QuestionType difficulty; //Element or Range and Element questions given
@@ -66,7 +73,7 @@ public class GameController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources)
     {
-
+        this.centerVBox.setAlignment(Pos.CENTER);
     }
 
     public void start()
@@ -160,11 +167,14 @@ public class GameController implements Initializable {
 
     private void renderOneDim(OneDimQuestion q)
     {
+        double paddingX = (600.0 - q.getArrayLength()*IndexButton.BUTTON_SIZE) / 2;
+        double paddingY = (400.0 - IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
         OneDimPane pane = new OneDimPane(q);
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
+        this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
     }
 
 
@@ -177,11 +187,14 @@ public class GameController implements Initializable {
 
     private void renderTwoDim(TwoDimQuestion q)
     {
+        double paddingX = (600.0 - q.getCols()*IndexButton.BUTTON_SIZE) / 2;
+        double paddingY = (400.0 - q.getRows()*IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
         TwoDimPane pane = new TwoDimPane(q);
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
+        this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
     }
 
     private int renderTwoDim()
