@@ -1,3 +1,4 @@
+import com.jfoenix.controls.JFXButton;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,7 +21,7 @@ public class GameController implements Initializable {
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
     @FXML
-    Button nextButton;
+    JFXButton nextButton;
     @FXML
     MenuItem newGameMenuItem;
     @FXML
