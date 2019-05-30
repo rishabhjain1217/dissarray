@@ -104,7 +104,6 @@ public class MenuController implements Initializable {
 
 
                     pStage.setScene(scene);
-                    pStage.setFullScreen(true);
                     pStage.show();
                 } catch (Exception ex) {
                     System.out.println("Wassup");

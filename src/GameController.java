@@ -273,7 +273,7 @@ public class GameController implements Initializable {
     }
 
     public void restart(){
-        pStage.close();
+        //pStage.close();
         Platform.runLater(new Runnable() {
             @Override public void run() {
 
@@ -286,6 +286,7 @@ public class GameController implements Initializable {
                 }
             }
         });
+        pStage.close();
     }
 
         /*
