@@ -55,7 +55,7 @@
               <Insets bottom="10.0" />
             </VBox.margin>
                <font>
-                  <Font name="Nirmala UI" size="45.0" />
+                  <Font name="Nirmala UI" size="43.0" />
                </font>
           </Label>
           <!--<Pane fx:id="renderPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="600.0" />-->

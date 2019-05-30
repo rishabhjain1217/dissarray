@@ -1,4 +1,5 @@
 import com.jfoenix.controls.JFXButton;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -7,15 +8,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.*;
@@ -30,6 +31,8 @@ public class GameController implements Initializable {
     MenuItem newGameMenuItem;
     @FXML
     StackPane renderPane;
+    @FXML
+    BorderPane GamePane;
 
     @FXML
     VBox centerVBox;
@@ -83,6 +86,7 @@ public class GameController implements Initializable {
 
     public void start()
     {
+
 
         timesRun = 0;
         this.generator = new QuestionGenerator();
@@ -156,19 +160,21 @@ public class GameController implements Initializable {
         if (this.timeRemaining == 0) {
             this.timer.cancel();
             timeLabel.setText("DONE");
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+           /* Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("YOU DONE"+ "     Score: " + score);
 
             alert.showAndWait();
-            restart();
+            restart();*/
+           endGame();
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
         String secondsFormat = seconds < 10 ? "0" + seconds : "" + seconds;
         this.timeLabel.setText("Time: " + minutes + ":" + secondsFormat);
     }
+
 
     private void renderOneDim(OneDimQuestion q)
     {
@@ -196,6 +202,8 @@ public class GameController implements Initializable {
         double paddingY = (400.0 - q.getRows()*IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
+        questionLabel.setStyle("-fx-font: 38 Nirmala_UI;" +
+                "-fx-text-fill: black;");
         TwoDimPane pane = new TwoDimPane(q);
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
@@ -206,14 +214,14 @@ public class GameController implements Initializable {
     private int renderTwoDim()
     {
         TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty));
-        if(q.getDifficulty().equals(QuestionType.Range)){
-            questionLabel.setStyle("-fx-font: 25 Nirmala_UI;" +
+        /*if(q.getDifficulty().equals(QuestionType.Range)){
+            questionLabel.setStyle("-fx-font: 38 Nirmala_UI;" +
                     "-fx-text-fill: black;");
         }
         else{
-            questionLabel.setStyle("-fx-font: 45 Nirmala_UI;" +
+            questionLabel.setStyle("-fx-font: 43 Nirmala_UI;" +
                     "-fx-text-fill: black;");
-        }
+        }*/
         this.renderTwoDim(q);
         return q.getTimeForQuestion();
     }
@@ -253,13 +261,15 @@ public class GameController implements Initializable {
                     AudioClip note = new AudioClip(this.getClass().getResource(failSound).toString());
                     note.play(); //Plays song of you being wrong
                 }
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
                 alert.setHeaderText(null);
                 alert.setContentText("YOU MADE A MISTAKE" + "     Score: " + score);
 
                 alert.showAndWait();
                 restart();
+                 */
+                endGame();
             }
         });
         //nextButton.setOnAction(e -> newQuestion());
@@ -271,11 +281,11 @@ public class GameController implements Initializable {
         for (Node node: currentP.getChildren()){
             if(((IndexButton)(node)).getButton().isSelected()){
                 selected.add(((IndexButton)(node)).getIndex());
-                System.out.println(((IndexButton)(node)).getIndex());
+                //System.out.println(((IndexButton)(node)).getIndex());
             }
         }
         //System.out.println(selected.size());
-        System.out.println(currentQ.checkAnswer(selected));
+        //System.out.println(currentQ.checkAnswer(selected));
         return currentQ.checkAnswer(selected);
         //return true;
     }
@@ -297,19 +307,38 @@ public class GameController implements Initializable {
         pStage.close();
     }
 
-        /*
-    public boolean isCorrect(boolean [][] userInput){ // checks to see if a question is right, does not check for
-        boolean correct = true;
-        for(int i = 0; i < gameBoard.length;++i){
-            for(int j = 0; j < gameBoard[0].length;++j){
-                if(gameBoard[i][j] != userInput[i][j]){ correct = false;}
-            }
-        }
-      return correct;
-
+    private void endGame(){
+        FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
+        fadeOutTransition.setFromValue(1.0);
+        fadeOutTransition.setToValue(0.0);
+        fadeOutTransition.play();
+        fadeOutTransition.setOnFinished((ActionEvent event) -> {
+            finish();
+        });
     }
 
-     */
+    private void finish() {
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        try {
+            BorderPane gamePane = fxmlLoader.load(getClass().getResource("EndGame.fxml").openStream());
+            EndGameController endGameController = (EndGameController) fxmlLoader.getController();
+            endGameController.pStage = pStage;
+            endGameController.score = score;
+            endGameController.start();
+            Scene scene = new Scene(gamePane, 600, 400);
+            pStage.setTitle("Array Game V-1.0");
+            pStage.setScene(scene);
+
+            Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+            pStage.setX((primScreenBounds.getWidth() - scene.getWidth()) / 2);
+            pStage.setY((primScreenBounds.getHeight() - scene.getHeight()) / 2);
+
+            pStage.show();
+        } catch (Exception ex) {
+            System.out.println("Wassup");
+        }
+
+    }
 
 
 }
