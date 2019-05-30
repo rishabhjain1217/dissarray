@@ -68,9 +68,11 @@
                     </rowConstraints>
                      <children>
                         <JFXToggleButton fx:id="oneDimToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="One Dimensional" />
-                        <JFXToggleButton fx:id="timerToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="309.0" text="     Timer   " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <JFXToggleButton fx:id="timerToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="309.0" text="Timer          " GridPane.columnIndex="1" GridPane.rowIndex="1" />
                         <JFXToggleButton fx:id="hardModeToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="Hard Mode" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <JFXToggleButton fx:id="twoDimToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="308.0" text="Two Dimensional" GridPane.rowIndex="1" />
+                        <JFXToggleButton fx:id="arraylistToggle" layoutX="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="ArrayList             " GridPane.rowIndex="2" />
+                        <JFXToggleButton fx:id="muteToggle" layoutX="310.0" layoutY="41.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="309.0" text="Mute           " GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                </children>

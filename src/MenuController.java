@@ -53,19 +53,6 @@ public class MenuController implements Initializable {
 
     private void menuItem() {
         instructionsMenuItem.setOnAction(e -> {
-               /* FXMLLoader fxmlLoader = new FXMLLoader();
-                try {
-                    AnchorPane instructionPane = fxmlLoader.load(getClass().getResource("HowToPlayPane.fxml").openStream());
-                    HowToPlayController instructionController = (HowToPlayController) fxmlLoader.getController();
-                    instructionController.pStage = pStage;
-                    Scene scene = new Scene(instructionPane, 600, 400);
-                    pStage.setTitle("Array Game");
-                    instructionController.start();
-                    pStage.setScene(scene);
-                    pStage.show();
-                } catch (Exception ex) {
-                    System.out.println(ex);
-                }*/
             FXMLLoader fxmlLoader = new FXMLLoader();
             try {
                 VBox instructionsPane = fxmlLoader.load(getClass().getResource("Instructions.fxml").openStream());

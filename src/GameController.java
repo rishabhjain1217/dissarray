@@ -37,6 +37,7 @@ public class GameController implements Initializable {
     private GameMode mode; //1d questions or 2d questions
     private QuestionType difficulty; //Element or Range and Element questions given
     private TimerEnum timerStatus; //Is the timer on or off
+    private SoundEnum soundStatus; // Is sound on or off
 
     private QuestionGenerator generator;
 
@@ -66,6 +67,10 @@ public class GameController implements Initializable {
 
     public void setDifficulty(QuestionType difficulty){
         this.difficulty = difficulty;
+    }
+
+    public void setSound(SoundEnum se){
+        soundStatus = se;
     }
 
     public void setTimerStatus(TimerEnum timerStatus){this.timerStatus = timerStatus;}
