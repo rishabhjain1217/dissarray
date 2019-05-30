@@ -4,6 +4,10 @@
 }
 
 .jfx-check-box .mark{
+    //-fx-shape: " ";
     -fx-max-width: 25;
     -fx-max-height: 20;
+   //-fx-border-color: black;
 }
+
+//.jfx-check-box:selected

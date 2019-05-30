@@ -99,6 +99,7 @@ public class MenuController implements Initializable {
                     gameController.start();
 
                     Scene scene = new Scene(gamePane, 1200, 800);
+                    scene.getStylesheets().add("checkBoxStyle.css");
                     pStage.setTitle("Array Game");
 
 

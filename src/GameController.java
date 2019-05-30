@@ -194,7 +194,8 @@ public class GameController implements Initializable {
         TwoDimPane pane = new TwoDimPane(q);
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
-        this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
+        //this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
+        this.renderPane.setPadding(new Insets(20, 10, 20, 10));
     }
 
     private int renderTwoDim()

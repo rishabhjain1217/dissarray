@@ -41,7 +41,7 @@ public class IndexButton extends JFXCheckBox {
         this.setPrefSize(BUTTON_SIZE, BUTTON_SIZE);
         this.setAlignment(Pos.CENTER);
         this.setStyle("-jfx-checked-color:gold;" +
-                "-jfx-unchecked-color:black;");
+                "-jfx-unchecked-color:black;" + "-fx-padding: 15 15 15 15;");
     }
 
     public CheckBox getButton() {

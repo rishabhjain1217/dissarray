@@ -45,7 +45,11 @@ public class Starter extends Application {
 
         menuController.start();
 
+
+
         Scene scene = new Scene(menuPane,600, 400);
+        scene.getStylesheets().add("checkBoxStyle.css");
+
         primaryStage.setTitle("Array Game");
 
         primaryStage.setScene(scene);
