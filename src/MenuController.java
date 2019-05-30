@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Rishabh Jain AKA CodeGod on 05 24, 2019 at 09:26
@@ -28,7 +29,7 @@ public class MenuController implements Initializable {
     JFXButton startButton, quitButton;
 
     @FXML
-    JFXToggleButton oneDimToggle, twoDimToggle, timerToggle, hardModeToggle;
+    JFXToggleButton oneDimToggle, twoDimToggle, timerToggle, hardModeToggle, soundToggle, arraylistToggle;
 
     public Stage pStage;
 
@@ -45,6 +46,7 @@ public class MenuController implements Initializable {
     public void start(){
 
         oneDimToggle.setSelected(true);
+        soundToggle.setSelected(true);
 
         menuItem();
         startButton();
@@ -84,6 +86,7 @@ public class MenuController implements Initializable {
                     gameController.setGameMode(findGamemode());
                     gameController.setDifficulty(findDifficulty());
                     gameController.setTimerStatus(findTimerStatus());
+                    gameController.setSound(findSoundStatus());
                     gameController.pStage = pStage;
                     gameController.start();
 
@@ -111,12 +114,30 @@ public class MenuController implements Initializable {
     }
 
     public GameMode findGamemode(){
-        if (oneDimToggle.isSelected() && twoDimToggle.isSelected())
+        if (!oneDimToggle.isSelected() && !twoDimToggle.isSelected() && arraylistToggle.isSelected())
+            return GameMode.ArrayList;
+        if (oneDimToggle.isSelected() && twoDimToggle.isSelected() && arraylistToggle.isSelected())
+            return GameMode.Three;
+        if (oneDimToggle.isSelected() && twoDimToggle.isSelected() && !arraylistToggle.isSelected()){
             return GameMode.Both;
-        if(oneDimToggle.isSelected() && !twoDimToggle.isSelected())
+        }
+        if(oneDimToggle.isSelected() && !twoDimToggle.isSelected() && !arraylistToggle.isSelected()) {
             return GameMode.OneDim;
-        else
+        }
+        if(!oneDimToggle.isSelected() && twoDimToggle.isSelected() && !arraylistToggle.isSelected()) {
             return GameMode.TwoDim;
+        }
+        oneDimToggle.setSelected(false);
+        twoDimToggle.setSelected(false);
+        try
+        {
+            Thread.sleep(1000);
+        }
+        catch(InterruptedException ex)
+        {
+            Thread.currentThread().interrupt();
+        }
+        return GameMode.ArrayList;
     }
 
     public QuestionType findDifficulty(){
@@ -132,5 +153,13 @@ public class MenuController implements Initializable {
         }
         else
             return TimerEnum.Off;
+    }
+
+    public SoundEnum findSoundStatus(){
+        if(soundToggle.isSelected()) {
+            return SoundEnum.On;
+        }
+        else
+            return SoundEnum.Off;
     }
 }

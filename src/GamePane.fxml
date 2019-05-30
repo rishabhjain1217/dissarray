@@ -46,13 +46,13 @@
                      </font></Label>
             </children>
             <VBox.margin>
-              <Insets bottom="20.0" top="20.0" />
+              <Insets bottom="10.0" top="10.0" />
             </VBox.margin>
           </HBox>
           <!--<Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textFill="YELLOW" textOverrun="ELLIPSIS" wrapText="true">-->
-          <Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Question" textAlignment="CENTER" textOverrun="ELLIPSIS">
+          <Label fx:id="questionLabel" alignment="CENTER" prefHeight="150.0" prefWidth="700.0" text="Question" textAlignment="CENTER" textOverrun="ELLIPSIS">
             <VBox.margin>
-              <Insets bottom="20.0" />
+              <Insets bottom="10.0" />
             </VBox.margin>
                <font>
                   <Font name="Nirmala UI" size="45.0" />

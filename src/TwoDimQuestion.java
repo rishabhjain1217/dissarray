@@ -125,9 +125,9 @@ public class TwoDimQuestion extends Question {
                         + ", and nests into the columns with a for loop with variable j on the range of " + startCol
                         + " to " + endCol + ". What elements will be covered in the loop?"; */
 
-        this.question = "for(int i = " + start.getRowIndex() + "; i < " + end.getRowIndex() + "; ++i){\n" +
-        "   for(int j = " + start.getColIndex() + "; j < " + end.getColIndex() + "; ++j){\n" +
-                "       a[i][j]; }}";
+        this.question = "for(int i = " + start.getRowIndex() + "; i < " + end.getRowIndex() + "; ++i)\n" +
+        "           for(int j = " + start.getColIndex() + "; j < " + end.getColIndex() + "; ++j)\n" +
+                "       a[i][j];";
 
 
         for (int i = startRow; i < endRow; ++i) {

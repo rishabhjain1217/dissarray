@@ -200,14 +200,14 @@ public class GameController implements Initializable {
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
         //this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
-        this.renderPane.setPadding(new Insets(20, 10, 20, 10));
+        this.renderPane.setPadding(new Insets(10, 10, 20, 10));
     }
 
     private int renderTwoDim()
     {
         TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty));
         if(q.getDifficulty().equals(QuestionType.Range)){
-            questionLabel.setStyle("-fx-font: 18 Nirmala_UI;" +
+            questionLabel.setStyle("-fx-font: 25 Nirmala_UI;" +
                     "-fx-text-fill: black;");
         }
         else{
@@ -242,14 +242,17 @@ public class GameController implements Initializable {
                 scoreLabel.setText("Score: " + score);
                 renderPane.getChildren().clear();
 
-
-                AudioClip note = new AudioClip(this.getClass().getResource(correctSound).toString());
-                note.play(); //Plays sound of correctness
+                if(soundStatus.equals(SoundEnum.On)) {
+                    AudioClip note = new AudioClip(this.getClass().getResource(correctSound).toString());
+                    note.play(); //Plays sound of correctness
+                }
                 newQuestion();
             }
             else{
-                AudioClip note = new AudioClip(this.getClass().getResource(failSound).toString());
-                note.play(); //Plays song of you being wrong
+                if(soundStatus.equals(SoundEnum.On)) {
+                    AudioClip note = new AudioClip(this.getClass().getResource(failSound).toString());
+                    note.play(); //Plays song of you being wrong
+                }
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Dialog");
                 alert.setHeaderText(null);

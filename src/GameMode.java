@@ -3,4 +3,5 @@ public enum GameMode {
     TwoDim,
     Both,
     ArrayList,
+    Three
 }
