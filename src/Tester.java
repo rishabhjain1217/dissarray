@@ -21,6 +21,8 @@ public class Tester extends Application {
         });
 
         StackPane root = new StackPane();
+        root.setStyle("-fx-background-color: powderblue;");
+        btn.setStyle("-fx-background-color: powderblue;");
         root.getChildren().add(btn);
 
         Scene scene = new Scene(root, 300, 250);
