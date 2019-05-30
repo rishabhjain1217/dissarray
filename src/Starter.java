@@ -4,9 +4,11 @@
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.beans.binding.Bindings;
 
@@ -50,10 +52,17 @@ public class Starter extends Application {
         Scene scene = new Scene(menuPane,600, 400);
         scene.getStylesheets().add("checkBoxStyle.css");
 
-        primaryStage.setTitle("Array Game");
+        primaryStage.setTitle("Array Game V-1.0");
 
         primaryStage.setScene(scene);
+
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        primaryStage.setX((primScreenBounds.getWidth() - scene.getWidth()) / 2);
+        primaryStage.setY((primScreenBounds.getHeight() - scene.getHeight()) / 2);
+
+
         primaryStage.show();
+
     }
 
 

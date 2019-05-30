@@ -49,8 +49,8 @@ public class TwoDimQuestion extends Question {
         difficulty = QuestionType.Element;
         this.timeForQuestion = this.TIMEFORELEMENTQUESTION; //Changes time for question
         Random rand = new Random();
-        int rows = rand.nextInt(5) + 3;
-        int cols = rand.nextInt(5) + 3;
+        int rows = rand.nextInt(3) + 3;
+        int cols = rand.nextInt(6) + 3;
 
         int elementRow = rand.nextInt(rows);
         int elementCol = rand.nextInt(cols);
@@ -70,8 +70,8 @@ public class TwoDimQuestion extends Question {
         difficulty = QuestionType.Range;
         this.timeForQuestion = this.TIMEFORRANGEDQUESTION;
         Random rand = new Random();
-        int rows = rand.nextInt(5) + 3;
-        int cols = rand.nextInt(5) + 3;
+        int rows = rand.nextInt(3) + 3;
+        int cols = rand.nextInt(6) + 3;
 
         int startRow = rand.nextInt(rows);
         int startCol = rand.nextInt(cols);

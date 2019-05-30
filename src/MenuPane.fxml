@@ -62,14 +62,15 @@
                       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                     </columnConstraints>
                     <rowConstraints>
+                        <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="87.0" minHeight="10.0" prefHeight="64.0" vgrow="SOMETIMES" />
                       <RowConstraints maxHeight="81.0" minHeight="0.0" prefHeight="66.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <JFXToggleButton fx:id="oneDimToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="One Dimensional" />
-                        <JFXToggleButton fx:id="timerToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="309.0" text="Timer" GridPane.rowIndex="1" />
-                        <JFXToggleButton fx:id="hardModeToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="Hard Mode" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <JFXToggleButton fx:id="twoDimToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="308.0" text="Two Dimensional" GridPane.columnIndex="1" />
+                        <JFXToggleButton fx:id="timerToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="309.0" text="     Timer   " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <JFXToggleButton fx:id="hardModeToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="Hard Mode" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <JFXToggleButton fx:id="twoDimToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="308.0" text="Two Dimensional" GridPane.rowIndex="1" />
                      </children>
                   </GridPane>
                </children>

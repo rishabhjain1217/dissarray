@@ -49,7 +49,7 @@ public class OneDimQuestion extends Question {
     {
         this.timeForQuestion = timeForElementQuestion;
         Random rand = new Random();
-        int arrayLength = rand.nextInt(10) + 3;
+        int arrayLength = rand.nextInt(8) + 3;
         int correctIndex = rand.nextInt(arrayLength);
         this.arrayLength = arrayLength;
         OneDimIndex element = new OneDimIndex(correctIndex);
@@ -61,7 +61,7 @@ public class OneDimQuestion extends Question {
     {
         this.timeForQuestion = timeForRangeQuestion;
         Random rand = new Random();
-        int arrayLength = rand.nextInt(10) + 3;
+        int arrayLength = rand.nextInt(8) + 3;
         int bound1 = rand.nextInt(arrayLength);
         int bound2 = rand.nextInt(arrayLength);
 

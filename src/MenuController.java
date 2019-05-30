@@ -5,10 +5,12 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -98,12 +100,17 @@ public class MenuController implements Initializable {
                     gameController.pStage = pStage;
                     gameController.start();
 
-                    Scene scene = new Scene(gamePane, 1200, 800);
+                    Scene scene = new Scene(gamePane, 1050, 750);
                     scene.getStylesheets().add("checkBoxStyle.css");
-                    pStage.setTitle("Array Game");
+                    pStage.setTitle("Array Game V-1.0");
 
 
                     pStage.setScene(scene);
+
+                    Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+                    pStage.setX((primScreenBounds.getWidth() - scene.getWidth()) / 2);
+                    pStage.setY((primScreenBounds.getHeight() - scene.getHeight()) / 2);
+
                     pStage.show();
                 } catch (Exception ex) {
                     System.out.println("Wassup");
