@@ -207,10 +207,21 @@ public class GameController implements Initializable {
         double paddingY = (400.0 - q.getRows()*IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
-        questionLabel.setStyle("-fx-font: 38 Nirmala_UI;" +
+        /*
+        questionLabel.setStyle("-fx-font: 32 Nirmala_UI;" +
                 "-fx-text-fill: black;");
+        */
+        if(q.getDifficulty().equals(QuestionType.Range)){
+            questionLabel.setStyle("-fx-font: 32 Nirmala_UI;" +
+                    "-fx-text-fill: black;");
+        }
+        else{
+            questionLabel.setStyle("-fx-font: 43 Nirmala_UI;" +
+                    "-fx-text-fill: black;");
+        }
         TwoDimPane pane = new TwoDimPane(q);
         currentP = pane;
+
         this.renderPane.getChildren().setAll(pane);
         //this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
         this.renderPane.setPadding(new Insets(10, 10, 20, 10));
