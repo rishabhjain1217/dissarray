@@ -1,0 +1,15 @@
+.jfx-check-box .box{
+    -fx-pref-height: 50;
+    -fx-pref-width: 50;
+}
+
+.jfx-check-box .mark{
+    -fx-shape: " ";
+    -fx-max-width: 25;
+    -fx-max-height: 20;
+   //-fx-border-color: black;
+}
+
+.jfx-check-box {
+   // -jfx-checked-color:white;
+}

@@ -1,60 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+<!--<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">-->
+
+<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
   <bottom>
-    <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: Purple;">
-      <children>
-        <Button fx:id="restartButton" mnemonicParsing="false" style="-fx-border-color: Gold;" text="Restart" />
-        <Button fx:id="nextButton" mnemonicParsing="false" style="-fx-border-color: Gold;" text="Next" />
-      </children>
-    </HBox>
-  </bottom>
-  <center>
-    <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: Purple;">
-      <children>
-        <HBox alignment="CENTER" prefHeight="24.0" prefWidth="600.0" spacing="100.0">
-          <children>
-            <Label fx:id="timeLabel" text="Time: 0" textFill="YELLOW">
-              <font>
-                <Font name="System Bold" size="13.0" fx:id="x1" />
-              </font>
-            </Label>
-            <Label fx:id="scoreLabel" font="$x1" text="Score: 0" textAlignment="JUSTIFY" textFill="YELLOW" />
-          </children>
-          <VBox.margin>
-            <Insets bottom="20.0" top="20.0" />
-          </VBox.margin>
-        </HBox>
-        <Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textFill="YELLOW" textOverrun="ELLIPSIS" wrapText="true">
-          <VBox.margin>
-            <Insets bottom="20.0" />
-          </VBox.margin>
-        </Label>
-        <Pane fx:id="renderPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="600.0" />
-      </children>
-    </VBox>
-  </center>
-  <top>
-    <MenuBar>
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem fx:id="newGameMenuItem" mnemonicParsing="false" text="Restart" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-  </top>
-</BorderPane>
+    <HBox alignment="CENTER" prefHeight="46.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: cornflowerblue;">
+         <children>
+            <JFXButton fx:id="nextButton" buttonType="RAISED" mnemonicParsing="false" prefHeight="60.0" prefWidth="100.0" ripplerFill="#ffbf00" style="-fx-background-color:gold ;" text="Next" textAlignment="CENTER">
+               <effect>
+                  <Glow />
+               </effect>
+               <font>
+                  <Font size="23.0" />
+               </font></JFXButton>
+         </children>
+      </HBox>
+    </bottom>
+    <center>
+      <!--<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: Purple;">-->
+      <VBox fx:id="centerVBox" alignment="CENTER" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: powderblue;">
+        <children>
+          <HBox alignment="CENTER" prefHeight="110.0" prefWidth="600.0" spacing="100.0">
+            <children>
+              <Label fx:id="timeLabel" prefHeight="55.0" prefWidth="188.0" text="Time: 0">
+                <font>
+                  <Font name="Nirmala UI" size="31.0" fx:id="x1" />
+                </font>
+              </Label>
+              <Label fx:id="scoreLabel" prefHeight="55.0" prefWidth="159.0" text="Score: 0" textAlignment="JUSTIFY">
+                     <font>
+                        <Font name="Nirmala UI" size="31.0" />
+                     </font></Label>
+            </children>
+            <VBox.margin>
+              <Insets bottom="10.0" top="10.0" />
+            </VBox.margin>
+          </HBox>
+          <!--<Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textFill="YELLOW" textOverrun="ELLIPSIS" wrapText="true">-->
+          <Label fx:id="questionLabel" alignment="CENTER" prefHeight="150.0" prefWidth="700.0" text="Question" textAlignment="CENTER" textOverrun="ELLIPSIS">
+            <VBox.margin>
+              <Insets bottom="10.0" />
+            </VBox.margin>
+               <font>
+                  <Font name="Nirmala UI" size="43.0" />
+               </font>
+          </Label>
+          <!--<Pane fx:id="renderPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="180.0" prefWidth="600.0" />-->
+          <StackPane fx:id="renderPane" prefHeight="200.0" prefWidth="600.0" />
+        </children>
+      </VBox>
+    </center>
+    <top>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="newGameMenuItem" mnemonicParsing="false" text="Restart" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+    </top>
+  </BorderPane>

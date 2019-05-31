@@ -17,7 +17,8 @@ public class OneDimPane extends ArrayPane {
     void render() {
 
         //this.setAlignment(Pos.CENTER);
-        this.setMaxSize(300, 200);
+        this.setMaxSize(400, 50);
+        //this.getStylesheets().add(getClass().getResource("checkBoxStyle.css").toExternalForm());
 
         int length = ((OneDimQuestion) this.question).getArrayLength();
         for (int i = 0; i < length; ++i) {

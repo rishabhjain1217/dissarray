@@ -4,9 +4,11 @@
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.beans.binding.Bindings;
 
@@ -33,29 +35,34 @@ public class Starter extends Application {
         BorderPane menuPane = fxmlLoader.load(getClass().getResource("MenuPane.fxml").openStream());
         MenuController menuController = (MenuController) fxmlLoader.getController();
 
-        TSwitch toggle = new TSwitch();
-        toggle.setTranslateX(330);
-        toggle.setTranslateY(360);
-
         Text text = new Text();
         text.setFont(Font.font(14));
         text.setFill(Color.GOLD);
         text.setTranslateX(336);
         text.setTranslateY(350);
-        text.textProperty().bind(Bindings.when(toggle.switchedOnProperty()).then("HARD").otherwise("EASY"));
 
-        menuPane.getChildren().addAll(toggle, text);
+        menuPane.getChildren().add(text);
 
         menuController.pStage = primaryStage;
-        menuController.tSwitch = toggle;
 
         menuController.start();
 
-        Scene scene = new Scene(menuPane, 600, 400);
-        primaryStage.setTitle("Array Game");
+
+
+        Scene scene = new Scene(menuPane,600, 400);
+        scene.getStylesheets().add("checkBoxStyle.css");
+
+        primaryStage.setTitle("Array Game V-1.0");
 
         primaryStage.setScene(scene);
+
+        Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
+        primaryStage.setX((primScreenBounds.getWidth() - scene.getWidth()) / 2);
+        primaryStage.setY((primScreenBounds.getHeight() - scene.getHeight()) / 2);
+
+
         primaryStage.show();
+
     }
 
 
