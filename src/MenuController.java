@@ -63,7 +63,7 @@ public class MenuController implements Initializable {
                 instructionsController.start();
 
                 Scene scene = new Scene(instructionsPane, 600, 400);
-                pStage.setTitle("Array Game");
+                pStage.setTitle("Diss-Array V1.0");
 
 
                 pStage.setScene(scene);
@@ -92,7 +92,7 @@ public class MenuController implements Initializable {
 
                     Scene scene = new Scene(gamePane, 1050, 750);
                     scene.getStylesheets().add("checkBoxStyle.css");
-                    pStage.setTitle("Array Game V-1.0");
+                    pStage.setTitle("Diss-Array V1.0");
 
 
                     pStage.setScene(scene);

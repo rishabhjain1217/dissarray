@@ -52,7 +52,7 @@ public class Starter extends Application {
         Scene scene = new Scene(menuPane,600, 400);
         scene.getStylesheets().add("checkBoxStyle.css");
 
-        primaryStage.setTitle("Array Game V-1.0");
+        primaryStage.setTitle("Diss-Array V1.0");
 
         primaryStage.setScene(scene);
 

@@ -42,6 +42,9 @@ public class GameController implements Initializable {
     private TimerEnum timerStatus; //Is the timer on or off
     private SoundEnum soundStatus; // Is sound on or off
 
+    private boolean ended = false;
+
+
     private QuestionGenerator generator;
 
     private final String correctSound = "CorrectSound.wav"; //Sound file for the correct answer
@@ -142,7 +145,9 @@ public class GameController implements Initializable {
                         public void run() {
 
                             Platform.runLater(() -> {
-                                decreaseTime();
+                                if(!ended) {
+                                    decreaseTime();
+                                }
                             });
 
                         }
@@ -292,6 +297,7 @@ public class GameController implements Initializable {
 
     public void restart(){
         //pStage.close();
+        //timer = null;
         Platform.runLater(new Runnable() {
             @Override public void run() {
 
@@ -308,13 +314,14 @@ public class GameController implements Initializable {
     }
 
     private void endGame(){
-        FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
-        fadeOutTransition.setFromValue(1.0);
-        fadeOutTransition.setToValue(0.0);
-        fadeOutTransition.play();
-        fadeOutTransition.setOnFinished((ActionEvent event) -> {
-            finish();
-        });
+        ended = true;
+            FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
+            fadeOutTransition.setFromValue(1.0);
+            fadeOutTransition.setToValue(0.0);
+            fadeOutTransition.play();
+            fadeOutTransition.setOnFinished((ActionEvent event) -> {
+                finish();
+            });
     }
 
     private void finish() {
@@ -326,7 +333,7 @@ public class GameController implements Initializable {
             endGameController.score = score;
             endGameController.start();
             Scene scene = new Scene(gamePane, 600, 400);
-            pStage.setTitle("Array Game V-1.0");
+            pStage.setTitle("Diss-Array V1.0");
             pStage.setScene(scene);
 
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
