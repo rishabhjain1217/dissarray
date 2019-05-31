@@ -15,18 +15,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
+<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@fonts.css" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
   <bottom>
     <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="600.0" spacing="5.0">
       <children>
-        <JFXButton fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0" style="-jfx-button-type: RAISED; -fx-background-color: #f44336; -fx-text-fill: white;" text="Cancel">
+        <JFXButton fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0" style="-jfx-button-type: RAISED; -fx-background-color: #f44336; -fx-text-fill: white;" styleClass="fxButton" text="Cancel">
                <HBox.margin>
                   <Insets bottom="10.0" left="50.0" />
                </HBox.margin>
                <font>
                   <Font size="13.0" />
                </font></JFXButton>
-        <JFXButton fx:id="startButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0" style="-jfx-button-type: RAISED; -fx-background-color: white;" text="Start">
+        <JFXButton fx:id="startButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="65.0" style="-jfx-button-type: RAISED; -fx-background-color: white;" styleClass="fxButton" text="Start">
                <HBox.margin>
                   <Insets bottom="10.0" left="5.0" right="20.0" />
                </HBox.margin>
@@ -42,14 +42,14 @@
   <center>
     <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
       <children>
-            <Label text="Diss-Array" textFill="#1c1c1c">
+            <Label styleClass="logo" text="Diss-Array" textFill="#1c1c1c">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin></Label>
-        <Label prefHeight="87.0" prefWidth="580.0" text="Welcome to Diss-Array! The objective of this game is to hone your array evaluation skills. Use the sliders below to indicate your desired attributes of the questions. Enable the &quot;Timer&quot; and/or &quot;Hard Mode&quot; sliders if you want a higher difficulty." textAlignment="CENTER" textFill="#1c1c1c" wrapText="true">
+        <Label prefHeight="87.0" prefWidth="580.0" styleClass="introText" text="Welcome to Diss-Array! The objective of this game is to hone your array evaluation skills. Use the sliders below to indicate your desired attributes of the questions. Enable the &quot;Timer&quot; and/or &quot;Hard Mode&quot; sliders if you want a higher difficulty." textAlignment="CENTER" textFill="#1c1c1c" wrapText="true">
           <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" />
           </VBox.margin>

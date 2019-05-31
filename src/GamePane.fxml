@@ -15,11 +15,11 @@
 
 <!--<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">-->
 
-<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@fonts.css" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
   <bottom>
     <HBox alignment="CENTER" prefHeight="66.0" prefWidth="800.0" spacing="50.0" style="-fx-background-color: #591782;">
          <children>
-            <JFXButton fx:id="nextButton" buttonType="RAISED" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" ripplerFill="#ffeb3b" style="-fx-background-color:gold ;" text="Next" textAlignment="CENTER">
+            <JFXButton fx:id="nextButton" buttonType="RAISED" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" ripplerFill="#ffeb3b" style="-fx-background-color:gold ;" styleClass="fxButton" text="Next" textAlignment="CENTER">
                <effect>
                   <Glow />
                </effect>
@@ -35,12 +35,12 @@
         <children>
           <HBox alignment="CENTER" prefHeight="110.0" prefWidth="600.0" spacing="100.0">
             <children>
-              <Label fx:id="timeLabel" prefHeight="55.0" prefWidth="188.0" text="Time: 0" textFill="WHITE">
+              <Label fx:id="timeLabel" prefHeight="55.0" prefWidth="188.0" styleClass="timerText" text="Time: 0" textFill="WHITE">
                 <font>
                   <Font name="Nirmala UI" size="31.0" fx:id="x1" />
                 </font>
               </Label>
-              <Label fx:id="scoreLabel" prefHeight="55.0" prefWidth="159.0" text="Score: 0" textAlignment="JUSTIFY" textFill="WHITE">
+              <Label fx:id="scoreLabel" prefHeight="55.0" prefWidth="159.0" styleClass="scoreText" text="Score: 0" textAlignment="JUSTIFY" textFill="WHITE">
                      <font>
                         <Font name="Nirmala UI" size="31.0" />
                      </font></Label>
@@ -50,7 +50,7 @@
             </VBox.margin>
           </HBox>
           <!--<Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textFill="YELLOW" textOverrun="ELLIPSIS" wrapText="true">-->
-          <Label fx:id="questionLabel" alignment="CENTER" prefHeight="150.0" prefWidth="700.0" text="Question" textAlignment="CENTER" textFill="WHITE" textOverrun="ELLIPSIS">
+          <Label fx:id="questionLabel" alignment="CENTER" prefHeight="150.0" prefWidth="700.0" styleClass="questionText" text="Question" textAlignment="CENTER" textFill="WHITE" textOverrun="ELLIPSIS">
             <VBox.margin>
               <Insets bottom="10.0" />
             </VBox.margin>

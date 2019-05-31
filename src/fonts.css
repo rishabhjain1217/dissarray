@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url("resources/fonts/Roboto.ttf");
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url("resources/fonts/Montserrat.ttf");
+}
+
+.logo, .scoreText, .timerText, .questionText, .fxButton {
+    -fx-font-family: 'Montserrat';
+}
+
+.introText {
+    -fx-font-family: 'Roboto';
+}
