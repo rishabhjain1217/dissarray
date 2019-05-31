@@ -14,6 +14,7 @@ public class OneDimQuestion extends Question {
     private final int timeForElementQuestion = 10;
     private final int timeForRangeQuestion = 20;
     private int timeForQuestion;
+    private int forEachWritten = 0;
 
     public OneDimQuestion(QuestionType difficulty)
     {
@@ -58,26 +59,39 @@ public class OneDimQuestion extends Question {
 
     private void generateRangeQuestion() //Creates a Range question where user selects multiple
     {
-        this.timeForQuestion = timeForRangeQuestion;
-        Random rand = new Random();
-        int arrayLength = rand.nextInt(8) + 3;
-        int bound1 = rand.nextInt(arrayLength);
-        int bound2 = rand.nextInt(arrayLength);
+        Random r = new Random();
+        boolean isForEach = r.nextBoolean();
 
-        /* Prevent having the same bounds. */
-        while (bound1 == bound2) {
-            bound2 = rand.nextInt(arrayLength);
+        this.timeForQuestion = timeForRangeQuestion;
+
+            Random rand = new Random();
+            int arrayLength = rand.nextInt(8) + 3;
+            int bound1 = rand.nextInt(arrayLength);
+            int bound2 = rand.nextInt(arrayLength);
+        if(!isForEach) {
+            /* Prevent having the same bounds. */
+            while (bound1 == bound2) {
+                bound2 = rand.nextInt(arrayLength);
+            }
+
+            int lowerBound = Math.min(bound1, bound2);
+            int upperBound = Math.max(bound1, bound2);
+
+            this.arrayLength = arrayLength;
+
+            this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; ++i) \n a[i]";
+
+            for (int i = lowerBound; i <= upperBound; ++i) {
+                this.correctIndices.add(new OneDimIndex(i));
+            }
         }
 
-        int lowerBound = Math.min(bound1, bound2);
-        int upperBound = Math.max(bound1, bound2);
 
-        this.arrayLength = arrayLength;
+        if(isForEach){
+            this.question = " int [] a; \nfor(int i : a)";
+            for(int i = 0; i <= arrayLength; ++i)
+                this.correctIndices.add(new OneDimIndex(i));
 
-        this.question = "for(int i = " + lowerBound+ "; i <= " + upperBound+"; ++i) \n a[i]";
-
-        for (int i = lowerBound; i <= upperBound; ++i) {
-            this.correctIndices.add(new OneDimIndex(i));
         }
     }
 
