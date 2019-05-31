@@ -1,6 +1,8 @@
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -350,13 +352,30 @@ public class GameController implements Initializable {
     }
 
     private void endGame(){
+
+        ArrayPane current = (ArrayPane) this.renderPane.getChildren().get(0);
+        current.disableButtons();
+
+        Task<Void> fiveSecDelay = new Task<Void>() {
+            @Override
+            protected Void call() {
+                try {
+                    Thread.sleep(5000);
+                } catch (InterruptedException e) {
+                }
+                return null;
+            }
+        };
+
+        fiveSecDelay.setOnSucceeded(event -> {
             FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
             fadeOutTransition.setFromValue(1.0);
             fadeOutTransition.setToValue(0.0);
             fadeOutTransition.play();
-            fadeOutTransition.setOnFinished((ActionEvent event) -> {
-                finish();
-            });
+            fadeOutTransition.setOnFinished((ActionEvent actionEvent) -> finish());
+        });
+
+        new Thread(fiveSecDelay).start();
     }
 
     private void finish() {
