@@ -25,9 +25,9 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="601.0" style="-fx-background-color: purple;" VBox.vgrow="ALWAYS">
       <children>
             <Button fx:id="backButton" layoutX="525.0" layoutY="297.0" mnemonicParsing="false" text="Back" />
-            <ImageView fitHeight="312.0" fitWidth="524.0" layoutX="14.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="400.0" fitWidth="700.0" layoutX="50.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@HowToPlay1.png" />
+                  <Image url="@../../Rishabh%20is%20my%20homie.png" />
                </image>
             </ImageView>
         <Label alignment="CENTER" layoutX="154.0" layoutY="0.0" style="&#10;" text="How to Play!" textAlignment="CENTER" textFill="#f2de29" wrapText="false">
