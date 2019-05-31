@@ -105,6 +105,7 @@ public class GameController implements Initializable {
     private void menuItem() {
         newGameMenuItem.setOnAction(e -> {
                 //RESTART CODE
+                ended = true;
                 restart();
         });
     }
@@ -145,9 +146,7 @@ public class GameController implements Initializable {
                         public void run() {
 
                             Platform.runLater(() -> {
-                                if(!ended) {
-                                    decreaseTime();
-                                }
+                                decreaseTime();
                             });
 
                         }
@@ -172,7 +171,10 @@ public class GameController implements Initializable {
 
             alert.showAndWait();
             restart();*/
-           endGame();
+            if(ended == false) {
+                ended = true;
+                endGame();
+            }
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
@@ -284,8 +286,10 @@ public class GameController implements Initializable {
 
                 alert.showAndWait();
                 restart();
-                 */
-                endGame();
+                 */if(ended == false) {
+                    ended = true;
+                    endGame();
+                }
             }
         });
         //nextButton.setOnAction(e -> newQuestion());
@@ -325,7 +329,6 @@ public class GameController implements Initializable {
     }
 
     private void endGame(){
-        ended = true;
             FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
             fadeOutTransition.setFromValue(1.0);
             fadeOutTransition.setToValue(0.0);
