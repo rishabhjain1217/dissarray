@@ -173,6 +173,8 @@ public class GameController implements Initializable {
 
             alert.showAndWait();
             restart();*/
+            corrected();
+
             if(ended == false) {
                 ended = true;
                 endGame();

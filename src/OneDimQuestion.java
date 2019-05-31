@@ -59,39 +59,59 @@ public class OneDimQuestion extends Question {
 
     private void generateRangeQuestion() //Creates a Range question where user selects multiple
     {
-        Random r = new Random();
-        boolean isForEach = r.nextBoolean();
+       // Random r = new Random();
+        //boolean isForEach = r.nextBoolean();
 
         this.timeForQuestion = timeForRangeQuestion;
 
-            Random rand = new Random();
-            int arrayLength = rand.nextInt(8) + 3;
-            int bound1 = rand.nextInt(arrayLength);
-            int bound2 = rand.nextInt(arrayLength);
-        if(!isForEach) {
-            /* Prevent having the same bounds. */
-            while (bound1 == bound2) {
-                bound2 = rand.nextInt(arrayLength);
-            }
+        Random rand = new Random();
+        int arrayLength = rand.nextInt(9) + 3;
+        int bound1 = rand.nextInt(arrayLength);
+        int bound2 = rand.nextInt(arrayLength);
+        /* Prevent having the same bounds. */
+        while (bound1 == bound2) {
+            bound2 = rand.nextInt(arrayLength);
+        }
 
-            int lowerBound = Math.min(bound1, bound2);
-            int upperBound = Math.max(bound1, bound2);
+        int lowerBound = Math.min(bound1, bound2);
+        int upperBound = Math.max(bound1, bound2);
 
-            this.arrayLength = arrayLength;
+        this.arrayLength = arrayLength;
 
+        /*if(!isForEach) {
             this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; ++i) \n a[i]";
+        }
+        else{
+            this.question = " int [] a; \nfor(int i : a)";
 
-            for (int i = lowerBound; i <= upperBound; ++i) {
-                this.correctIndices.add(new OneDimIndex(i));
+        }*/
+
+        int factor = 1;
+        Random r = new Random();
+        if((upperBound-lowerBound) > 6){
+           factor = (r.nextInt(2) + 2);
+        }else{
+            if((upperBound-lowerBound) > 3){
+                factor = (r.nextInt(1) + 1);
             }
         }
 
+        this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; " + "i+=" + factor + ") \n a[i]";
 
+
+        setCorrectedIndex(lowerBound,upperBound,factor);
+        /*
         if(isForEach){
             this.question = " int [] a; \nfor(int i : a)";
             for(int i = 0; i <= arrayLength; ++i)
                 this.correctIndices.add(new OneDimIndex(i));
 
+        }*/
+    }
+
+    public void setCorrectedIndex(int lower, int upper, int factor){
+        for (int i = lower; i <= upper; i+=factor) {
+            this.correctIndices.add(new OneDimIndex(i));
         }
     }
 

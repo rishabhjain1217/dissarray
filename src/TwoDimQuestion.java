@@ -121,21 +121,45 @@ public class TwoDimQuestion extends Question {
         this.rows = rows;
         this.cols = cols;
 
+        int iIncrement  = 1;
+        int jIncrement = 1;
+
+        Random r = new Random();
+        if((endRow-startRow) > 3){
+            iIncrement = (r.nextInt(2) + 2);
+        }else{
+            if((endRow-startRow) > 0){
+                iIncrement = (r.nextInt(1) + 1);
+            }
+        }
+
+        if((endCol-startCol) > 3){
+            jIncrement = (r.nextInt(2) + 2);
+        }else{
+            if((endCol-startCol) > 0) {
+                jIncrement = (r.nextInt(1) + 1);
+            }
+        }
+
         /*this.question = "A for loop starts with the rows with variable i on the range of " + startRow + " to " + endRow
                         + ", and nests into the columns with a for loop with variable j on the range of " + startCol
                         + " to " + endCol + ". What elements will be covered in the loop?"; */
 
-        this.question = "for(int i = " + start.getRowIndex() + "; i < " + end.getRowIndex() + "; ++i)\n" +
-        "           for(int j = " + start.getColIndex() + "; j < " + end.getColIndex() + "; ++j)\n" +
+        this.question = "for(int i = " + start.getRowIndex() + "; i < " + end.getRowIndex() + "; i+= " + iIncrement + ")\n" +
+        "           for(int j = " + start.getColIndex() + "; j < " + end.getColIndex() + "; j+= " + jIncrement + ")\n" +
                 "       a[i][j];";
 
 
-        for (int i = startRow; i < endRow; ++i) {
-            for (int j = startCol; j < endCol; ++j) {
+        setCorrectedIndex(startRow,endRow,startCol,endCol,iIncrement,jIncrement);
+
+    }
+
+    public void setCorrectedIndex(int startRow, int endRow, int startCol, int endCol, int factor1, int factor2){
+        for (int i = startRow; i < endRow; i+=factor1) {
+            for (int j = startCol; j < endCol; j+=factor1) {
                 this.correctIndices.add(new TwoDimIndex(i, j));
             }
         }
-
     }
 
     @Override
