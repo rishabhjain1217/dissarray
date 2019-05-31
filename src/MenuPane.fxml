@@ -110,7 +110,7 @@
   <top>
     <MenuBar>
       <menus>
-        <Menu mnemonicParsing="false" text="File">
+        <Menu mnemonicParsing="false" text="Options">
           <items>
             <MenuItem fx:id="instructionsMenuItem" mnemonicParsing="false" text="How to Play" />
           </items>
