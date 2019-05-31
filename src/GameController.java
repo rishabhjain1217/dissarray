@@ -279,20 +279,41 @@ public class GameController implements Initializable {
                     AudioClip note = new AudioClip(this.getClass().getResource(failSound).toString());
                     note.play(); //Plays song of you being wrong
                 }
-                /*Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Information Dialog");
-                alert.setHeaderText(null);
-                alert.setContentText("YOU MADE A MISTAKE" + "     Score: " + score);
 
-                alert.showAndWait();
-                restart();
-                 */if(ended == false) {
+                corrected();
+
+                if(ended == false) {
                     ended = true;
                     endGame();
                 }
+
+
             }
         });
         //nextButton.setOnAction(e -> newQuestion());
+    }
+
+    private void corrected() {
+        ArrayList<Index> correct = currentQ.correctIndices;
+        for (Node node : currentP.getChildren()) {
+            ((IndexButton) (node)).getButton().setSelected(false);
+        }
+        for (Index x : correct) {
+            for (Node node : currentP.getChildren()) {
+                if (((IndexButton) (node)).getIndex().equals(x)) {
+                    //((IndexButton) (node)).getButton().setSelected(true);
+                    ((IndexButton) (node)).getButton().getStyleClass().removeAll();
+                    ((IndexButton) (node)).getButton().getStyleClass().add("correct");
+                   // Index i = ((IndexButton)(node)).getIndex();
+                    ((IndexButton) (node)).getButton().setSelected(true);
+                }
+            }
+        }
+        /*try {
+            Thread.sleep(5000);
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }*/
     }
 
     private boolean check() {//Checks if answer is correct
