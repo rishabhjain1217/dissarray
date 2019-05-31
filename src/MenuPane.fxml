@@ -49,7 +49,7 @@
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin></Label>
-        <Label prefHeight="125.0" prefWidth="580.0" text="Welcome to the Array Game! The objective of this game is to hone your array index evaluating skills. Use the check boxes to indicate whether you want questions regarding 1D arrays, 2D arrays, or both. You can enable a timer that limits the time per question for an added challenge. Below you may also select if you would like to play in the easier or harder mode." textAlignment="CENTER" textFill="#1c1c1c" wrapText="true">
+        <Label prefHeight="125.0" prefWidth="580.0" text="Welcome to Diss-Array! The objective of this game is to hone your array evaluation skills. Use the sliders below to indicate your desired attributes of the questions. Enable the &quot;Timer&quot; and/or &quot;Hard Mode&quot; sliders if you want a higher difficulty." textAlignment="CENTER" textFill="#1c1c1c" wrapText="true">
           <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" />
           </VBox.margin>
