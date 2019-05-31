@@ -78,7 +78,7 @@
                      <children>
                         <JFXToggleButton fx:id="oneDimToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="One Dimensional">
                            <font>
-                              <Font size="18.0" />
+                              <Font name="System Font" size="18.0" />
                            </font></JFXToggleButton>
                         <JFXToggleButton fx:id="timerToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="309.0" text="Timer          " GridPane.columnIndex="1" GridPane.rowIndex="1">
                            <font>

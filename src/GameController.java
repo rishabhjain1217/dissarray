@@ -105,6 +105,7 @@ public class GameController implements Initializable {
     private void menuItem() {
         newGameMenuItem.setOnAction(e -> {
                 //RESTART CODE
+                ended = true;
                 restart();
         });
     }
@@ -145,9 +146,7 @@ public class GameController implements Initializable {
                         public void run() {
 
                             Platform.runLater(() -> {
-                                if(!ended) {
-                                    decreaseTime();
-                                }
+                                decreaseTime();
                             });
 
                         }
@@ -172,7 +171,10 @@ public class GameController implements Initializable {
 
             alert.showAndWait();
             restart();*/
-           endGame();
+            if(ended == false) {
+                ended = true;
+                endGame();
+            }
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
@@ -207,10 +209,21 @@ public class GameController implements Initializable {
         double paddingY = (400.0 - q.getRows()*IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
-        questionLabel.setStyle("-fx-font: 38 Nirmala_UI;" +
+        /*
+        questionLabel.setStyle("-fx-font: 32 Nirmala_UI;" +
                 "-fx-text-fill: black;");
+        */
+        if(q.getDifficulty().equals(QuestionType.Range)){
+            questionLabel.setStyle("-fx-font: 32 Nirmala_UI;" +
+                    "-fx-text-fill: black;");
+        }
+        else{
+            questionLabel.setStyle("-fx-font: 43 Nirmala_UI;" +
+                    "-fx-text-fill: black;");
+        }
         TwoDimPane pane = new TwoDimPane(q);
         currentP = pane;
+
         this.renderPane.getChildren().setAll(pane);
         //this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
         this.renderPane.setPadding(new Insets(10, 10, 20, 10));
@@ -273,8 +286,10 @@ public class GameController implements Initializable {
 
                 alert.showAndWait();
                 restart();
-                 */
-                endGame();
+                 */if(ended == false) {
+                    ended = true;
+                    endGame();
+                }
             }
         });
         //nextButton.setOnAction(e -> newQuestion());
@@ -314,7 +329,6 @@ public class GameController implements Initializable {
     }
 
     private void endGame(){
-        ended = true;
             FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
             fadeOutTransition.setFromValue(1.0);
             fadeOutTransition.setToValue(0.0);

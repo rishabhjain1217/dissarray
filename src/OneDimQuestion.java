@@ -74,7 +74,7 @@ public class OneDimQuestion extends Question {
 
         this.arrayLength = arrayLength;
 
-        this.question = "a["+ lowerBound+ "] ... a[" + upperBound+"]";
+        this.question = "for(int i = " + lowerBound+ "; i <= " + upperBound+"; ++i) \n a[i]";
 
         for (int i = lowerBound; i <= upperBound; ++i) {
             this.correctIndices.add(new OneDimIndex(i));
