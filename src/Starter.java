@@ -40,7 +40,7 @@ public class Starter extends Application {
         text.setFill(Color.GOLD);
         text.setTranslateX(336);
         text.setTranslateY(350);
-
+//hi
         menuPane.getChildren().add(text);
 
         menuController.pStage = primaryStage;
