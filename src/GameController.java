@@ -216,12 +216,10 @@ public class GameController implements Initializable {
                 "-fx-text-fill: black;");
         */
         if(q.getDifficulty().equals(QuestionType.Range)){
-            questionLabel.setStyle("-fx-font: 32 Nirmala_UI;" +
-                    "-fx-text-fill: black;");
+            questionLabel.setStyle("-fx-font-size: 32");
         }
         else{
-            questionLabel.setStyle("-fx-font: 43 Nirmala_UI;" +
-                    "-fx-text-fill: black;");
+            questionLabel.setStyle("-fx-font-size: 43");
         }
         TwoDimPane pane = new TwoDimPane(q);
         currentP = pane;
