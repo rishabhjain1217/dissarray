@@ -15,7 +15,7 @@
 
 <BorderPane fx:id="endGamePane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EndGameController">
     <bottom>
-        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: cornflowerblue;">
+        <HBox alignment="CENTER" prefHeight="79.0" prefWidth="600.0" spacing="50.0" style="-fx-background-color: #6A1B9A;">
             <children>
                 <JFXButton fx:id="quitButton" buttonType="RAISED" mnemonicParsing="false" prefHeight="46.0" prefWidth="100.0" ripplerFill="#f44336" style="-fx-background-color: #f44336;" text="Quit" textAlignment="CENTER" textFill="WHITE">
                     <effect>
@@ -37,10 +37,10 @@
     </bottom>
     <center>
         <!--<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: Purple;">-->
-        <VBox fx:id="centerVBox" alignment="CENTER" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: powderblue;">
+        <VBox fx:id="centerVBox" alignment="CENTER" prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #6A1B9A;">
             <children>
                 <!--<Label fx:id="questionLabel" alignment="CENTER" prefHeight="97.0" prefWidth="600.0" text="Lorem ipsum dolor sit amet consectetur adipiscing elit pretium faucibus, platea ad scelerisque cum iaculis dignissim ut etiam vestibulum, id fringilla pulvinar laoreet consequat accumsan vehicula metus. Per inceptos dapibus faucibus habitant natoque ullamcorper quis sagittis, tellus libero suscipit nullam nunc in massa integer volutpat, metus lacinia blandit proin velit nostra praesent." textAlignment="CENTER" textFill="YELLOW" textOverrun="ELLIPSIS" wrapText="true">-->
-                <Label alignment="CENTER" prefHeight="150.0" prefWidth="700.0" text="Game Over!" textAlignment="CENTER" textOverrun="ELLIPSIS">
+                <Label alignment="CENTER" prefHeight="150.0" prefWidth="700.0" text="Game Over!" textAlignment="CENTER" textFill="WHITE" textOverrun="ELLIPSIS">
                     <VBox.margin>
                         <Insets bottom="10.0" />
                     </VBox.margin>
@@ -48,7 +48,7 @@
                         <Font name="System Bold" size="45.0" />
                     </font>
                 </Label>
-                  <Label fx:id="scoreLabel" alignment="CENTER" prefHeight="55.0" prefWidth="159.0" text="Score: 0" textAlignment="JUSTIFY">
+                  <Label fx:id="scoreLabel" alignment="CENTER" prefHeight="55.0" prefWidth="159.0" text="Score: 0" textAlignment="JUSTIFY" textFill="WHITE">
                       <font>
                           <Font name="Nirmala UI" size="31.0" />
                       </font>
