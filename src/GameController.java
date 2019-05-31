@@ -294,6 +294,7 @@ public class GameController implements Initializable {
     }
 
     private void corrected() {
+        nextButton.setDisable(true);
         ArrayList<Index> correct = currentQ.correctIndices;
         for (Node node : currentP.getChildren()) {
             ((IndexButton) (node)).getButton().setSelected(false);
