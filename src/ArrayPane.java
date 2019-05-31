@@ -17,6 +17,13 @@ abstract class ArrayPane extends GridPane {
         this.render();
     }
 
+    public void disableButtons()
+    {
+        for (IndexButton button : indexButtons) {
+            button.setDisable(true);
+        }
+    }
+
     abstract void render();
 
 }

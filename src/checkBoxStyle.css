@@ -11,5 +11,9 @@
 }
 
 .jfx-check-box {
-   // -jfx-checked-color:white;
+    //-jfx-checked-color:white;
+}
+
+.correct{
+    -jfx-checked-color:white;
 }
