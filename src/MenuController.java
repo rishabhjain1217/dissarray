@@ -70,7 +70,7 @@ public class MenuController implements Initializable {
                 pStage.show();
 
             } catch (Exception ex) {
-                System.out.println("Wassup");
+                System.out.println("Game Crashed 1");
             }
         });
     }
@@ -92,7 +92,7 @@ public class MenuController implements Initializable {
 
                     Scene scene = new Scene(gamePane, 1050, 750);
                     scene.getStylesheets().add("checkBoxStyle.css");
-                    pStage.setTitle("Diss-Array V1.0");
+                    pStage.setTitle("Diss-Array V1.1");
 
 
                     pStage.setScene(scene);
@@ -103,7 +103,7 @@ public class MenuController implements Initializable {
 
                     pStage.show();
                 } catch (Exception ex) {
-                    System.out.println("Wassup");
+                    System.out.println("Game Crashed 2");
                 }
             }
         });

@@ -31,7 +31,6 @@ public class  QuestionGenerator {
      */
     public Question generateRandom(QuestionType difficulty)
     {
-
         Random rand =  new Random();
         int n = rand.nextInt(2);
 
