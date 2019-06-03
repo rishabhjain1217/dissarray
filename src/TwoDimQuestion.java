@@ -139,6 +139,19 @@ public class TwoDimQuestion extends Question {
         int iIncrement  = 1;
         int jIncrement = 1;
 
+
+        Random r = new Random();
+        int f = r.nextInt(100);
+        if (f > 60-score || score == 60) {
+            iIncrement = (r.nextInt(2) + 2);
+            jIncrement = (r.nextInt(2) + 2);
+        }
+        else {
+            iIncrement = (r.nextInt(1) + 1);
+            jIncrement = (r.nextInt(1) + 1);
+        }
+
+/*
         Random r = new Random();
         if((endRow-startRow) > 3){
             iIncrement = (r.nextInt(2) + 2);
@@ -154,7 +167,7 @@ public class TwoDimQuestion extends Question {
             if((endCol-startCol) > 0) {
                 jIncrement = (r.nextInt(1) + 1);
             }
-        }
+        }*/
 
         /*this.question = "A for loop starts with the rows with variable i on the range of " + startRow + " to " + endRow
                         + ", and nests into the columns with a for loop with variable j on the range of " + startCol

@@ -99,16 +99,13 @@ public class OneDimQuestion extends Question {
             this.question = " int [] a; \nfor(int i : a)";
 
         }*/
-
         int factor = 1;
         Random r = new Random();
-        if((upperBound-lowerBound) > 6){
-           factor = (r.nextInt(2) + 2);
-        }else{
-            if((upperBound-lowerBound) > 3){
-                factor = (r.nextInt(1) + 1);
-            }
-        }
+        int f = r.nextInt(100);
+        if (f > 60-score || score == 60)
+            factor = (r.nextInt(1) + 2);
+        else
+            factor = (r.nextInt(1) + 1);
 
         this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; " + "i+=" + factor + ") \n a[i]";
 
