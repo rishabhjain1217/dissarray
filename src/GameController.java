@@ -125,6 +125,12 @@ public class GameController implements Initializable {
                     this.timeRemaining = this.renderRandom();
                     this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
                     break;
+                    /*
+                case ArrayList:
+                    this.timeRemaining = this.renderRandom();
+                    this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                    break;
+                   */
                 default:
                     this.timeRemaining = (this.renderOneDim());
                     this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
@@ -194,6 +200,10 @@ public class GameController implements Initializable {
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
         this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
+    }
+
+    public void renderArrayList(ArrayListQuestion q){
+
     }
 
 
