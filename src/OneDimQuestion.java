@@ -113,7 +113,7 @@ public class OneDimQuestion extends Question {
         int factor = 1;
         Random r = new Random();
         int f = r.nextInt(100);
-        if (f > 60-score || score == 60)
+        if (f > 100-score*4 || score == 25)
             factor = (r.nextInt(1) + 2);
         else
             factor = (r.nextInt(1) + 1);
