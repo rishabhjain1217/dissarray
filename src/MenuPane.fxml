@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@fonts.css" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
+<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" stylesheets="@fonts.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuController">
   <bottom>
     <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="600.0" spacing="5.0">
       <children>
@@ -84,7 +84,7 @@
                            <font>
                               <Font size="18.0" />
                            </font></JFXToggleButton>
-                        <JFXToggleButton fx:id="hardModeToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="Hard Mode" toggleColor="#673ab7" toggleLineColor="#7e57c2" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <JFXToggleButton fx:id="hardModeToggle" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="Loops         " toggleColor="#673ab7" toggleLineColor="#7e57c2" GridPane.columnIndex="1" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font></JFXToggleButton>
