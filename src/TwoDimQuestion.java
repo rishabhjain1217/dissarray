@@ -6,10 +6,10 @@ public class TwoDimQuestion extends Question {
 
     private int rows, cols;
 
-    private final int TIMEFORELEMENTQUESTION = 15;
+    private final int TIMEFORELEMENTQUESTION = 15; //comment
     private final int TIMEFORRANGEDQUESTION = 25;
-    private final int MAXELEMENTDETRACTION = 10;
-    private final int MAXRANGEDDETRACTION = 12;
+    private final int MAXELEMENTDETRACTION = 7;
+    private final int MAXRANGEDDETRACTION = 10;
 
     private int timeForQuestion;
     private QuestionType difficulty;
@@ -54,7 +54,7 @@ public class TwoDimQuestion extends Question {
                 Random r = new Random();
                 int nextQ = r.nextInt(100);
 
-                if(nextQ > 60-(score*2) || score == 30)
+                if(nextQ > 100-(score*4) || score == 25)
                 generateRangeQuestion();
                 else
                     generateElementQuestion();
@@ -67,7 +67,7 @@ public class TwoDimQuestion extends Question {
         difficulty = QuestionType.Element;
         int scoreInfluence = score/2;
 
-        if(scoreInfluence <=9)
+        if(scoreInfluence <=6)
         this.timeForQuestion = this.TIMEFORELEMENTQUESTION-(scoreInfluence);//Changes time for question
         else{
             this.timeForQuestion = this.TIMEFORELEMENTQUESTION - MAXELEMENTDETRACTION;
@@ -94,7 +94,7 @@ public class TwoDimQuestion extends Question {
         difficulty = QuestionType.Range;
         int scoreInfluence = score/5;
 
-        if(scoreInfluence <= 5)
+        if(scoreInfluence <= 4)
             this.timeForQuestion = this.TIMEFORRANGEDQUESTION-(scoreInfluence*2);
         else
             this.timeForQuestion = this .TIMEFORRANGEDQUESTION-MAXRANGEDDETRACTION;
@@ -154,10 +154,10 @@ public class TwoDimQuestion extends Question {
         int iIncrement  = 1;
         int jIncrement = 1;
 
-
+//comment
         Random r = new Random();
         int f = r.nextInt(100);
-        if (f > 60-score || score == 60) {
+        if((f > (100-(score*4))) || (score == 25)){
             iIncrement = (r.nextInt(2) + 2);
             jIncrement = (r.nextInt(2) + 2);
         }
