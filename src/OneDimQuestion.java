@@ -21,7 +21,7 @@ public class OneDimQuestion extends Question {
     {
         super();
         this.score = score;
-        this.generateQuestion(difficulty);
+        this.generateQuestion(difficulty,score);
     }
 
     public int getTimeForQuestion() {
@@ -29,7 +29,7 @@ public class OneDimQuestion extends Question {
     }
 
     @Override
-    void generateQuestion(QuestionType difficulty) //Selects what type of question is given
+    void generateQuestion(QuestionType difficulty,int score) //Selects what type of question is given
     {
         switch (difficulty) {
             case Element:
@@ -39,7 +39,7 @@ public class OneDimQuestion extends Question {
                     Random r = new Random();
                     int nextQ = r.nextInt(100);
 
-                    if (nextQ > 50)
+                    if (nextQ > 60-score || score == 60)
                         generateRangeQuestion();
                     else
                         generateElementQuestion();

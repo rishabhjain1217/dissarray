@@ -16,7 +16,7 @@ public class TwoDimQuestion extends Question {
     {
         super();
         this.score = score;
-        this.generateQuestion(difficulty);
+        this.generateQuestion(difficulty, score);
     }
 
     public int getTimeForQuestion(){
@@ -27,21 +27,31 @@ public class TwoDimQuestion extends Question {
         return difficulty;
     }
 
-    @Override
-    void generateQuestion(QuestionType difficulty) {
+    //@Override
+    void generateQuestion(QuestionType difficulty,int score) {
 
         switch (difficulty) {
             case Element:
-
+                if (score <= 10)
                     generateElementQuestion();
+                if(score > 10){
+                    Random r = new Random();
+                    int nextQ = r.nextInt(100);
 
+                    if(nextQ > 60-score || score == 60)
+                        generateRangeQuestion();
+                    else
+                        generateElementQuestion();
+                    break;
+
+                }
 
                 break;
             case Range: //Hard mode, which can have either an element question or a range question
                 Random r = new Random();
                 int nextQ = r.nextInt(100);
 
-                if(nextQ > 50)
+                if(nextQ > 45+score)
                 generateRangeQuestion();
                 else
                     generateElementQuestion();
