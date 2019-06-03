@@ -7,9 +7,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
@@ -22,6 +26,10 @@ import java.util.concurrent.TimeUnit;
  */
 public class MenuController implements Initializable {
 //comment
+
+    @FXML
+    Label titleText;
+
     @FXML
     MenuItem instructionsMenuItem;
 
@@ -33,6 +41,7 @@ public class MenuController implements Initializable {
 
     public Stage pStage;
 
+    private int clickCount = 0;
 
     public MenuController(){
 
@@ -40,7 +49,13 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        titleText.setOnMouseClicked(event -> {
+            ++clickCount;
+            if (clickCount == 10) {
+                SoundLoader.getInstance().useAlternate();
+                titleText.setTextFill(Color.web("#673ab7"));
+            }
+        });
     }
 
     public void start(){
@@ -70,7 +85,7 @@ public class MenuController implements Initializable {
                 pStage.show();
 
             } catch (Exception ex) {
-                System.out.println("Wassup");
+                System.out.println("Game Crashed 1");
             }
         });
     }
@@ -92,7 +107,7 @@ public class MenuController implements Initializable {
 
                     Scene scene = new Scene(gamePane, 1050, 750);
                     scene.getStylesheets().add("checkBoxStyle.css");
-                    pStage.setTitle("Diss-Array V1.0");
+                    pStage.setTitle("Diss-Array V1.1");
 
 
                     pStage.setScene(scene);
@@ -103,7 +118,7 @@ public class MenuController implements Initializable {
 
                     pStage.show();
                 } catch (Exception ex) {
-                    System.out.println("Wassup");
+                    System.out.println("Game Crashed 2");
                 }
             }
         });

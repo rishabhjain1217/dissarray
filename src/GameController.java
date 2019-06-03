@@ -49,9 +49,6 @@ public class GameController implements Initializable {
 
     private QuestionGenerator generator;
 
-    private final String correctSound = "CorrectSound.wav"; //Sound file for the correct answer
-    private final String failSound = "IncorrectSound.wav"; //Sound file for the incorrect answer
-
     private Timer timer;
     private int timeRemaining;
 
@@ -271,14 +268,14 @@ public class GameController implements Initializable {
                 renderPane.getChildren().clear();
 
                 if(soundStatus.equals(SoundEnum.On)) {
-                    AudioClip note = new AudioClip(this.getClass().getResource(correctSound).toString());
+                    AudioClip note = new AudioClip(this.getClass().getResource(SoundLoader.getInstance().getCorrect()).toString());
                     note.play(); //Plays sound of correctness
                 }
                 newQuestion();
             }
             else{
                 if(soundStatus.equals(SoundEnum.On)) {
-                    AudioClip note = new AudioClip(this.getClass().getResource(failSound).toString());
+                    AudioClip note = new AudioClip(this.getClass().getResource(SoundLoader.getInstance().getWrong()).toString());
                     note.play(); //Plays song of you being wrong
                 }
 

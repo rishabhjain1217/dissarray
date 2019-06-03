@@ -26,7 +26,7 @@
       <children>
             <ImageView fitHeight="400.0" fitWidth="700.0" layoutX="50.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Rishabh%20is%20my%20homie.png" />
+                  <Image url="@game2electricBoogaloo.png" />
                </image>
             </ImageView>
         <Label alignment="CENTER" layoutX="154.0" layoutY="0.0" text="How to Play!" textAlignment="CENTER" textFill="BLACK" wrapText="false">
@@ -34,7 +34,7 @@
             <Font size="38.0" />
           </font>
         </Label>
-            <VBox layoutX="525.0" layoutY="295.0" prefHeight="150.0" prefWidth="100.0">
+            <VBox layoutX="525.0" layoutY="200.0" prefHeight="150.0" prefWidth="100.0">
                <children>
                   <Label text=" Made By:" wrapText="true" />
                   <Label text="Rishabh Jain" />

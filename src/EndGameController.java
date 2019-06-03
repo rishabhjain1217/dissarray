@@ -45,6 +45,8 @@ public class EndGameController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
        // fadeIn();
+        //alex is a homie
+        //h
     }
 
     private void fadeIn() {
