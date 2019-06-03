@@ -13,7 +13,7 @@ public class OneDimQuestion extends Question {
     private int arrayLength;
     private final int timeForElementQuestion = 10;
     private final int timeForRangeQuestion = 20;
-    private final int MAXELEMENTDETRACTION = 6;
+    private final int MAXELEMENTDETRACTION = 05;
     private final int MAXRANGEDDETRACTION =10;
 
     private int timeForQuestion;
@@ -65,7 +65,7 @@ public class OneDimQuestion extends Question {
     private void generateElementQuestion() //Creates a question for a specific cell
     {
         int scoreInfluence = score/2;
-        if(scoreInfluence <=5)
+        if(scoreInfluence <=4)
         this.timeForQuestion = timeForElementQuestion-(scoreInfluence);
         else
             this.timeForQuestion = timeForElementQuestion -MAXELEMENTDETRACTION;

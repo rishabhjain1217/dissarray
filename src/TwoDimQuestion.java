@@ -6,7 +6,7 @@ public class TwoDimQuestion extends Question {
 
     private int rows, cols;
 
-    private final int TIMEFORELEMENTQUESTION = 15;
+    private final int TIMEFORELEMENTQUESTION = 15; //comment
     private final int TIMEFORRANGEDQUESTION = 25;
     private final int MAXELEMENTDETRACTION = 7;
     private final int MAXRANGEDDETRACTION = 10;
