@@ -14,7 +14,7 @@ public class OneDimQuestion extends Question {
     private final int timeForElementQuestion = 10;
     private final int timeForRangeQuestion = 20;
     private final int MAXELEMENTDETRACTION = 6;
-    private final int MAXRANGEDDETRACTION = 12;
+    private final int MAXRANGEDDETRACTION =10;
 
     private int timeForQuestion;
     private int forEachWritten = 0;

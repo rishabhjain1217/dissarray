@@ -8,8 +8,8 @@ public class TwoDimQuestion extends Question {
 
     private final int TIMEFORELEMENTQUESTION = 15;
     private final int TIMEFORRANGEDQUESTION = 25;
-    private final int MAXELEMENTDETRACTION = 10;
-    private final int MAXRANGEDDETRACTION = 12;
+    private final int MAXELEMENTDETRACTION = 7;
+    private final int MAXRANGEDDETRACTION = 10;
 
     private int timeForQuestion;
     private QuestionType difficulty;
@@ -67,7 +67,7 @@ public class TwoDimQuestion extends Question {
         difficulty = QuestionType.Element;
         int scoreInfluence = score/2;
 
-        if(scoreInfluence <=9)
+        if(scoreInfluence <=6)
         this.timeForQuestion = this.TIMEFORELEMENTQUESTION-(scoreInfluence);//Changes time for question
         else{
             this.timeForQuestion = this.TIMEFORELEMENTQUESTION - MAXELEMENTDETRACTION;
@@ -94,7 +94,7 @@ public class TwoDimQuestion extends Question {
         difficulty = QuestionType.Range;
         int scoreInfluence = score/5;
 
-        if(scoreInfluence <= 5)
+        if(scoreInfluence <= 4)
             this.timeForQuestion = this.TIMEFORRANGEDQUESTION-(scoreInfluence*2);
         else
             this.timeForQuestion = this .TIMEFORRANGEDQUESTION-MAXRANGEDDETRACTION;
