@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class QuestionGenerator {
+public class  QuestionGenerator {
 
     public QuestionGenerator()
     {
@@ -37,5 +37,7 @@ public class QuestionGenerator {
 
         return n == 0 ? generateOneDim(difficulty) : generateTwoDim(difficulty);
     }
+
+
 
 }
