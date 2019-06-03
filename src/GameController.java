@@ -166,6 +166,10 @@ public class GameController implements Initializable {
     private void decreaseTime()
     {
         --this.timeRemaining;
+        if (this.timeRemaining < 0) {
+            timeLabel.setText("DONE");
+            return;
+        }
         if (this.timeRemaining == 0) {
             this.timer.cancel();
             timeLabel.setText("DONE");
