@@ -167,7 +167,7 @@ public class GameController implements Initializable {
     {
         --this.timeRemaining;
         if (this.timeRemaining < 0) {
-            timeLabel.setText("DONE");
+            timeLabel.setText("YOU BIG DONE");
             return;
         }
         if (this.timeRemaining == 0) {
