@@ -12,7 +12,7 @@ public abstract class Question {
         this.correctIndices = new ArrayList<>();
     }
 
-    abstract void generateQuestion(QuestionType difficulty);
+    abstract void generateQuestion(QuestionType difficulty,int score);
 
     abstract boolean checkAnswer(ArrayList<Index> selectedIndices);
 

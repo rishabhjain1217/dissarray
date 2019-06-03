@@ -26,7 +26,7 @@
       <children>
             <ImageView fitHeight="400.0" fitWidth="700.0" layoutX="50.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Rishabh%20is%20my%20homie.png" />
+                  <Image url="@game2electricBoogaloo.png" />
                </image>
             </ImageView>
         <Label alignment="CENTER" layoutX="154.0" layoutY="0.0" text="How to Play!" textAlignment="CENTER" textFill="BLACK" wrapText="false">
@@ -41,6 +41,7 @@
                   <Label layoutX="10.0" layoutY="27.0" text="Bill Williams" />
                   <Label layoutX="10.0" layoutY="69.0" text="Josh Gordon" />
                   <Label layoutX="10.0" layoutY="69.0" text="Eamon Mahoney" />
+                  <Label text="Alex Phillipson" />
                   <Button fx:id="backButton" mnemonicParsing="false" text="Back">
                      <font>
                         <Font size="20.0" />
