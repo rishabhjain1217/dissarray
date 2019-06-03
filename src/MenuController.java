@@ -42,6 +42,7 @@ public class MenuController implements Initializable {
     public Stage pStage;
 
     private int clickCount = 0;
+    private boolean on = false;
 
     public MenuController(){
 

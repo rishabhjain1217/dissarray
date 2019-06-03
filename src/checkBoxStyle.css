@@ -7,13 +7,12 @@
     -fx-shape: " ";
     -fx-max-width: 25;
     -fx-max-height: 20;
-   //-fx-border-color: black;
 }
 
 .jfx-check-box {
-    //-jfx-checked-color:white;
+    //-jfx-unchecked-color:white;
 }
 
 .correct{
-    -jfx-checked-color:white;
+   // -jfx-checked-color:white;
 }
