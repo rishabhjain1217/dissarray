@@ -51,7 +51,7 @@ public class OneDimQuestion extends Question {
                 Random r = new Random();
                 int nextQ = r.nextInt(100);
 
-                if(nextQ > 50)
+                if(nextQ > 60-(score*2) || score == 30)
                     generateRangeQuestion();
                 else
                     generateElementQuestion();

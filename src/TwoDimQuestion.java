@@ -38,7 +38,7 @@ public class TwoDimQuestion extends Question {
                     Random r = new Random();
                     int nextQ = r.nextInt(100);
 
-                    if(nextQ > 60-score || score == 60)
+                    if(nextQ > 60-(score*2) || score == 30)
                         generateRangeQuestion();
                     else
                         generateElementQuestion();
@@ -51,7 +51,7 @@ public class TwoDimQuestion extends Question {
                 Random r = new Random();
                 int nextQ = r.nextInt(100);
 
-                if(nextQ > 45+score)
+                if(nextQ > 60-(score*2) || score == 30)
                 generateRangeQuestion();
                 else
                     generateElementQuestion();
