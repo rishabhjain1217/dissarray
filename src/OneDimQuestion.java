@@ -13,6 +13,9 @@ public class OneDimQuestion extends Question {
     private int arrayLength;
     private final int timeForElementQuestion = 10;
     private final int timeForRangeQuestion = 20;
+    private final int MAXELEMENTDETRACTION = 6;
+    private final int MAXRANGEDDETRACTION = 12;
+
     private int timeForQuestion;
     private int forEachWritten = 0;
     private int score;
@@ -61,7 +64,12 @@ public class OneDimQuestion extends Question {
 
     private void generateElementQuestion() //Creates a question for a specific cell
     {
-        this.timeForQuestion = timeForElementQuestion;
+        int scoreInfluence = score/2;
+        if(scoreInfluence <=5)
+        this.timeForQuestion = timeForElementQuestion-(scoreInfluence);
+        else
+            this.timeForQuestion = timeForElementQuestion -MAXELEMENTDETRACTION;
+
         Random rand = new Random();
         int arrayLength = rand.nextInt(8) + 3;
         int correctIndex = rand.nextInt(arrayLength);
@@ -75,8 +83,11 @@ public class OneDimQuestion extends Question {
     {
        // Random r = new Random();
         //boolean isForEach = r.nextBoolean();
-
-        this.timeForQuestion = timeForRangeQuestion;
+        int scoreInfluence = score/5;
+        if(scoreInfluence <= 5)
+            this.timeForQuestion = timeForRangeQuestion - (scoreInfluence*2);
+        else
+            this.timeForQuestion = timeForRangeQuestion - MAXRANGEDDETRACTION;
 
         Random rand = new Random();
         int arrayLength = rand.nextInt(9) + 3;

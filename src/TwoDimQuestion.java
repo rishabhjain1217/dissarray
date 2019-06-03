@@ -7,7 +7,10 @@ public class TwoDimQuestion extends Question {
     private int rows, cols;
 
     private final int TIMEFORELEMENTQUESTION = 15;
-    private int TIMEFORRANGEDQUESTION = 25;
+    private final int TIMEFORRANGEDQUESTION = 25;
+    private final int MAXELEMENTDETRACTION = 10;
+    private final int MAXRANGEDDETRACTION = 12;
+
     private int timeForQuestion;
     private QuestionType difficulty;
     private int score;
@@ -62,7 +65,13 @@ public class TwoDimQuestion extends Question {
     private void generateElementQuestion()
     {
         difficulty = QuestionType.Element;
-        this.timeForQuestion = this.TIMEFORELEMENTQUESTION; //Changes time for question
+        int scoreInfluence = score/2;
+
+        if(scoreInfluence <=9)
+        this.timeForQuestion = this.TIMEFORELEMENTQUESTION-(scoreInfluence);//Changes time for question
+        else{
+            this.timeForQuestion = this.TIMEFORELEMENTQUESTION - MAXELEMENTDETRACTION;
+        }
         Random rand = new Random();
         int rows = rand.nextInt(3) + 3;
         int cols = rand.nextInt(6) + 3;
@@ -83,7 +92,13 @@ public class TwoDimQuestion extends Question {
     private void generateRangeQuestion()
     {
         difficulty = QuestionType.Range;
-        this.timeForQuestion = this.TIMEFORRANGEDQUESTION;
+        int scoreInfluence = score/5;
+
+        if(scoreInfluence <= 5)
+            this.timeForQuestion = this.TIMEFORRANGEDQUESTION-(scoreInfluence*2);
+        else
+            this.timeForQuestion = this .TIMEFORRANGEDQUESTION-MAXRANGEDDETRACTION;
+
         Random rand = new Random();
         int rows = rand.nextInt(3) + 3;
         int cols = rand.nextInt(6) + 3;
