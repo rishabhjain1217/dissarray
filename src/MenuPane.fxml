@@ -49,7 +49,7 @@
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin></Label>
-        <Label prefHeight="87.0" prefWidth="580.0" styleClass="introText" text="Welcome to Diss-Array! The objective of this game is to hone your array evaluation skills. Use the sliders below to indicate your desired attributes of the questions. Enable the &quot;Timer&quot; and/or &quot;Hard Mode&quot; sliders if you want a higher difficulty." textAlignment="CENTER" textFill="#1c1c1c" wrapText="true">
+        <Label prefHeight="87.0" prefWidth="580.0" styleClass="introText" text="Welcome to Diss-Array! The objective of this game is to hone your array evaluation skills. Use the sliders below to indicate your desired attributes of the questions. Enable the &quot;Timer&quot; and/or &quot;Loops&quot; sliders if you want a higher difficulty." textAlignment="CENTER" textFill="#1c1c1c" wrapText="true">
           <VBox.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" />
           </VBox.margin>

@@ -41,6 +41,7 @@
                   <Label layoutX="10.0" layoutY="27.0" text="Bill Williams" />
                   <Label layoutX="10.0" layoutY="69.0" text="Josh Gordon" />
                   <Label layoutX="10.0" layoutY="69.0" text="Eamon Mahoney" />
+                  <Label text="Alex Phillipson" />
                   <Button fx:id="backButton" mnemonicParsing="false" text="Back">
                      <font>
                         <Font size="20.0" />
