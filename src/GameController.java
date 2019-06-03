@@ -167,7 +167,7 @@ public class GameController implements Initializable {
             alert.setTitle("Information Dialog");
             alert.setHeaderText(null);
             alert.setContentText("YOU DONE"+ "     Score: " + score);
-
+//h
             alert.showAndWait();
             restart();*/
             corrected();
