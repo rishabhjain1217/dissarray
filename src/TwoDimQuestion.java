@@ -157,7 +157,7 @@ public class TwoDimQuestion extends Question {
 //comment
         Random r = new Random();
         int f = r.nextInt(100);
-        if (f > 100-score*4 || score == 100) {
+        if((f > (100-(score*4))) || (score == 25)){
             iIncrement = (r.nextInt(2) + 2);
             jIncrement = (r.nextInt(2) + 2);
         }
