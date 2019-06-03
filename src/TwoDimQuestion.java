@@ -7,13 +7,15 @@ public class TwoDimQuestion extends Question {
     private int rows, cols;
 
     private final int TIMEFORELEMENTQUESTION = 15;
-    private final int TIMEFORRANGEDQUESTION = 25;
+    private int TIMEFORRANGEDQUESTION = 25;
     private int timeForQuestion;
     private QuestionType difficulty;
+    private int score;
 
-    public TwoDimQuestion(QuestionType difficulty)
+    public TwoDimQuestion(QuestionType difficulty, int score)
     {
         super();
+        this.score = score;
         this.generateQuestion(difficulty);
     }
 
@@ -30,7 +32,10 @@ public class TwoDimQuestion extends Question {
 
         switch (difficulty) {
             case Element:
-                generateElementQuestion();
+
+                    generateElementQuestion();
+
+
                 break;
             case Range: //Hard mode, which can have either an element question or a range question
                 Random r = new Random();
