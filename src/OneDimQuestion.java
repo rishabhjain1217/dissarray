@@ -15,11 +15,13 @@ public class OneDimQuestion extends Question {
     private final int timeForRangeQuestion = 20;
     private int timeForQuestion;
     private int forEachWritten = 0;
+    private int score;
 
-    public OneDimQuestion(QuestionType difficulty)
+    public OneDimQuestion(QuestionType difficulty,int score)
     {
         super();
-        this.generateQuestion(difficulty);
+        this.score = score;
+        this.generateQuestion(difficulty,score);
     }
 
     public int getTimeForQuestion() {
@@ -27,11 +29,23 @@ public class OneDimQuestion extends Question {
     }
 
     @Override
-    void generateQuestion(QuestionType difficulty) //Selects what type of question is given
+    void generateQuestion(QuestionType difficulty,int score) //Selects what type of question is given
     {
         switch (difficulty) {
             case Element:
-                generateElementQuestion();
+                if(score <= 10)
+                    generateElementQuestion();
+                if(score > 10) {
+                    Random r = new Random();
+                    int nextQ = r.nextInt(100);
+
+                    if (nextQ > 60-score || score == 60)
+                        generateRangeQuestion();
+                    else
+                        generateElementQuestion();
+                    break;
+
+                }
                 break;
             case Range: //Hard mode, which can have either an element question or a range question
                 Random r = new Random();

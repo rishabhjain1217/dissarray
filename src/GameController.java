@@ -202,7 +202,7 @@ public class GameController implements Initializable {
 
     private int renderOneDim()
     {
-        OneDimQuestion q = ((OneDimQuestion) this.generator.generateOneDim(difficulty));
+        OneDimQuestion q = ((OneDimQuestion) this.generator.generateOneDim(difficulty,score));
         this.renderOneDim(q);
         return q.getTimeForQuestion();
     }
@@ -233,7 +233,7 @@ public class GameController implements Initializable {
 
     private int renderTwoDim()
     {
-        TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty));
+        TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty,score));
         /*if(q.getDifficulty().equals(QuestionType.Range)){
             questionLabel.setStyle("-fx-font: 38 Nirmala_UI;" +
                     "-fx-text-fill: black;");
@@ -248,7 +248,7 @@ public class GameController implements Initializable {
 
    private int renderRandom() //Creates random question of the specified difficulty
     {
-        Question q = this.generator.generateRandom(difficulty);
+        Question q = this.generator.generateRandom(difficulty,score);
         if (q instanceof OneDimQuestion) {
             this.renderOneDim(((OneDimQuestion) q));
             return ((OneDimQuestion) q).getTimeForQuestion();
