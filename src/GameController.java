@@ -30,7 +30,7 @@ public class GameController implements Initializable {
     @FXML
     JFXButton nextButton;
     @FXML
-    MenuItem newGameMenuItem;
+    MenuItem newGameMenuItem, muteItem;
     @FXML
     StackPane renderPane;
     @FXML
@@ -43,6 +43,8 @@ public class GameController implements Initializable {
     private QuestionType difficulty; //Element or Range and Element questions given
     private TimerEnum timerStatus; //Is the timer on or off
     private SoundEnum soundStatus; // Is sound on or off
+    private boolean muteText = true; //Unmute is begining statment
+
 
     private boolean ended = false;
 
@@ -89,7 +91,7 @@ public class GameController implements Initializable {
     public void start()
     {
 
-
+        defineBeginingMute();
         timesRun = 0;
         this.generator = new QuestionGenerator();
         this.newQuestion();
@@ -399,6 +401,30 @@ public class GameController implements Initializable {
             System.out.println("Wassup");
         }
 
+    }
+
+    public void mute(){
+        BackgroundMusic.getInstance().mute();
+        if(!muteText){
+            muteItem.setText("Unmute");
+            muteText = true;
+        }
+        else{
+            muteItem.setText("Mute");
+            muteText = false;
+        }
+
+    }
+
+    public void defineBeginingMute(){
+        if(BackgroundMusic.getInstance().isRunning()){
+            muteItem.setText("Mute");
+            muteText = false;
+        }
+        else{
+            muteItem.setText("UnMute");
+            muteText = true;
+        }
     }
 
 

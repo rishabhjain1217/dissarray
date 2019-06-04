@@ -15,7 +15,7 @@
 
 <!--<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">-->
 
-<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@fonts.css" xmlns="http://javafx.com/javafx/8.0.999-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
+<BorderPane id="BorderPane" fx:id="GamePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@fonts.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameController">
   <bottom>
     <HBox alignment="CENTER" prefHeight="66.0" prefWidth="800.0" spacing="50.0" style="-fx-background-color: #591782;">
          <children>
@@ -69,6 +69,7 @@
           <Menu mnemonicParsing="false" text="Options">
             <items>
               <MenuItem fx:id="newGameMenuItem" mnemonicParsing="false" text="Restart" />
+                  <MenuItem fx:id="muteItem" mnemonicParsing="false" text="UnMute" />
             </items>
           </Menu>
         </menus>

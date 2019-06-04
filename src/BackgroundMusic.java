@@ -19,6 +19,10 @@ public class BackgroundMusic {
         return INSTANCE;
     }
 
+    public boolean isRunning(){
+        return isRunning;
+    }
+
     public void play() {
         if(!isRunning) {
             try {
