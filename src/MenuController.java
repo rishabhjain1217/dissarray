@@ -98,7 +98,7 @@ public class MenuController implements Initializable {
         quitButton();
         defineBeginningMute();
     }
-
+//nh
     private void muteItem() {
         muteItem.setOnAction(e -> {
             try{
