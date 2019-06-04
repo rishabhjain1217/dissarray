@@ -8,7 +8,7 @@ public class BackgroundMusic {
     private static boolean mute = true;
     private static Clip clip;
     private static long clipTime = 0;
-    private final String nameOfMusic = "src/resources/sounds/Wii Remix.wav"; //Must add src to the beginning
+    private final String nameOfMusic = "src/resources/sounds/Wii Remix.wav"; //Must add src to the beginning to specify path
 
 
     public static BackgroundMusic getInstance() {
