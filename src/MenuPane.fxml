@@ -113,6 +113,7 @@
         <Menu mnemonicParsing="false" text="Options">
           <items>
             <MenuItem fx:id="instructionsMenuItem" mnemonicParsing="false" text="How to Play" />
+                  <MenuItem fx:id="muteItem" mnemonicParsing="false" text="UnMute" />
           </items>
         </Menu>
       </menus>

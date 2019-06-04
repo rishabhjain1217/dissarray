@@ -31,7 +31,7 @@ public class MenuController implements Initializable {
     Label titleText;
 
     @FXML
-    MenuItem instructionsMenuItem;
+    MenuItem instructionsMenuItem, muteItem;
 
     @FXML
     JFXButton startButton, quitButton;
@@ -44,6 +44,9 @@ public class MenuController implements Initializable {
     private int clickCount = 0;
     private boolean on = false;
 
+    private int count = 0;
+    private boolean on2 = false;
+    private boolean muteText = false;
 
     public MenuController(){
 
@@ -51,37 +54,62 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-    titleText.setOnMouseClicked(event -> {
+        titleText.setOnMouseClicked(event -> {
             ++clickCount;
             if (clickCount == 10) {
-                SoundLoader.getInstance().useAlternate();
-                titleText.setTextFill(Color.web("#673ab7"));
+                if(on == false) {
+                    SoundLoader.getInstance().useAlternate();
+                    titleText.setTextFill(Color.web("#673ab7"));
+                    on = true;
+                }
+                else{
+                    on = false;
+                    SoundLoader.getInstance().useRegular();
+                    titleText.setTextFill(Color.web("#000000"));
+                }
+                clickCount = 0;
             }
         });
+
+        /*soundToggle.setOnMouseClicked(event -> {
+            ++count;
+            if (count == 10) {
+                if(on2 == false) {
+                    SoundLoader.getInstance().useAlternate();
+                    //titleText.setTextFill(Color.web("#673ab7"));
+                    //soundToggle.setToggleColor("#ffffff");
+                    on2 = true;
+                }
+                else{
+                    on2 = false;
+                    SoundLoader.getInstance().useRegular();
+                    //titleText.setTextFill(Color.web("#000000"));
+                }
+                count = 0;
+            }
+        });*/
     }
 
     public void start(){
-        ButtonLoader bl = ButtonLoader.getInstance();
 
-//eat shit and die
-            oneDimToggle.setSelected(bl.getOneDim());
-            twoDimToggle.setSelected(bl.getTwoDim());
-            timerToggle.setSelected(bl.getTimer());
-            hardModeToggle.setSelected(bl.getLoops());
-            soundToggle.setSelected(bl.getSound());
-            arraylistToggle.setSelected(bl.getArrList());
-
-        oneDimToggle.setOnAction(e -> bl.setOneDim(!bl.getOneDim()));
-        twoDimToggle.setOnAction(e -> bl.setTwoDim(!bl.getTwoDim()));
-        timerToggle.setOnAction(e -> bl.setTimer(!bl.getTimer()));
-        hardModeToggle.setOnAction(e -> bl.setLoops(!bl.getLoops()));
-        soundToggle.setOnAction(e -> bl.setSound(!bl.getSound()));
-        arraylistToggle.setOnAction(e -> bl.setArrList(!bl.getArrList()));
+        oneDimToggle.setSelected(true);
+        soundToggle.setSelected(true);
 
         menuItem();
+        muteItem();
         startButton();
         quitButton();
+    }
+
+    private void muteItem() {
+        muteItem.setOnAction(e -> {
+            try{
+                mute();
+            }
+            catch (Exception ex){
+                System.out.println("Mute Broke");
+            }
+        });
     }
 
     private void menuItem() {
@@ -192,5 +220,18 @@ public class MenuController implements Initializable {
         }
         else
             return SoundEnum.Off;
+    }
+
+    public void mute(){
+        BackgroundMusic.getInstance().mute();
+        if(!muteText){
+            muteItem.setText("UnMute");
+            muteText = true;
+        }
+        else{
+            muteItem.setText("Mute");
+            muteText = false;
+        }
+
     }
 }
