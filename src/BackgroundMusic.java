@@ -23,7 +23,7 @@ public class BackgroundMusic {
                 clip.open(AudioSystem.getAudioInputStream(file));
                 clip.start();
                 isRunning = true;
-                clip.loop(1000);
+               // clip.loop(1000);
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }

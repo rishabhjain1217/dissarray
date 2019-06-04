@@ -186,8 +186,8 @@ public class GameController implements Initializable {
             corrected();
 
             if(ended == false) {
-                ended = true;
                 endGame();
+                ended = true;
             }
         }
         int minutes = this.timeRemaining / 60;
@@ -311,8 +311,8 @@ public class GameController implements Initializable {
                 new Thread(fiveSecDelay).start();*/
 
                 if(ended == false) {
-                    ended = true;
                     endGame();
+                    ended = true;
                 }
 
 
@@ -379,9 +379,9 @@ public class GameController implements Initializable {
     }
 
     private void endGame(){
-      /*  if(ended == true){
+        if(ended == true){
             return;
-        }*/
+        }
 
         ArrayPane current = (ArrayPane) this.renderPane.getChildren().get(0);
         current.disableButtons();
