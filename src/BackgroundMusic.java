@@ -28,7 +28,7 @@ public class BackgroundMusic {
     public void play() {
         if(!isRunning) {
             try {
-                File file = new File(nameOfMusic);
+                File file = new File(this.alternateSounds ? nameOfMemeMusic : nameOfMusic);
                 this.clip = AudioSystem.getClip();
                 clip.open(AudioSystem.getAudioInputStream(file));
                 clip.setMicrosecondPosition(clipTime);
