@@ -88,10 +88,12 @@ public class GameController implements Initializable, KeyListener {
     public void initialize(URL location, ResourceBundle resources)
     {
         this.centerVBox.setAlignment(Pos.CENTER);
+
     }
 
     public void start()
     {
+        //addKeyListener
 
         defineBeginingMute();
         timesRun = 0;
@@ -196,14 +198,10 @@ public class GameController implements Initializable, KeyListener {
             return;
         }
         if (this.timeRemaining == 0) {
-            this.timer.cancel();
+          //  this.timer.cancel();
             timeLabel.setText("DONE");
-            corrected();
-
-            if(ended == false) {
-                endGame();
-                ended = true;
-            }
+            nextButton.fire();
+          // this.timer.
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
@@ -310,6 +308,9 @@ public class GameController implements Initializable, KeyListener {
         //if(true); //put check answers here
         nextButton.setOnAction(e -> {
             //System.out.println(check());
+            if(ended == true) {
+                return;
+            }
             if(check()) {
                 score++;
                 scoreLabel.setText("Score: " + score);
@@ -319,7 +320,9 @@ public class GameController implements Initializable, KeyListener {
                     AudioClip note = new AudioClip(this.getClass().getResource(SoundLoader.getInstance().getCorrect()).toString());
                     note.play(); //Plays sound of correctness
                 }
+
                 newQuestion();
+
             }
             else{
                 if(soundStatus.equals(SoundEnum.On)) {
@@ -405,7 +408,7 @@ public class GameController implements Initializable, KeyListener {
                 return null;
             }
         };
-
+        newGameMenuItem.setDisable(false);
         fiveSecDelay.setOnSucceeded(event -> {
             FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
             fadeOutTransition.setFromValue(1.0);
@@ -413,7 +416,7 @@ public class GameController implements Initializable, KeyListener {
             fadeOutTransition.play();
             fadeOutTransition.setOnFinished((ActionEvent actionEvent) -> finish());
         });
-
+        newGameMenuItem.setDisable(true);
         new Thread(fiveSecDelay).start();
     }
 
@@ -472,6 +475,12 @@ public class GameController implements Initializable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println("hello");
+        int keyCode = e.getKeyCode();
+        if (keyCode == KeyEvent.VK_ENTER){
+
+            System.out.println("You pressed the fire button");
+        }
 
     }
 
