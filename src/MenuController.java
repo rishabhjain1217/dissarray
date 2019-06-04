@@ -9,17 +9,14 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Rishabh Jain AKA CodeGod on 05 24, 2019 at 09:26
@@ -99,7 +96,7 @@ public class MenuController implements Initializable {
         muteItem();
         startButton();
         quitButton();
-        defineBeginingMute();
+        defineBeginningMute();
     }
 
     private void muteItem() {
@@ -236,7 +233,7 @@ public class MenuController implements Initializable {
 
     }
 
-    public void defineBeginingMute(){
+    public void defineBeginningMute(){
         if(BackgroundMusic.getInstance().isRunning()){
             muteItem.setText("Mute");
             muteText = false;
