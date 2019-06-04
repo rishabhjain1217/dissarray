@@ -64,7 +64,7 @@ public class MenuController implements Initializable {
     public void start(){
         ButtonLoader bl = ButtonLoader.getInstance();
 
-
+//eat shit and die
             oneDimToggle.setSelected(bl.getOneDim());
             twoDimToggle.setSelected(bl.getTwoDim());
             timerToggle.setSelected(bl.getTimer());
