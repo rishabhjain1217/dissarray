@@ -143,12 +143,20 @@ public class GameController implements Initializable, KeyListener {
                     this.timeRemaining = this.renderRandom();
                     this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
                     break;
-                    /*
+
                 case ArrayList:
-                    this.timeRemaining = this.renderRandom();
+                    this.timeRemaining = this.renderArrayList();
                     this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
                     break;
-                   */
+
+                case TwoList:
+                    this.timeRemaining = this.renderRandom();
+
+                case OneList:
+
+                case Three:
+
+
                 default:
                     this.timeRemaining = (this.renderOneDim());
                     this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
@@ -216,9 +224,7 @@ public class GameController implements Initializable, KeyListener {
         this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
     }
 
-    public void renderArrayList(ArrayListQuestion q){
 
-    }
 
 
     private int renderOneDim()
@@ -265,6 +271,24 @@ public class GameController implements Initializable, KeyListener {
         }*/
         this.renderTwoDim(q);
         return q.getTimeForQuestion();
+    }
+
+    public void renderArrayList(ArrayListQuestion q){
+        double paddingX = (600.0 - q.getArrayLength()*IndexButton.BUTTON_SIZE) / 2;
+        double paddingY = (400.0 - IndexButton.BUTTON_SIZE) / 2;
+        currentQ = q;
+        this.questionLabel.setText(q.question);
+        OneDimPane pane = new OneDimPane(q);
+        currentP = pane;
+        this.renderPane.getChildren().setAll(pane);
+        this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
+    }
+    public int renderArrayList(){
+
+            ArrayListQuestion q = ((ArrayListQuestion) this.generator.generateOneDim(difficulty,score));
+            this.renderArrayList(q);
+            return q.getTimeForQuestion();
+
     }
 
    private int renderRandom() //Creates random question of the specified difficulty
@@ -435,7 +459,7 @@ public class GameController implements Initializable, KeyListener {
             muteText = false;
         }
         else{
-            muteItem.setText("UnMute");
+            muteItem.setText("Unmute");
             muteText = true;
         }
     }
