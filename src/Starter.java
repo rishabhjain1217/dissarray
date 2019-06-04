@@ -62,6 +62,7 @@ public class Starter extends Application {
 
 
         primaryStage.show();
+        BackgroundMusic.getInstance().play();
 
     }
 
