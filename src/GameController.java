@@ -104,7 +104,10 @@ public class GameController implements Initializable {
     private void menuItem() {
         newGameMenuItem.setOnAction(e -> {
                 //RESTART CODE
+            if(ended == false) {
                 ended = true;
+                pStage.close();
+            }
                 restart();
         });
     }
@@ -295,6 +298,18 @@ public class GameController implements Initializable {
 
                 corrected();
 
+                /*Task<Void> fiveSecDelay = new Task<Void>() {
+                    @Override
+                    protected Void call() {
+                        try {
+                            Thread.sleep(5000);
+                        } catch (InterruptedException e) {
+                        }
+                        return null;
+                    }
+                };
+                new Thread(fiveSecDelay).start();*/
+
                 if(ended == false) {
                     ended = true;
                     endGame();
@@ -364,6 +379,9 @@ public class GameController implements Initializable {
     }
 
     private void endGame(){
+        if(ended == true){
+            return;
+        }
 
         ArrayPane current = (ArrayPane) this.renderPane.getChildren().get(0);
         current.disableButtons();
