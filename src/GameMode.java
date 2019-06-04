@@ -3,7 +3,7 @@ public enum GameMode {
     TwoDim,
     Both,
     ArrayList,
-    //Lsit+1D
-    //List+2d
+    TwoList,
+    OneList,
     Three
 }

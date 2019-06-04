@@ -92,16 +92,30 @@ public class MenuController implements Initializable {
 
     public void start(){
 
-        oneDimToggle.setSelected(true);
-        soundToggle.setSelected(true);
+        ButtonLoader bl = ButtonLoader.getInstance();//new instance of Button Loader
+
+        //Sets the toggle buttons to the previously selected states
+        oneDimToggle.setSelected(bl.getOneDim());
+        twoDimToggle.setSelected(bl.getTwoDim());
+        timerToggle.setSelected(bl.getTimer());
+        hardModeToggle.setSelected(bl.getLoops());
+        soundToggle.setSelected(bl.getSound());
+        arraylistToggle.setSelected(bl.getArrList());
+
+        //Changes the ButtonLoader boolean variables when the respective toggle button is clicked
+        oneDimToggle.setOnAction(e -> bl.setOneDim(!bl.getOneDim()));
+        twoDimToggle.setOnAction(e -> bl.setTwoDim(!bl.getTwoDim()));
+        timerToggle.setOnAction(e -> bl.setTimer(!bl.getTimer()));
+        hardModeToggle.setOnAction(e -> bl.setLoops(!bl.getLoops()));
+        soundToggle.setOnAction(e -> bl.setSound(!bl.getSound()));
+        arraylistToggle.setOnAction(e -> bl.setArrList(!bl.getArrList()));
 
         menuItem();
         muteItem();
         startButton();
         quitButton();
-        defineBeginingMute();
     }
-
+//nh
     private void muteItem() {
         muteItem.setOnAction(e -> {
             try{
@@ -152,7 +166,7 @@ public class MenuController implements Initializable {
 
                     Scene scene = new Scene(gamePane, 1050, 750);
                     scene.getStylesheets().add("checkBoxStyle.css");
-                    pStage.setTitle("Diss-Array V1.1");
+                    pStage.setTitle("Diss-Array v1.1");
 
 
                     pStage.setScene(scene);
@@ -176,6 +190,10 @@ public class MenuController implements Initializable {
     public GameMode findGamemode(){
         if (!oneDimToggle.isSelected() && !twoDimToggle.isSelected() && arraylistToggle.isSelected())
             return GameMode.ArrayList;
+        if (!oneDimToggle.isSelected() && twoDimToggle.isSelected() && arraylistToggle.isSelected())
+            return GameMode.TwoList;
+        if (oneDimToggle.isSelected() && !twoDimToggle.isSelected() && arraylistToggle.isSelected())
+            return GameMode.OneList;
         if (oneDimToggle.isSelected() && twoDimToggle.isSelected() && arraylistToggle.isSelected())
             return GameMode.Three;
         if (oneDimToggle.isSelected() && twoDimToggle.isSelected() && !arraylistToggle.isSelected()){
@@ -234,16 +252,5 @@ public class MenuController implements Initializable {
             muteText = false;
         }
 
-    }
-
-    public void defineBeginingMute(){
-        if(BackgroundMusic.getInstance().isRunning()){
-            muteItem.setText("Mute");
-            muteText = false;
-        }
-        else{
-            muteItem.setText("Unmute");
-            muteText = true;
-        }
     }
 }

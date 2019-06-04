@@ -20,10 +20,12 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.*;
 
-public class GameController implements Initializable {
+public class GameController implements Initializable, KeyListener {
 
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
@@ -86,10 +88,12 @@ public class GameController implements Initializable {
     public void initialize(URL location, ResourceBundle resources)
     {
         this.centerVBox.setAlignment(Pos.CENTER);
+
     }
 
     public void start()
     {
+        //addKeyListener
 
         defineBeginingMute();
         timesRun = 0;
@@ -97,10 +101,21 @@ public class GameController implements Initializable {
         this.newQuestion();
         nextQuestion();
         score = 0;
-
+        muteItem();
         menuItem();
 
         //scoreLabel.textProperty().bind(new SimpleIntegerProperty(score).asString());
+    }
+
+    private void muteItem() {
+        muteItem.setOnAction(e -> {
+            try{
+                mute();
+            }
+            catch (Exception ex){
+                System.out.println("Mute Broke");
+            }
+        });
     }
 
     private void menuItem() {
@@ -112,7 +127,7 @@ public class GameController implements Initializable {
             }
                 restart();
         });
-    }
+    }//ninja
 
     private void newQuestion()
     {
@@ -368,7 +383,7 @@ public class GameController implements Initializable {
                 return null;
             }
         };
-
+        newGameMenuItem.setDisable(false);
         fiveSecDelay.setOnSucceeded(event -> {
             FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
             fadeOutTransition.setFromValue(1.0);
@@ -376,7 +391,7 @@ public class GameController implements Initializable {
             fadeOutTransition.play();
             fadeOutTransition.setOnFinished((ActionEvent actionEvent) -> finish());
         });
-
+        newGameMenuItem.setDisable(true);
         new Thread(fiveSecDelay).start();
     }
 
@@ -422,10 +437,30 @@ public class GameController implements Initializable {
             muteText = false;
         }
         else{
-            muteItem.setText("UnMute");
+            muteItem.setText("Unmute");
             muteText = true;
         }
     }
 
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println("hello");
+        int keyCode = e.getKeyCode();
+        if (keyCode == KeyEvent.VK_ENTER){
+
+            System.out.println("You pressed the fire button");
+        }
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
