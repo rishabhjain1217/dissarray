@@ -163,7 +163,6 @@ public class GameController implements Initializable {
         }
         ++timesRun;
 
-        //nextQuestion();
     }
 
     private void decreaseTime()
@@ -176,13 +175,6 @@ public class GameController implements Initializable {
         if (this.timeRemaining == 0) {
             this.timer.cancel();
             timeLabel.setText("DONE");
-           /* Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Information Dialog");
-            alert.setHeaderText(null);
-            alert.setContentText("YOU DONE"+ "     Score: " + score);
-//h
-            alert.showAndWait();
-            restart();*/
             corrected();
 
             if(ended == false) {
@@ -297,19 +289,6 @@ public class GameController implements Initializable {
                 }
 
                 corrected();
-
-                /*Task<Void> fiveSecDelay = new Task<Void>() {
-                    @Override
-                    protected Void call() {
-                        try {
-                            Thread.sleep(5000);
-                        } catch (InterruptedException e) {
-                        }
-                        return null;
-                    }
-                };
-                new Thread(fiveSecDelay).start();*/
-
                 if(ended == false) {
                     endGame();
                     ended = true;
@@ -338,11 +317,6 @@ public class GameController implements Initializable {
                 }
             }
         }
-        /*try {
-            Thread.sleep(5000);
-        } catch (InterruptedException ex) {
-            ex.printStackTrace();
-        }*/
     }
 
     private boolean check() {//Checks if answer is correct
@@ -351,13 +325,9 @@ public class GameController implements Initializable {
         for (Node node: currentP.getChildren()){
             if(((IndexButton)(node)).getButton().isSelected()){
                 selected.add(((IndexButton)(node)).getIndex());
-                //System.out.println(((IndexButton)(node)).getIndex());
             }
         }
-        //System.out.println(selected.size());
-        //System.out.println(currentQ.checkAnswer(selected));
         return currentQ.checkAnswer(selected);
-        //return true;
     }
 
     public void restart(){
