@@ -53,8 +53,17 @@ public class MenuController implements Initializable {
         titleText.setOnMouseClicked(event -> {
             ++clickCount;
             if (clickCount == 10) {
-                SoundLoader.getInstance().useAlternate();
-                titleText.setTextFill(Color.web("#673ab7"));
+                if(on == false) {
+                    SoundLoader.getInstance().useAlternate();
+                    titleText.setTextFill(Color.web("#673ab7"));
+                    on = true;
+                }
+                else{
+                    on = false;
+                    SoundLoader.getInstance().useRegular();
+                    titleText.setTextFill(Color.web("#000000"));
+                }
+                clickCount = 0;
             }
         });
     }
