@@ -9,17 +9,14 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Rishabh Jain AKA CodeGod on 05 24, 2019 at 09:26
@@ -92,21 +89,6 @@ public class MenuController implements Initializable {
 
     public void start(){
 
-        ButtonLoader bl = ButtonLoader.getInstance();
-
-        oneDimToggle.setSelected(bl.getOneDim());
-        twoDimToggle.setSelected(bl.getTwoDim());
-        timerToggle.setSelected(bl.getTimer());
-        hardModeToggle.setSelected(bl.getLoops());
-        soundToggle.setSelected(bl.getSound());
-        arraylistToggle.setSelected(bl.getArrList());
-        oneDimToggle.setOnAction(e -> bl.setOneDim(!bl.getOneDim()));
-        twoDimToggle.setOnAction(e -> bl.setTwoDim(!bl.getTwoDim()));
-        timerToggle.setOnAction(e -> bl.setTimer(!bl.getTimer()));
-        hardModeToggle.setOnAction(e -> bl.setLoops(!bl.getLoops()));
-        soundToggle.setOnAction(e -> bl.setSound(!bl.getSound()));
-        arraylistToggle.setOnAction(e -> bl.setArrList(!bl.getArrList()));
-
         oneDimToggle.setSelected(true);
         soundToggle.setSelected(true);
 
@@ -114,6 +96,7 @@ public class MenuController implements Initializable {
         muteItem();
         startButton();
         quitButton();
+        defineBeginningMute();
     }
 
     private void muteItem() {
@@ -240,13 +223,24 @@ public class MenuController implements Initializable {
     public void mute(){
         BackgroundMusic.getInstance().mute();
         if(!muteText){
-            muteItem.setText("Mute");
+            muteItem.setText("Unmute");
             muteText = true;
         }
         else{
-            muteItem.setText("Unmute");
+            muteItem.setText("Mute");
             muteText = false;
         }
 
+    }
+
+    public void defineBeginningMute(){
+        if(BackgroundMusic.getInstance().isRunning()){
+            muteItem.setText("Mute");
+            muteText = false;
+        }
+        else{
+            muteItem.setText("Unmute");
+            muteText = true;
+        }
     }
 }
