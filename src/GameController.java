@@ -20,10 +20,12 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.*;
 
-public class GameController implements Initializable {
+public class GameController implements Initializable, KeyListener {
 
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
@@ -123,7 +125,7 @@ public class GameController implements Initializable {
             }
                 restart();
         });
-    }
+    }//ninja
 
     private void newQuestion()
     {
@@ -439,4 +441,18 @@ public class GameController implements Initializable {
     }
 
 
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
+    }
 }
