@@ -9,7 +9,9 @@ public class BackgroundMusic {
     private static Clip clip;
     private static long clipTime = 0;
     private final String nameOfMusic = "src/resources/sounds/Wii Remix.wav"; //Must add src to the beginning to specify path
+    private final String nameOfMemeMusic = "src/resources/sounds/Wii Remix BOOSTED.wav";
 
+    private boolean alternateSounds = false;
 
     public static BackgroundMusic getInstance() {
         if(INSTANCE == null) {
@@ -17,6 +19,10 @@ public class BackgroundMusic {
         }
 
         return INSTANCE;
+    }
+
+    public boolean isRunning(){
+        return isRunning;
     }
 
     public void play() {
@@ -50,6 +56,13 @@ public class BackgroundMusic {
             play();
         }
     }
+
+    public void useAlternate()
+    {
+        this.alternateSounds = true;
+    }
+
+    public void useRegular() { this.alternateSounds = false;}
 
     private BackgroundMusic() {
     }
