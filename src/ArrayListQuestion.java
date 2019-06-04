@@ -17,9 +17,7 @@ public class ArrayListQuestion extends OneDimQuestion {
     /*
     @Override
     void generateQuestion(QuestionType difficulty, int score) {
-
+    super.generateQuestion(difficulty, score);
     }
      */
-
-
 }

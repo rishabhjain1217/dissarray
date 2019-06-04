@@ -190,9 +190,10 @@ public class GameController implements Initializable, KeyListener {
             return;
         }
         if (this.timeRemaining == 0) {
-            this.timer.cancel();
+          //  this.timer.cancel();
             timeLabel.setText("DONE");
            nextButton.fire();
+          // this.timer.
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
