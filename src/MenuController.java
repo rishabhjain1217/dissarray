@@ -99,6 +99,7 @@ public class MenuController implements Initializable {
         muteItem();
         startButton();
         quitButton();
+        defineBeginingMute();
     }
 
     private void muteItem() {
@@ -233,5 +234,16 @@ public class MenuController implements Initializable {
             muteText = false;
         }
 
+    }
+
+    public void defineBeginingMute(){
+        if(BackgroundMusic.getInstance().isRunning()){
+            muteItem.setText("Mute");
+            muteText = false;
+        }
+        else{
+            muteItem.setText("UnMute");
+            muteText = true;
+        }
     }
 }
