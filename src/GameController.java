@@ -387,7 +387,7 @@ public class GameController implements Initializable {
             endGameController.score = score;
             endGameController.start();
             Scene scene = new Scene(gamePane, 600, 400);
-            pStage.setTitle("Diss-Array V1.0");
+            pStage.setTitle("Diss-Array v1.0");
             pStage.setScene(scene);
 
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
