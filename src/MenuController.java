@@ -92,8 +92,6 @@ public class MenuController implements Initializable {
 
     public void start(){
 
-        oneDimToggle.setSelected(true);
-        soundToggle.setSelected(true);
 
         menuItem();
         muteItem();
@@ -177,6 +175,10 @@ public class MenuController implements Initializable {
             return GameMode.ArrayList;
         if (oneDimToggle.isSelected() && twoDimToggle.isSelected() && arraylistToggle.isSelected())
             return GameMode.Three;
+        if (!oneDimToggle.isSelected() && twoDimToggle.isSelected() && arraylistToggle.isSelected())
+            return GameMode.TwoList;
+        if (oneDimToggle.isSelected() && twoDimToggle.isSelected() && arraylistToggle.isSelected())
+            return GameMode.OneList;
         if (oneDimToggle.isSelected() && twoDimToggle.isSelected() && !arraylistToggle.isSelected()){
             return GameMode.Both;
         }
