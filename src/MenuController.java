@@ -64,13 +64,12 @@ public class MenuController implements Initializable {
     public void start(){
         ButtonLoader bl = ButtonLoader.getInstance();
 
-//eat shit and die
-            oneDimToggle.setSelected(bl.getOneDim());
-            twoDimToggle.setSelected(bl.getTwoDim());
-            timerToggle.setSelected(bl.getTimer());
-            hardModeToggle.setSelected(bl.getLoops());
-            soundToggle.setSelected(bl.getSound());
-            arraylistToggle.setSelected(bl.getArrList());
+        oneDimToggle.setSelected(bl.getOneDim());
+        twoDimToggle.setSelected(bl.getTwoDim());
+        timerToggle.setSelected(bl.getTimer());
+        hardModeToggle.setSelected(bl.getLoops());
+        soundToggle.setSelected(bl.getSound());
+        arraylistToggle.setSelected(bl.getArrList());
 
         oneDimToggle.setOnAction(e -> bl.setOneDim(!bl.getOneDim()));
         twoDimToggle.setOnAction(e -> bl.setTwoDim(!bl.getTwoDim()));
@@ -94,7 +93,7 @@ public class MenuController implements Initializable {
                 instructionsController.start();
 
                 Scene scene = new Scene(instructionsPane, 600, 400);
-                pStage.setTitle("Diss-Array V1.0");
+                pStage.setTitle("Diss-Array v1.0");
 
 
                 pStage.setScene(scene);
@@ -123,7 +122,7 @@ public class MenuController implements Initializable {
 
                     Scene scene = new Scene(gamePane, 1050, 750);
                     scene.getStylesheets().add("checkBoxStyle.css");
-                    pStage.setTitle("Diss-Array V1.1");
+                    pStage.setTitle("Diss-Array v1.0");
 
 
                     pStage.setScene(scene);
