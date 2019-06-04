@@ -88,10 +88,12 @@ public class GameController implements Initializable, KeyListener {
     public void initialize(URL location, ResourceBundle resources)
     {
         this.centerVBox.setAlignment(Pos.CENTER);
+
     }
 
     public void start()
     {
+        //addKeyListener
 
         defineBeginingMute();
         timesRun = 0;
@@ -448,6 +450,12 @@ public class GameController implements Initializable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+        System.out.println("hello");
+        int keyCode = e.getKeyCode();
+        if (keyCode == KeyEvent.VK_ENTER){
+
+            System.out.println("You pressed the fire button");
+        }
 
     }
 
