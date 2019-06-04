@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class ArrayListQuestion extends  Question {
+public class ArrayListQuestion extends OneDimQuestion {
 
     private int listLength;
     private final int timeForElementQuestion = 10;
@@ -10,22 +10,16 @@ public class ArrayListQuestion extends  Question {
     private int score;
 
 
-    public ArrayListQuestion(QuestionType difficulty, int score){
-        super();
-        this.score = score;
-        this.generateQuestion(difficulty,score);
+    public ArrayListQuestion(QuestionType q, int score){
+        super(q,score);
     }
 
+    /*
     @Override
     void generateQuestion(QuestionType difficulty, int score) {
 
     }
-
-    @Override
-    boolean checkAnswer(ArrayList<Index> index){
-
-        return false;
-    }
+     */
 
 
 }
