@@ -97,10 +97,21 @@ public class GameController implements Initializable {
         this.newQuestion();
         nextQuestion();
         score = 0;
-
+        muteItem();
         menuItem();
 
         //scoreLabel.textProperty().bind(new SimpleIntegerProperty(score).asString());
+    }
+
+    private void muteItem() {
+        muteItem.setOnAction(e -> {
+            try{
+                mute();
+            }
+            catch (Exception ex){
+                System.out.println("Mute Broke");
+            }
+        });
     }
 
     private void menuItem() {
