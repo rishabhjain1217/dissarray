@@ -192,7 +192,7 @@ public class GameController implements Initializable, KeyListener {
         if (this.timeRemaining == 0) {
           //  this.timer.cancel();
             timeLabel.setText("DONE");
-           nextButton.fire();
+            nextButton.fire();
           // this.timer.
         }
         int minutes = this.timeRemaining / 60;
@@ -284,6 +284,9 @@ public class GameController implements Initializable, KeyListener {
         //if(true); //put check answers here
         nextButton.setOnAction(e -> {
             //System.out.println(check());
+            if(ended == true) {
+                return;
+            }
             if(check()) {
                 score++;
                 scoreLabel.setText("Score: " + score);
@@ -293,7 +296,9 @@ public class GameController implements Initializable, KeyListener {
                     AudioClip note = new AudioClip(this.getClass().getResource(SoundLoader.getInstance().getCorrect()).toString());
                     note.play(); //Plays sound of correctness
                 }
+
                 newQuestion();
+
             }
             else{
                 if(soundStatus.equals(SoundEnum.On)) {
