@@ -170,7 +170,7 @@ public class GameController implements Initializable {
     {
         --this.timeRemaining;
         if (this.timeRemaining < 0) {
-            timeLabel.setText("YOU BIG DONE");
+            timeLabel.setText("YOU DONE");
             return;
         }
         if (this.timeRemaining == 0) {
@@ -379,9 +379,9 @@ public class GameController implements Initializable {
     }
 
     private void endGame(){
-        if(ended == true){
+      /*  if(ended == true){
             return;
-        }
+        }*/
 
         ArrayPane current = (ArrayPane) this.renderPane.getChildren().get(0);
         current.disableButtons();

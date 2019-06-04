@@ -21,6 +21,8 @@ public class SoundLoader {
         this.alternateSounds = true;
     }
 
+    public void useRegular() { this.alternateSounds = false;}
+
     public String getCorrect()
     {
         return this.alternateSounds ? SoundLoader.correct2 : SoundLoader.correct1;
