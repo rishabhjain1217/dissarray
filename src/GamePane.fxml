@@ -69,7 +69,7 @@
           <Menu mnemonicParsing="false" text="Options">
             <items>
               <MenuItem fx:id="newGameMenuItem" mnemonicParsing="false" text="Restart" />
-                  <MenuItem fx:id="muteItem" mnemonicParsing="false" text="UnMute" />
+                  <MenuItem fx:id="muteItem" mnemonicParsing="false" text="Unmute" />
             </items>
           </Menu>
         </menus>
