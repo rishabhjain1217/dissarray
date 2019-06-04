@@ -19,6 +19,7 @@ public class OneDimQuestion extends Question {
     private int timeForQuestion;
     private int forEachWritten = 0;
     private int score;
+    //private boolean isArrayList;
 
     public OneDimQuestion(QuestionType difficulty,int score)
     {

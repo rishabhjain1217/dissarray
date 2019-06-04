@@ -14,6 +14,7 @@ public class TwoDimQuestion extends Question {
     private int timeForQuestion;
     private QuestionType difficulty;
     private int score;
+    //private boolean isArrayList;
 
     public TwoDimQuestion(QuestionType difficulty, int score)
     {

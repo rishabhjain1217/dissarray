@@ -44,13 +44,15 @@ public class MenuController implements Initializable {
     private int clickCount = 0;
     private boolean on = false;
 
+
     public MenuController(){
 
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        titleText.setOnMouseClicked(event -> {
+
+    titleText.setOnMouseClicked(event -> {
             ++clickCount;
             if (clickCount == 10) {
                 SoundLoader.getInstance().useAlternate();
@@ -60,9 +62,22 @@ public class MenuController implements Initializable {
     }
 
     public void start(){
+        ButtonLoader bl = ButtonLoader.getInstance();
 
-        oneDimToggle.setSelected(true);
-        soundToggle.setSelected(true);
+
+            oneDimToggle.setSelected(bl.getOneDim());
+            twoDimToggle.setSelected(bl.getTwoDim());
+            timerToggle.setSelected(bl.getTimer());
+            hardModeToggle.setSelected(bl.getLoops());
+            soundToggle.setSelected(bl.getSound());
+            arraylistToggle.setSelected(bl.getArrList());
+
+        oneDimToggle.setOnAction(e -> bl.setOneDim(!bl.getOneDim()));
+        twoDimToggle.setOnAction(e -> bl.setTwoDim(!bl.getTwoDim()));
+        timerToggle.setOnAction(e -> bl.setTimer(!bl.getTimer()));
+        hardModeToggle.setOnAction(e -> bl.setLoops(!bl.getLoops()));
+        soundToggle.setOnAction(e -> bl.setSound(!bl.getSound()));
+        arraylistToggle.setOnAction(e -> bl.setArrList(!bl.getArrList()));
 
         menuItem();
         startButton();
