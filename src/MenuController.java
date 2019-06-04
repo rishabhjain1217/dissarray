@@ -242,7 +242,7 @@ public class MenuController implements Initializable {
             muteText = false;
         }
         else{
-            muteItem.setText("UnMute");
+            muteItem.setText("Unmute");
             muteText = true;
         }
     }
