@@ -8,6 +8,7 @@ public class BackgroundMusic {
     private static boolean mute = true;
     private static Clip clip;
     private static long clipTime = 0;
+    private final String nameOfMusic = "src/resources/sounds/Wii Remix.wav"; //Must add src to the beginning to specify path
 
 
     public static BackgroundMusic getInstance() {
@@ -21,7 +22,7 @@ public class BackgroundMusic {
     public void play() {
         if(!isRunning) {
             try {
-                File file = new File("src/resources/sounds/OldTownRoad.wav");
+                File file = new File(nameOfMusic);
                 this.clip = AudioSystem.getClip();
                 clip.open(AudioSystem.getAudioInputStream(file));
                 clip.setMicrosecondPosition(clipTime);
