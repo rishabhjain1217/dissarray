@@ -379,9 +379,9 @@ public class GameController implements Initializable {
     }
 
     private void endGame(){
-        if(ended == true){
+      /*  if(ended == true){
             return;
-        }
+        }*/
 
         ArrayPane current = (ArrayPane) this.renderPane.getChildren().get(0);
         current.disableButtons();

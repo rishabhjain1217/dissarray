@@ -44,6 +44,9 @@ public class MenuController implements Initializable {
     private int clickCount = 0;
     private boolean on = false;
 
+    private int count = 0;
+    private boolean on2 = false;
+
     public MenuController(){
 
     }
@@ -64,6 +67,24 @@ public class MenuController implements Initializable {
                     titleText.setTextFill(Color.web("#000000"));
                 }
                 clickCount = 0;
+            }
+        });
+
+        soundToggle.setOnMouseClicked(event -> {
+            ++count;
+            if (count == 10) {
+                if(on2 == false) {
+                    SoundLoader.getInstance().useAlternate();
+                    //titleText.setTextFill(Color.web("#673ab7"));
+                    //soundToggle.setToggleColor("#ffffff");
+                    on2 = true;
+                }
+                else{
+                    on2 = false;
+                    SoundLoader.getInstance().useRegular();
+                    //titleText.setTextFill(Color.web("#000000"));
+                }
+                count = 0;
             }
         });
     }
