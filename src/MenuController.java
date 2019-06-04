@@ -46,7 +46,7 @@ public class MenuController implements Initializable {
 
     private int count = 0;
     private boolean on2 = false;
-    private boolean muteText = false;
+    private boolean muteText = true;
 
     public MenuController(){
 
