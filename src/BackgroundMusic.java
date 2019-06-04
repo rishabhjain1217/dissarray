@@ -35,7 +35,7 @@ public class BackgroundMusic {
         else{
             System.out.println("Hello");
         }
-    }
+    }//hi
 
     public void mute(){
         if(!mute){
