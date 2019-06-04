@@ -92,6 +92,21 @@ public class MenuController implements Initializable {
 
     public void start(){
 
+        ButtonLoader bl = ButtonLoader.getInstance();
+
+        oneDimToggle.setSelected(bl.getOneDim());
+        twoDimToggle.setSelected(bl.getTwoDim());
+        timerToggle.setSelected(bl.getTimer());
+        hardModeToggle.setSelected(bl.getLoops());
+        soundToggle.setSelected(bl.getSound());
+        arraylistToggle.setSelected(bl.getArrList());
+        oneDimToggle.setOnAction(e -> bl.setOneDim(!bl.getOneDim()));
+        twoDimToggle.setOnAction(e -> bl.setTwoDim(!bl.getTwoDim()));
+        timerToggle.setOnAction(e -> bl.setTimer(!bl.getTimer()));
+        hardModeToggle.setOnAction(e -> bl.setLoops(!bl.getLoops()));
+        soundToggle.setOnAction(e -> bl.setSound(!bl.getSound()));
+        arraylistToggle.setOnAction(e -> bl.setArrList(!bl.getArrList()));
+
         oneDimToggle.setSelected(true);
         soundToggle.setSelected(true);
 
@@ -225,11 +240,11 @@ public class MenuController implements Initializable {
     public void mute(){
         BackgroundMusic.getInstance().mute();
         if(!muteText){
-            muteItem.setText("UnMute");
+            muteItem.setText("Mute");
             muteText = true;
         }
         else{
-            muteItem.setText("Mute");
+            muteItem.setText("Unmute");
             muteText = false;
         }
 
