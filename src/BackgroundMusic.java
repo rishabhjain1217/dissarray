@@ -4,6 +4,7 @@ import java.io.File;
 
 public class BackgroundMusic {
     private static BackgroundMusic INSTANCE = new BackgroundMusic();
+    private static boolean isRunning = false;
 
 
     public static BackgroundMusic getInstance() {
@@ -15,13 +16,20 @@ public class BackgroundMusic {
     }
 
     public void play() {
-        try {
-            File file = new File("src/resources/sounds/OldTownRoad.wav");
-            Clip clip = AudioSystem.getClip();
-            clip.open(AudioSystem.getAudioInputStream(file));
-            clip.start();
-        } catch (Exception e) {
-            System.err.println(e.getMessage());
+        if(!isRunning) {
+            try {
+                File file = new File("src/resources/sounds/correct.wav");
+                Clip clip = AudioSystem.getClip();
+                clip.open(AudioSystem.getAudioInputStream(file));
+                clip.start();
+                isRunning = true;
+                clip.loop(1000);
+            } catch (Exception e) {
+                System.err.println(e.getMessage());
+            }
+        }
+        else{
+            System.out.println("Hello");
         }
     }
 

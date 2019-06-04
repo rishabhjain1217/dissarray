@@ -70,7 +70,7 @@ public class MenuController implements Initializable {
             }
         });
 
-        soundToggle.setOnMouseClicked(event -> {
+        /*soundToggle.setOnMouseClicked(event -> {
             ++count;
             if (count == 10) {
                 if(on2 == false) {
@@ -86,7 +86,7 @@ public class MenuController implements Initializable {
                 }
                 count = 0;
             }
-        });
+        });*/
     }
 
     public void start(){
