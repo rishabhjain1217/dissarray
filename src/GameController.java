@@ -456,11 +456,7 @@ public class GameController implements Initializable, KeyListener {
         }
         else{
             muteItem.setText("Mute");
-            try {
-                PausablePlayer.getInstance().play();
-            } catch (JavaLayerException e) {
-                e.printStackTrace();
-            }
+            PausablePlayer.getInstance().resume();
             muteText = false;
         }
 
