@@ -258,7 +258,6 @@ public class MenuController implements Initializable {
 
 
     public void defineBeginingMute(){
-        //1f(PausablePlayer.getInstance().playerStatus == 1){
         if(BackgroundMusic.getInstance().isRunning()){
             muteItem.setText("Mute");
             muteText = false;

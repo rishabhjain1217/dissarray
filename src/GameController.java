@@ -200,14 +200,15 @@ public class GameController implements Initializable, KeyListener {
             return;
         }
         if (this.timeRemaining == 0) {
-            this.timer.cancel();
+            //this.timer.cancel();
             timeLabel.setText("DONE");
-            corrected();
+            //corrected();
 
-            if(ended == false) {
-                endGame();
-                ended = true;
-            }
+            //if(ended == false) {
+             //   endGame();
+             //   ended = true;
+           // }
+            nextButton.fire();
         }
         int minutes = this.timeRemaining / 60;
         int seconds = this.timeRemaining % 60;
@@ -461,12 +462,10 @@ public class GameController implements Initializable, KeyListener {
         BackgroundMusic.getInstance().mute();
         if(!muteText){
             muteItem.setText("Unmute");
-            //PausablePlayer.getInstance().pause();
             muteText = true;
         }
         else{
             muteItem.setText("Mute");
-            //PausablePlayer.getInstance().resume();
             muteText = false;
         }
     }
@@ -481,17 +480,6 @@ public class GameController implements Initializable, KeyListener {
             muteText = true;
         }
     }
-
-   /* public void defineBeginingMute(){
-        if(PausablePlayer.getInstance().playerStatus == 1){
-            muteItem.setText("Mute");
-            muteText = false;
-        }
-        else{
-            muteItem.setText("Unmute");
-            muteText = true;
-        }
-    }*/
 
 
     @Override
