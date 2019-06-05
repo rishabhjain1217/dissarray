@@ -448,12 +448,12 @@ public class GameController implements Initializable, KeyListener {
         BackgroundMusic.getInstance().mute();
         if(!muteText){
             muteItem.setText("Unmute");
-            PausablePlayer.getInstance().pause();
+            //PausablePlayer.getInstance().pause();
             muteText = true;
         }
         else{
             muteItem.setText("Mute");
-            PausablePlayer.getInstance().resume();
+            //PausablePlayer.getInstance().resume();
             muteText = false;
         }
     }
