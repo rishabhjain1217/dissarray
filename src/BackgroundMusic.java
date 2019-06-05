@@ -42,7 +42,11 @@ public class BackgroundMusic {
             try {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 File file = new File(nameOfMusic);//this.alternateSounds ? nameOfMemeMusic : nameOfMusic);
+=======
+                File file = new File(nameOfMusic);
+>>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
 =======
                 File file = new File(nameOfMusic);
 >>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'

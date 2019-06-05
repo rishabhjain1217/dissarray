@@ -248,6 +248,7 @@ public class MenuController implements Initializable {
         if(!muteText){
             muteItem.setText("Mute");
 <<<<<<< HEAD
+<<<<<<< HEAD
             muteText = true;
         }
         else{
@@ -270,6 +271,12 @@ public class MenuController implements Initializable {
             } catch (JavaLayerException e) {
                 e.printStackTrace();
             }
+=======
+            muteText = true;
+        }
+        else{
+            muteItem.setText("Unmute");
+>>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
 =======
             muteText = true;
         }
