@@ -24,7 +24,7 @@ public class ArrayListQuestion extends  Question {
         this.score = score;
         this.generateQuestion(difficulty,score);
     }
-
+//broke
     @Override
     void generateQuestion(QuestionType difficulty,int score) //Selects what type of question is given
     {
