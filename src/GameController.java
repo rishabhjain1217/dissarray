@@ -94,6 +94,7 @@ public class GameController implements Initializable, KeyListener {
         this.centerVBox.setAlignment(Pos.CENTER);
     }
 
+
     public void start()
     {
 
@@ -443,7 +444,7 @@ public class GameController implements Initializable, KeyListener {
             endGameController.score = score;
             endGameController.start();
             Scene scene = new Scene(gamePane, 600, 400);
-            pStage.setTitle("Diss-Array v1.0");
+            pStage.setTitle("Diss-Array v1.0 by csGames");
             pStage.setScene(scene);
 
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
