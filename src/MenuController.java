@@ -246,11 +246,11 @@ public class MenuController implements Initializable {
     public void mute(){
         BackgroundMusic.getInstance().mute();
         if(!muteText){
-            muteItem.setText("Unmute");
+            muteItem.setText("Mute");
             muteText = true;
         }
         else{
-            muteItem.setText("Mute");
+            muteItem.setText("Unmute");
             muteText = false;
         }
 
