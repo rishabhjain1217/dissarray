@@ -423,7 +423,7 @@ public class GameController implements Initializable, KeyListener {
                 return null;
             }
         };
-
+        newGameMenuItem.setDisable(false);
         fiveSecDelay.setOnSucceeded(event -> {
             FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
             fadeOutTransition.setFromValue(1.0);
@@ -431,6 +431,7 @@ public class GameController implements Initializable, KeyListener {
             fadeOutTransition.play();
             fadeOutTransition.setOnFinished((ActionEvent actionEvent) -> finish());
         });
+        newGameMenuItem.setDisable(true);
 
         new Thread(fiveSecDelay).start();
     }
