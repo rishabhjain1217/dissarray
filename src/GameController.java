@@ -131,7 +131,7 @@ public class GameController implements Initializable, KeyListener {
             }
                 restart();
         });
-    }//ninja
+    }//ninja "we be flossin"
 
     private void newQuestion()
     {
@@ -496,7 +496,7 @@ public class GameController implements Initializable, KeyListener {
         int keyCode = e.getKeyCode();
         if (keyCode == KeyEvent.VK_ENTER){
 
-            System.out.println("You pressed the fire button");
+            System.out.println("You pressed the fire button"); //Happy Birthday Bill!
         }
 
     }

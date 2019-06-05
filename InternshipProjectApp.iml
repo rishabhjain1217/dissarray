@@ -10,5 +10,6 @@
     <orderEntry type="library" name="jfoenix-8.0.8" level="project" />
     <orderEntry type="library" name="mp3plugin" level="application" />
     <orderEntry type="library" name="jl1.0.1" level="application" />
+    <orderEntry type="library" name="JLayer1.0" level="project" />
   </component>
 </module>
