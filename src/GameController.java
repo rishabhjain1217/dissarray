@@ -19,7 +19,7 @@ import javafx.scene.media.AudioClip;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javazoom.jl.decoder.JavaLayerException;
+//import javazoom.jl.decoder.JavaLayerException;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -501,24 +501,13 @@ public class GameController implements Initializable, KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         System.out.println("hello");
         int keyCode = e.getKeyCode();
         if (keyCode == KeyEvent.VK_ENTER){
 
             System.out.println("You pressed the fire button"); //Happy Birthday Bill!
         }
-=======
->>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
-=======
->>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
-=======
->>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
-=======
->>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
 
     }
 

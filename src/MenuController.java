@@ -16,7 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javazoom.jl.decoder.JavaLayerException;
+//import javazoom.jl.decoder.JavaLayerException;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -247,9 +247,6 @@ public class MenuController implements Initializable {
         BackgroundMusic.getInstance().mute();
         if(!muteText){
             muteItem.setText("Mute");
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
             muteText = true;
         }
         else{
@@ -259,41 +256,6 @@ public class MenuController implements Initializable {
 
     }
 
-    /*public void mute(){
-        if(!muteText){
-            muteItem.setText("Unmute");
-            PausablePlayer.getInstance().pause();
-            muteText = true;
-        }
-        else{
-            muteItem.setText("Mute");
-            try {
-                PausablePlayer.getInstance().play();
-            } catch (JavaLayerException e) {
-                e.printStackTrace();
-            }
-=======
-            muteText = true;
-        }
-        else{
-            muteItem.setText("Unmute");
->>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
-=======
-            muteText = true;
-        }
-        else{
-            muteItem.setText("Unmute");
->>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
-=======
-            muteText = true;
-        }
-        else{
-            muteItem.setText("Unmute");
->>>>>>> parent of beacff9... Merge remote-tracking branch 'origin/master'
-            muteText = false;
-        }
-
-    }*/
 
     public void defineBeginingMute(){
         //1f(PausablePlayer.getInstance().playerStatus == 1){
