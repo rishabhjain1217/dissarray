@@ -282,7 +282,20 @@ public class GameController implements Initializable, KeyListener {
         double paddingY = (400.0 - IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
-        OneDimPane pane = new OneDimPane(q);
+        ArrayPane pane = new ArrayPane(q) {
+            @Override
+            void render() {
+                //this.setAlignment(Pos.CENTER);
+                this.setMaxSize(400, 50);
+                //this.getStylesheets().add(getClass().getResource("checkBoxStyle.css").toExternalForm());
+
+                int length = ((OneDimQuestion) this.question).getArrayLength();
+                for (int i = 0; i < length; ++i) {
+                    this.indexButtons.add(new IndexButton(new OneDimIndex(i)));
+                    this.add(this.indexButtons.get(i).getButton(), 30 + i, 0);
+                }
+            }
+        };
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
         this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));

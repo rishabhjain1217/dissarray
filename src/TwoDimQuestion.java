@@ -8,8 +8,8 @@ public class TwoDimQuestion extends Question {
 
     private final int TIMEFORELEMENTQUESTION = 15; //comment
     private final int TIMEFORRANGEDQUESTION = 25;
-    private final int MAXELEMENTDETRACTION = 07;
-    private final int MAXRANGEDDETRACTION = 10;
+    private final int MAXELEMENTDETRACTION = 8;
+    private final int MAXRANGEDDETRACTION = 13;
 
     private int timeForQuestion;
     private QuestionType difficulty;
