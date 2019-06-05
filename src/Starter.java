@@ -8,6 +8,8 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.beans.binding.Bindings;
@@ -18,6 +20,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.rmi.server.ExportException;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Text;
@@ -30,6 +36,7 @@ public class Starter extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
         FXMLLoader fxmlLoader = new FXMLLoader();
 
         BorderPane menuPane = fxmlLoader.load(getClass().getResource("MenuPane.fxml").openStream());

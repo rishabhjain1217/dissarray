@@ -19,11 +19,14 @@ import javafx.scene.media.AudioClip;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javazoom.jl.decoder.JavaLayerException;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.*;
+
+import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
 public class GameController implements Initializable, KeyListener {
 
@@ -67,6 +70,7 @@ public class GameController implements Initializable, KeyListener {
     public GameController()
     {
         this.generator = new QuestionGenerator();
+        addKeyListener(this);
     }
 
     public void setGameMode(GameMode mode)
@@ -444,20 +448,37 @@ public class GameController implements Initializable, KeyListener {
     }
 
     public void mute(){
-        BackgroundMusic.getInstance().mute();
+        //BackgroundMusic.getInstance().mute();
         if(!muteText){
             muteItem.setText("Unmute");
+            PausablePlayer.getInstance().pause();
             muteText = true;
         }
         else{
             muteItem.setText("Mute");
+            try {
+                PausablePlayer.getInstance().play();
+            } catch (JavaLayerException e) {
+                e.printStackTrace();
+            }
             muteText = false;
         }
 
     }
 
-    public void defineBeginingMute(){
+    /*public void defineBeginingMute(){
         if(BackgroundMusic.getInstance().isRunning()){
+            muteItem.setText("Mute");
+            muteText = false;
+        }
+        else{
+            muteItem.setText("Unmute");
+            muteText = true;
+        }
+    }*/
+
+    public void defineBeginingMute(){
+        if(PausablePlayer.getInstance().playerStatus == 1){
             muteItem.setText("Mute");
             muteText = false;
         }
@@ -470,7 +491,7 @@ public class GameController implements Initializable, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-
+        System.out.println("hello1wds");
     }
 
     @Override

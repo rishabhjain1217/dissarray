@@ -16,6 +16,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javazoom.jl.decoder.JavaLayerException;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,6 +55,7 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        defineBeginingMute();
         titleText.setOnMouseClicked(event -> {
             ++clickCount;
             if (clickCount == 10) {
@@ -241,7 +243,7 @@ public class MenuController implements Initializable {
             return SoundEnum.Off;
     }
 
-    public void mute(){
+    /*public void mute(){
         BackgroundMusic.getInstance().mute();
         if(!muteText){
             muteItem.setText("Unmute");
@@ -252,5 +254,35 @@ public class MenuController implements Initializable {
             muteText = false;
         }
 
+    }*/
+
+    public void mute(){
+        //BackgroundMusic.getInstance().mute();
+        if(!muteText){
+            muteItem.setText("Unmute");
+            PausablePlayer.getInstance().pause();
+            muteText = true;
+        }
+        else{
+            muteItem.setText("Mute");
+            try {
+                PausablePlayer.getInstance().play();
+            } catch (JavaLayerException e) {
+                e.printStackTrace();
+            }
+            muteText = false;
+        }
+
+    }
+
+    public void defineBeginingMute(){
+        if(PausablePlayer.getInstance().playerStatus == 1){
+            muteItem.setText("Mute");
+            muteText = false;
+        }
+        else{
+            muteItem.setText("Unmute");
+            muteText = true;
+        }
     }
 }
