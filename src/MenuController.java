@@ -179,7 +179,7 @@ public class MenuController implements Initializable {
 
                     pStage.show();
                 } catch (Exception ex) {
-                    System.out.println("Game Crashed 2");
+                    System.out.println(ex);
                 }
             }
         });
