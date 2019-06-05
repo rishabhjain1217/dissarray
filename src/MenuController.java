@@ -9,6 +9,7 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -179,6 +180,11 @@ public class MenuController implements Initializable {
                     scene.getStylesheets().add("checkBoxStyle.css");
                     pStage.setTitle("Diss-Array v1.1");
 
+                    scene.setOnKeyPressed(b -> {
+                        if (b.getCode() == KeyCode.ENTER) {
+                            gameController.nextButton.fire();
+                        }
+                    });
 
                     pStage.setScene(scene);
 
