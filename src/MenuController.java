@@ -243,7 +243,7 @@ public class MenuController implements Initializable {
             return SoundEnum.Off;
     }
 
-    public void mute(){
+    /*public void mute(){
         BackgroundMusic.getInstance().mute();
         if(!muteText){
             muteItem.setText("Unmute");
@@ -254,9 +254,9 @@ public class MenuController implements Initializable {
             muteText = false;
         }
 
-    }
+    }*/
 
-    /*public void mute(){
+    public void mute(){
         //BackgroundMusic.getInstance().mute();
         if(!muteText){
             muteItem.setText("Unmute");
@@ -273,7 +273,7 @@ public class MenuController implements Initializable {
             muteText = false;
         }
 
-    }*/
+    }
 
     public void defineBeginingMute(){
         if(PausablePlayer.getInstance().playerStatus == 1){
