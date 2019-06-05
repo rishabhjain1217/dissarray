@@ -17,13 +17,13 @@ public class BackgroundMusic {
     private static Clip clip;
     private static long clipTime = 0;
     private final String nameOfMusic = "src/resources/sounds/Wii Remix.wav"; //Must add src to the beginning to specify path
-    private final String nameOfMemeMusic = "src/resources/sounds/Wii Remix BOOSTED.wav";
-    private Player player;
-    private FileInputStream fis;
+   // private final String nameOfMemeMusic = "src/resources/sounds/Wii Remix BOOSTED.wav";
+   // private Player player;
+    // private FileInputStream fis;
 
-    private static long location = 0;
+    //private static long location = 0;
 
-    private boolean alternateSounds = false;
+    //private boolean alternateSounds = false;
 
     public static BackgroundMusic getInstance() {
         if(INSTANCE == null) {
@@ -37,7 +37,7 @@ public class BackgroundMusic {
         return isRunning;
     }
 
-   /* public void play() {
+    public void play() {
         if(!isRunning) {
             try {
                 File file = new File(nameOfMusic);//this.alternateSounds ? nameOfMemeMusic : nameOfMusic);
@@ -55,8 +55,7 @@ public class BackgroundMusic {
             System.out.println("Hello");
         }
     }
-
-   public void play() {
+   /*public void play() {
         if(!isRunning) {
             try {
                 FileInputStream fis = new FileInputStream(nameOfMusic);
@@ -92,32 +91,26 @@ public class BackgroundMusic {
         else{
             System.out.println("Hello");
         }
-    }
-    */
+    }*/
 
 
-    /*public void mute() {
+
+    public void mute() {
         if(!mute){
             isRunning = false;
             mute = true;
             System.out.println("yo");
-            //clipTime = clip.getMicrosecondPosition();
-           // clip.stop();
+            clipTime = clip.getMicrosecondPosition();
+            clip.stop();
             //player.close();
-            thingy.pause();
         }
         else{
             mute = false;
-            //play();
-            try {
-                thingy.play();
-            } catch (JavaLayerException e) {
-                e.printStackTrace();
-            }
+            play();
         }
-    }*/
+    }
 
-    public void play(){
+    /*public void play(){
         if(!isRunning) {
             System.out.println("wassup");
             try {
@@ -178,7 +171,7 @@ public class BackgroundMusic {
     }
 
     public void useRegular() { this.alternateSounds = false;}
-
+*/
     private BackgroundMusic() {
     }
 }

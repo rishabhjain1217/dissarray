@@ -448,7 +448,7 @@ public class GameController implements Initializable, KeyListener {
     }
 
     public void mute(){
-        //BackgroundMusic.getInstance().mute();
+        BackgroundMusic.getInstance().mute();
         if(!muteText){
             muteItem.setText("Unmute");
             PausablePlayer.getInstance().pause();
@@ -459,10 +459,9 @@ public class GameController implements Initializable, KeyListener {
             PausablePlayer.getInstance().resume();
             muteText = false;
         }
-
     }
 
-    /*public void defineBeginingMute(){
+    public void defineBeginingMute(){
         if(BackgroundMusic.getInstance().isRunning()){
             muteItem.setText("Mute");
             muteText = false;
@@ -471,9 +470,9 @@ public class GameController implements Initializable, KeyListener {
             muteItem.setText("Unmute");
             muteText = true;
         }
-    }*/
+    }
 
-    public void defineBeginingMute(){
+   /* public void defineBeginingMute(){
         if(PausablePlayer.getInstance().playerStatus == 1){
             muteItem.setText("Mute");
             muteText = false;
@@ -482,7 +481,7 @@ public class GameController implements Initializable, KeyListener {
             muteItem.setText("Unmute");
             muteText = true;
         }
-    }
+    }*/
 
 
     @Override
