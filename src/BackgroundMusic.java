@@ -38,9 +38,6 @@ public class BackgroundMusic {
     }
 
 
-
-
-
     public void mute() {
         if(!mute){
             isRunning = false;
