@@ -185,6 +185,7 @@ public class MenuController implements Initializable {
                             gameController.nextButton.fire();
                         }
                     });
+                    //hi
 
                     pStage.setScene(scene);
 
