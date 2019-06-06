@@ -1,4 +1,5 @@
 public enum QuestionType {
-    Element, //Easy mode
-    Range, //Hard mode
+    /** Easy Mode - Element ...... Hard Mode - Range */
+    Element,
+    Range,
 }

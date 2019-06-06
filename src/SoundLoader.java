@@ -1,11 +1,8 @@
-public class SoundLoader {
-
-    private static String correct1 = "resources/sounds/correct.wav";
-    private static String correct2 = "resources/sounds/correct2.wav";
-    private static String wrong1 = "resources/sounds/wrong.wav";
-    private static String wrong2 = "resources/sounds/wrong2.wav";
+public class SoundLoader implements Constants {
 
     public boolean alternateSounds = false;
+
+    /** Singleton for sounds, Correct and incorrect. Alternative option is used when you find Easter Egg!*/
 
     private static SoundLoader ourInstance = new SoundLoader();
 
@@ -25,12 +22,12 @@ public class SoundLoader {
 
     public String getCorrect()
     {
-        return this.alternateSounds ? SoundLoader.correct2 : SoundLoader.correct1;
+        return this.alternateSounds ? SoundLoader.CORRECT_TWO : SoundLoader.CORRECT_ONE;
     }
 
     public String getWrong()
     {
-        return this.alternateSounds ? SoundLoader.wrong2 : SoundLoader.wrong1;
+        return this.alternateSounds ? SoundLoader.WRONG_TWO : SoundLoader.WRONG_ONE;
     }
 
 }
