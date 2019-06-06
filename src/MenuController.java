@@ -82,7 +82,7 @@ public class MenuController implements Initializable,ColorConstants, Constants {
                 }
                 clickCount = 0;
             }
-        });//hi
+        });
 
         soundToggle.setOnMouseClicked(event -> {
             ++count;

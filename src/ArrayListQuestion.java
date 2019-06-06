@@ -100,13 +100,7 @@ public class ArrayListQuestion extends Question implements Constants {
 
         this.arrayLength = arrayLength;
 
-        /*if(!isForEach) {
-            this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; ++i) \n a[i]";
-        }
-        else{
-            this.question = " int [] a; \nfor(int i : a)";
 
-        }*/
         int factor = 1;
         Random r = new Random();
         int f = r.nextInt(100);
@@ -119,13 +113,6 @@ public class ArrayListQuestion extends Question implements Constants {
 
 
         setCorrectedIndex(lowerBound,upperBound,factor);
-        /*
-        if(isForEach){
-            this.question = " int [] a; \nfor(int i : a)";
-            for(int i = 0; i <= arrayLength; ++i)
-                this.correctIndices.add(new OneDimIndex(i));
-
-        }*/
     }
 
     public void setCorrectedIndex(int lower, int upper, int factor){
