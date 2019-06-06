@@ -28,7 +28,7 @@ import java.util.*;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
-public class GameController implements Initializable, KeyListener, Constants {
+public class GameController implements Initializable, Constants {
 
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
@@ -70,7 +70,6 @@ public class GameController implements Initializable, KeyListener, Constants {
     public GameController()
     {
         this.generator = new QuestionGenerator();
-        addKeyListener(this);
     }
 
     public void setGameMode(GameMode mode)
@@ -106,7 +105,6 @@ public class GameController implements Initializable, KeyListener, Constants {
         muteItem();
         menuItem();
 
-        //scoreLabel.textProperty().bind(new SimpleIntegerProperty(score).asString());
     }
 
     private void muteItem() {
@@ -129,7 +127,7 @@ public class GameController implements Initializable, KeyListener, Constants {
             }
                 restart();
         });
-    }//ninja "we be flossin"
+    }
 
     private void newQuestion()
     {
@@ -286,11 +284,13 @@ public class GameController implements Initializable, KeyListener, Constants {
     }
 
     public void renderArrayList(ArrayListQuestion q){
+
+
         double paddingX = (600.0 - q.getArrayLength()*IndexButton.BUTTON_SIZE) / 2;
         double paddingY = (400.0 - IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
-        ArrayPane pane = new ArrayPane(q) {
+        /*ArrayPane pane = new ArrayPane(q) {
             @Override
             void render() {
                 //this.setAlignment(Pos.CENTER);
@@ -303,7 +303,11 @@ public class GameController implements Initializable, KeyListener, Constants {
                     this.add(this.indexButtons.get(i).getButton(), 30 + i, 0);
                 }
             }
-        };
+        };*/
+
+        this.questionLabel.setText(q.question);
+        ArrayListPane pane = new ArrayListPane(q);
+
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
         this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
@@ -373,7 +377,7 @@ public class GameController implements Initializable, KeyListener, Constants {
     public void nextQuestion(){//Hello
         //if(true); //put check answers here
         nextButton.setOnAction(e -> {
-            //System.out.println(check());
+            System.out.println(check());
             if(check()) {
                 score++;
                 scoreLabel.setText("Score: " + score);
@@ -400,7 +404,6 @@ public class GameController implements Initializable, KeyListener, Constants {
 
             }
         });
-        //nextButton.setOnAction(e -> newQuestion());
     }
 
     private void corrected() {
@@ -468,21 +471,22 @@ public class GameController implements Initializable, KeyListener, Constants {
                 return null;
             }
         };
+        newGameMenuItem.setDisable(false);
         fiveSecDelay.setOnSucceeded(event -> {
             fade();
         });
+        newGameMenuItem.setDisable(true);
 
         new Thread(fiveSecDelay).start();
     }
 
     public void fade(){
-        newGameMenuItem.setDisable(false);
+
         FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
         fadeOutTransition.setFromValue(1.0);
         fadeOutTransition.setToValue(0.0);
         fadeOutTransition.play();
         fadeOutTransition.setOnFinished((ActionEvent actionEvent) -> finish());
-        newGameMenuItem.setDisable(true);
     }
 
     private void finish() {
@@ -531,26 +535,5 @@ public class GameController implements Initializable, KeyListener, Constants {
         }
     }
 
-//Testing key presses
-    @Override
-    public void keyTyped(KeyEvent e) {
-       //System.out.println("hello1wds");
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-        System.out.println("hello");
-        int keyCode = e.getKeyCode();
-        if (keyCode == KeyEvent.VK_ENTER){
-
-            System.out.println("You pressed the fire button");
-        }
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
 }
+//b

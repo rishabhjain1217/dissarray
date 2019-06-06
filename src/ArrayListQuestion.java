@@ -13,9 +13,7 @@ public class ArrayListQuestion extends Question implements Constants {
     private final int MAXRANGEDDETRACTION = 12;
 
     private int timeForQuestion;
-    private int forEachWritten = 0;
     private int score;
-    //private boolean isArrayList;
 
     public ArrayListQuestion(QuestionType difficulty,int score)
     {
@@ -116,7 +114,7 @@ public class ArrayListQuestion extends Question implements Constants {
 
     public void setCorrectedIndex(int lower, int upper, int factor){
         for (int i = lower; i <= upper; i+=factor) {
-            this.correctIndices.add(new OneDimIndex(i));
+            this.correctIndices.add(new ArrayListIndex(i));
         }
     }
 
