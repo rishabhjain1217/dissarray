@@ -53,7 +53,6 @@ public class BackgroundMusic implements Constants {
         if(!mute){
             isRunning = false;
             mute = true;
-            System.out.println("yo");
             clipTime = clip.getMicrosecondPosition();
             clip.stop();
         }

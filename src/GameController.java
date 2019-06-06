@@ -454,7 +454,7 @@ public class GameController implements Initializable, KeyListener, Constants {
 
             pStage.show();
         } catch (Exception ex) {
-            System.out.println("Wassup");
+            System.out.println("Something went wrong with finishing the game");
         }
 
     }
@@ -482,10 +482,10 @@ public class GameController implements Initializable, KeyListener, Constants {
         }
     }
 
-
+//Testing key presses
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println("hello1wds");
+       //System.out.println("hello1wds");
     }
 
     @Override
@@ -495,7 +495,7 @@ public class GameController implements Initializable, KeyListener, Constants {
         int keyCode = e.getKeyCode();
         if (keyCode == KeyEvent.VK_ENTER){
 
-            System.out.println("You pressed the fire button"); //Happy Birthday Bill!
+            System.out.println("You pressed the fire button");
         }
 
     }
