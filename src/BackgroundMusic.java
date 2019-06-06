@@ -46,7 +46,6 @@ public class BackgroundMusic implements Constants {
         }
     }
 
-
     public void mute() {
         if(!mute){
             isRunning = false;
@@ -59,7 +58,6 @@ public class BackgroundMusic implements Constants {
             play();
         }
     }
-
 
     /** Alternative and Regular sound, used when you find an Easter Egg!*/
     public void useAlternate()
