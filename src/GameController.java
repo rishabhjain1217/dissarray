@@ -157,9 +157,10 @@ public class GameController implements Initializable, KeyListener, Constants {
                     this.timeRemaining = this.renderRandom();
 
                 case OneList:
+                    this.timeRemaining = this.renderOneList();
 
                 case Three:
-
+                    //this.timeRemaining =
 
                 default:
                     this.timeRemaining = (this.renderOneDim());
@@ -318,6 +319,18 @@ public class GameController implements Initializable, KeyListener, Constants {
         } else {
             this.renderTwoDim(((TwoDimQuestion) q));
             return ((TwoDimQuestion) q).getTimeForQuestion();
+        }
+    }
+
+    private int renderOneList(){
+        Question q = this.generator.generateOneList(difficulty,score);
+
+        if (q instanceof OneDimQuestion) {
+            this.renderOneDim(((OneDimQuestion) q));
+            return ((OneDimQuestion) q).getTimeForQuestion();
+        } else {
+            this.renderArrayList(((ArrayListQuestion) q));
+            return ((ArrayListQuestion) q).getTimeForQuestion();
         }
     }
    // public boolean checkIndex(){

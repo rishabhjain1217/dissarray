@@ -110,7 +110,7 @@ public class ArrayListQuestion extends Question implements Constants {
         int factor = 1;
         Random r = new Random();
         int f = r.nextInt(100);
-        if (f > 100-score*4 || score == 25)
+        if (f > difficultyProbability(score) || score == MAX_SCORE_FOR_EASY)
             factor = (r.nextInt(1) + 2);
         else
             factor = (r.nextInt(1) + 1);
