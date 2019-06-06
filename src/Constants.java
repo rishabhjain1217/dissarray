@@ -55,8 +55,6 @@ public interface Constants {
 
 
 
-
-
     //SoundLoader
     String CORRECT_ONE = "resources/sounds/correct.wav";
     String CORRECT_TWO = "resources/sounds/correct2.wav";
@@ -76,5 +74,25 @@ public interface Constants {
     int MIN_ROWS_TWODIM = 3;
     int MIN_COLS_TWODIM = 3;
     int SWITCH_CASE_SCORE_TWODIM = 10;
+
+
+
+
+
+
+
+
+
+
+
+    final int PROBABILITY_BOUNDS = 100; //The probability range of an easy or hard question being generated.
+    final int MAX_SCORE_FOR_EASY = 25; //Once the score reaches this, it will no longer generate easy questions.
+    final int SCORE_DIFFICULTY_MULTIPLIER = 4;
+
+
+    final int ONEDIM_ELEMENT_TIME_INCREMENTS = 4;//Amount of times the timer will decrease before reaching maximum time decrease
+    final int ONEDIM_RANGE_TIME_INCREMENTS = 5;//Amount of times the timer will decrease before reaching maximum time decrease
+
+
 
 }

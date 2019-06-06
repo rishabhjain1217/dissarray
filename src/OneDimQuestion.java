@@ -41,9 +41,9 @@ public class OneDimQuestion extends Question implements  Constants {
                     generateElementQuestion();
                 if(score > 10) {
                     Random r = new Random();
-                    int nextQ = r.nextInt(100);
+                    int nextQ = r.nextInt(PROBABILITY_BOUNDS);
 
-                    if (nextQ > 100-score*4 || score == 25)
+                    if (nextQ > difficultyProbability(score) || score == MAX_SCORE_FOR_EASY)
                         generateRangeQuestion();
                     else
                         generateElementQuestion();
@@ -53,9 +53,9 @@ public class OneDimQuestion extends Question implements  Constants {
                 break;
             case Range: //Hard mode, which can have either an element question or a range question
                 Random r = new Random();
-                int nextQ = r.nextInt(100);
+                int nextQ = r.nextInt(PROBABILITY_BOUNDS);
 
-                if(nextQ > 100-score*4 || score == 25)
+                if(nextQ > difficultyProbability(score) || score == MAX_SCORE_FOR_EASY)
                     generateRangeQuestion();
                 else
                     generateElementQuestion();
@@ -63,13 +63,17 @@ public class OneDimQuestion extends Question implements  Constants {
         }
     }
 
+    public int difficultyProbability(int score){
+        return PROBABILITY_BOUNDS-score * SCORE_DIFFICULTY_MULTIPLIER;
+    }
+
     private void generateElementQuestion() //Creates a question for a specific cell
     {
         int scoreInfluence = score/2;
-        if(scoreInfluence <=4)
+        if(scoreInfluence <= ONEDIM_ELEMENT_TIME_INCREMENTS)
         this.timeForQuestion = timeForElementQuestion-(scoreInfluence);
         else
-            this.timeForQuestion = timeForElementQuestion -MAXELEMENTDETRACTION;
+            this.timeForQuestion = timeForElementQuestion - MAXELEMENTDETRACTION;
 
         Random rand = new Random();
         int arrayLength = rand.nextInt(8) + 3;
@@ -84,8 +88,9 @@ public class OneDimQuestion extends Question implements  Constants {
     {
        // Random r = new Random();
         //boolean isForEach = r.nextBoolean();
-        int scoreInfluence = score/5;
-        if(scoreInfluence <= 5)
+        int scoreInfluence = score/5; //
+
+        if(scoreInfluence <= ONEDIM_RANGE_TIME_INCREMENTS)
             this.timeForQuestion = timeForRangeQuestion - (scoreInfluence*2);
         else
             this.timeForQuestion = timeForRangeQuestion - MAXRANGEDDETRACTION;
@@ -113,8 +118,8 @@ public class OneDimQuestion extends Question implements  Constants {
         }*/
         int factor = 1;
         Random r = new Random();
-        int f = r.nextInt(100);
-        if (f > 100-score*4 || score == 25)
+        int f = r.nextInt(PROBABILITY_BOUNDS);
+        if (f > difficultyProbability(score) || score == MAX_SCORE_FOR_EASY)
             factor = (r.nextInt(1) + 2);
         else
             factor = (r.nextInt(1) + 1);

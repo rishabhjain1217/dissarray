@@ -397,7 +397,7 @@ public class GameController implements Initializable, KeyListener, Constants {
                     s.start(new Stage());
                 }
                 catch (Exception e){
-                    System.out.println("Wassup 2.0");
+                    System.out.println(e);
                 }
             }
         });
