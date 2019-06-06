@@ -91,7 +91,7 @@ public class OneDimQuestion extends Question implements Constants {
             this.timeForQuestion = TIME_FOR_RANGE_QUESTION_ONEDIM - MAX_RANGED_DETRACTION_ONEDIM;
 
         Random rand = new Random();
-        int arrayLength = rand.nextInt(9) + 3;
+        int arrayLength = rand.nextInt(MAX_SIZE_ONEDIM) + MIN_SIZE_ONEDIM;
         int bound1 = rand.nextInt(arrayLength);
         int bound2 = rand.nextInt(arrayLength);
         /** Prevent having the same bounds. */
