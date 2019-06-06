@@ -37,14 +37,13 @@ public class ArrayListQuestion extends Question implements Constants {
                     generateElementQuestion();
                 if(score > 10) {
                     Random r = new Random();
-                    int nextQ = r.nextInt(PROBABILITY_BOUNDS);
+                    int nextQ = r.nextInt(PROBABILITY_BOUNDS); //push
 
                     if (nextQ > difficultyProbability(score) || score == MAX_SCORE_FOR_EASY)
                         generateRangeQuestion();
                     else
                         generateElementQuestion();
                     break;
-
                 }
                 break;
             case Range: //Hard mode, which can have either an element question or a range question
