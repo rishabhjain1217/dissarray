@@ -46,9 +46,9 @@ public class TwoDimQuestion extends Question implements Constants {
 
     private void generateQuestionBasedOnScore() {
         Random r = new Random();
-        int nextQ = r.nextInt(100);
+        int nextQ = r.nextInt(PROBABILITY_BOUNDS);
 
-        if(nextQ > 100-(score*4) || score == 25)
+        if(nextQ > difficultyProbability(score) || score == MAX_SCORE_FOR_EASY)
             generateRangeQuestion();
         else
             generateElementQuestion();
@@ -86,7 +86,7 @@ public class TwoDimQuestion extends Question implements Constants {
         difficulty = QuestionType.Range;
         int scoreInfluence = score/5;
 
-        if(scoreInfluence <= 4)
+        if(scoreInfluence <= ONEDIM_ELEMENT_TIME_INCREMENTS)
             this.timeForQuestion = this.TIME_FOR_RANGE_QUESTION_TWODIM-(scoreInfluence*2);
         else
             this.timeForQuestion = this .TIME_FOR_RANGE_QUESTION_TWODIM-TIME_FOR_RANGE_QUESTION_TWODIM;
@@ -150,8 +150,8 @@ public class TwoDimQuestion extends Question implements Constants {
         int jIncrement = 1;
 
         Random r = new Random();
-        int f = r.nextInt(100);
-        if((f > (100-(score*4))) || (score == 25)){
+        int f = r.nextInt(PROBABILITY_BOUNDS);
+        if((f > (difficultyProbability(score))) || (score == MAX_SCORE_FOR_EASY)){
             iIncrement = (r.nextInt(2) + 2);
             jIncrement = (r.nextInt(2) + 2);
         }
@@ -202,5 +202,9 @@ public class TwoDimQuestion extends Question implements Constants {
 
     public int getCols() {
         return cols;
+    }
+
+    public int difficultyProbability(int score){
+        return PROBABILITY_BOUNDS-score * SCORE_DIFFICULTY_MULTIPLIER;
     }
 }
