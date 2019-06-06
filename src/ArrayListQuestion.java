@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
-public class ArrayListQuestion extends Question {
+public class ArrayListQuestion extends Question implements Constants {
 
     private int arrayLength;
     private final int timeForElementQuestion = 10;
@@ -41,9 +41,9 @@ public class ArrayListQuestion extends Question {
                     generateElementQuestion();
                 if(score > 10) {
                     Random r = new Random();
-                    int nextQ = r.nextInt(100);
+                    int nextQ = r.nextInt(PROBABILITY_BOUNDS);
 
-                    if (nextQ > 100-score*4 || score == 25)
+                    if (nextQ > difficultyProbability(score) || score == MAX_SCORE_FOR_EASY)
                         generateRangeQuestion();
                     else
                         generateElementQuestion();
@@ -53,9 +53,9 @@ public class ArrayListQuestion extends Question {
                 break;
             case Range: //Hard mode, which can have either an element question or a range question
                 Random r = new Random();
-                int nextQ = r.nextInt(100);
+                int nextQ = r.nextInt(PROBABILITY_BOUNDS);
 
-                if(nextQ > 100-score*4 || score == 25)
+                if(nextQ > difficultyProbability(score) || score == MAX_SCORE_FOR_EASY)
                     generateRangeQuestion();
                 else
                     generateElementQuestion();
@@ -66,7 +66,7 @@ public class ArrayListQuestion extends Question {
     private void generateElementQuestion() //Creates a question for a specific cell
     {
         int scoreInfluence = score/2;
-        if(scoreInfluence <=4)
+        if(scoreInfluence <= ONEDIM_ELEMENT_TIME_INCREMENTS)
             this.timeForQuestion = timeForElementQuestion-(scoreInfluence);
         else
             this.timeForQuestion = timeForElementQuestion -MAXELEMENTDETRACTION;
@@ -85,7 +85,7 @@ public class ArrayListQuestion extends Question {
         // Random r = new Random();
         //boolean isForEach = r.nextBoolean();
         int scoreInfluence = score/5;
-        if(scoreInfluence <= 5)
+        if(scoreInfluence <= ONEDIM_RANGE_TIME_INCREMENTS)
             this.timeForQuestion = timeForRangeQuestion - (scoreInfluence*2);
         else
             this.timeForQuestion = timeForRangeQuestion - MAXRANGEDDETRACTION;
@@ -156,5 +156,9 @@ public class ArrayListQuestion extends Question {
         }
 
         return true;
+    }
+
+    public int difficultyProbability(int score){
+        return PROBABILITY_BOUNDS-score * SCORE_DIFFICULTY_MULTIPLIER;
     }
 }
