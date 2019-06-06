@@ -28,7 +28,7 @@ import java.util.*;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
-public class GameController implements Initializable, KeyListener {
+public class GameController implements Initializable, KeyListener, Constants {
 
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
@@ -93,7 +93,6 @@ public class GameController implements Initializable, KeyListener {
     {
         this.centerVBox.setAlignment(Pos.CENTER);
     }
-
 
     public void start()
     {
@@ -446,7 +445,7 @@ public class GameController implements Initializable, KeyListener {
             endGameController.score = score;
             endGameController.start();
             Scene scene = new Scene(gamePane, 600, 400);
-            pStage.setTitle("Diss-Array v1.0 by csGames");
+            pStage.setTitle(TITLE_OF_GAME);
             pStage.setScene(scene);
 
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
