@@ -47,7 +47,11 @@ public interface Constants {
 
 
 
-
+    //SoundLoader
+    String CORRECT_ONE = "resources/sounds/correct.wav";
+    String CORRECT_TWO = "resources/sounds/correct2.wav";
+    String WRONG_ONE = "resources/sounds/wrong.wav";
+    String WRONG_TWO = "resources/sounds/wrong2.wav";
 
 
 

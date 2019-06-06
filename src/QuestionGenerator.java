@@ -2,9 +2,7 @@ import java.util.Random;
 
 public class QuestionGenerator {
 
-    public QuestionGenerator()
-    {
-    }
+    public QuestionGenerator() { }
 
     /**
      * Generates a one-dimensional array question.

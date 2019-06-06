@@ -21,7 +21,7 @@ public class TwoDimIndex extends Index {
     /**
      * Determines if a given Index is equal to this instance.
      * @param o The other index.
-     * @return true if the indices match, otherwise false.2
+     * @return true if the indices match, otherwise false.
      */
     @Override
     boolean equals(Index o)
@@ -40,7 +40,7 @@ public class TwoDimIndex extends Index {
     @Override
     public int compareTo(Index o)
     {
-        /* Unsafe, but assume same type. */
+        /** Unsafe, but assume same type. */
         TwoDimIndex other = (TwoDimIndex) o;
 
         if (this.equals(other)) return 0;
