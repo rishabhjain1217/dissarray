@@ -2,18 +2,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class TwoDimQuestion extends Question {
+public class TwoDimQuestion extends Question implements Constants {
 
     private int rows, cols;
-
-    private final int TIMEFORELEMENTQUESTION = 15; //comment
-    private final int TIMEFORRANGEDQUESTION = 25;
-    private final int MAXELEMENTDETRACTION = 8;
-    private final int MAXRANGEDDETRACTION = 13;
-
     private int timeForQuestion;
     private QuestionType difficulty;
     private int score;
+
     //private boolean isArrayList;
 
     public TwoDimQuestion(QuestionType difficulty, int score)
@@ -31,36 +26,33 @@ public class TwoDimQuestion extends Question {
         return difficulty;
     }
 
-    //@Override
+    @Override
     void generateQuestion(QuestionType difficulty,int score) {
 
         switch (difficulty) {
             case Element:
-                if (score <= 10)
+                if (score <= SWITCH_CASE_SCORE_TWODIM) {
                     generateElementQuestion();
-                if(score > 10){
-                    Random r = new Random();
-                    int nextQ = r.nextInt(100);
-
-                    if(nextQ > 100-(score*4) || score == 25)
-                        generateRangeQuestion();
-                    else
-                        generateElementQuestion();
                     break;
-
                 }
-
+                if(score > SWITCH_CASE_SCORE_TWODIM){
+                    generateQuestionBasedOnScore();
+                }
                 break;
             case Range: //Hard mode, which can have either an element question or a range question
-                Random r = new Random();
-                int nextQ = r.nextInt(100);
-
-                if(nextQ > 100-(score*4) || score == 25)
-                generateRangeQuestion();
-                else
-                    generateElementQuestion();
+                generateQuestionBasedOnScore();
                 break;
         }
+    }
+
+    private void generateQuestionBasedOnScore() {
+        Random r = new Random();
+        int nextQ = r.nextInt(100);
+
+        if(nextQ > 100-(score*4) || score == 25)
+            generateRangeQuestion();
+        else
+            generateElementQuestion();
     }
 
     private void generateElementQuestion()
@@ -69,9 +61,9 @@ public class TwoDimQuestion extends Question {
         int scoreInfluence = score/2;
 
         if(scoreInfluence <=6)
-        this.timeForQuestion = this.TIMEFORELEMENTQUESTION-(scoreInfluence);//Changes time for question
+        this.timeForQuestion = this.TIME_FOR_ELEMENT_QUESTION_TWODIM-(scoreInfluence);//Changes time for question
         else{
-            this.timeForQuestion = this.TIMEFORELEMENTQUESTION - MAXELEMENTDETRACTION;
+            this.timeForQuestion = this.TIME_FOR_ELEMENT_QUESTION_TWODIM - MAX_RANGED_DETRACTION;
         }
         Random rand = new Random();
         int rows = rand.nextInt(3) + 3;
@@ -96,13 +88,13 @@ public class TwoDimQuestion extends Question {
         int scoreInfluence = score/5;
 
         if(scoreInfluence <= 4)
-            this.timeForQuestion = this.TIMEFORRANGEDQUESTION-(scoreInfluence*2);
+            this.timeForQuestion = this.TIME_FOR_RANGE_QUESTION_TWODIM-(scoreInfluence*2);
         else
-            this.timeForQuestion = this .TIMEFORRANGEDQUESTION-MAXRANGEDDETRACTION;
+            this.timeForQuestion = this .TIME_FOR_RANGE_QUESTION_TWODIM-TIME_FOR_RANGE_QUESTION_TWODIM;
 
         Random rand = new Random();
-        int rows = rand.nextInt(3) + 3;
-        int cols = rand.nextInt(6) + 3;
+        int rows = rand.nextInt(MAX_ROWS_TWODIM) + MIN_ROWS_TWODIM;
+        int cols = rand.nextInt(MAX_COLS_TWODIM) + MIN_COLS_TWODIM;
 
         int startRow = rand.nextInt(rows);
         int startCol = rand.nextInt(cols);
@@ -112,13 +104,14 @@ public class TwoDimQuestion extends Question {
         TwoDimIndex start = new TwoDimIndex(startRow, startCol);
         TwoDimIndex end = new TwoDimIndex(endRow, endCol);
 
-        /* Prevent duplicates. */
+        /** Prevent duplicates. */
         while (start.equals(end)) {
             endCol = rand.nextInt(cols);
             endRow = rand.nextInt(rows);
             end = new TwoDimIndex(endRow, endCol);
         }
 
+        /**Prevents the lower bound from being greater than the upper bound*/
         while(startRow >= endRow) {
             if (startRow > endRow) {
                 int temp = startRow;
@@ -152,10 +145,11 @@ public class TwoDimQuestion extends Question {
         this.rows = rows;
         this.cols = cols;
 
+        /** Set Random increments for the first and second loops*/
+
         int iIncrement  = 1;
         int jIncrement = 1;
 
-//comment
         Random r = new Random();
         int f = r.nextInt(100);
         if((f > (100-(score*4))) || (score == 25)){
@@ -167,25 +161,7 @@ public class TwoDimQuestion extends Question {
             jIncrement = (r.nextInt(1) + 1);
         }
 
-/*
-        Random r = new Random();
-        if((endRow-startRow) > 3){
-            iIncrement = (r.nextInt(2) + 2);
-        }else{
-            if((endRow-startRow) > 0){
-                iIncrement = (r.nextInt(1) + 1);
-            }
-        }
-
-        if((endCol-startCol) > 3){
-            jIncrement = (r.nextInt(2) + 2);
-        }else{
-            if((endCol-startCol) > 0) {
-                jIncrement = (r.nextInt(1) + 1);
-            }
-        }*/
-
-        /*this.question = "A for loop starts with the rows with variable i on the range of " + startRow + " to " + endRow
+        /**this.question = "A for loop starts with the rows with variable i on the range of " + startRow + " to " + endRow
                         + ", and nests into the columns with a for loop with variable j on the range of " + startCol
                         + " to " + endCol + ". What elements will be covered in the loop?"; */
 
@@ -198,9 +174,10 @@ public class TwoDimQuestion extends Question {
 
     }
 
+    /**Set teh array correctIndices with the correct indices*/
     public void setCorrectedIndex(int startRow, int endRow, int startCol, int endCol, int factor1, int factor2){
         for (int i = startRow; i < endRow; i+=factor1) {
-            for (int j = startCol; j < endCol; j+=factor1) {
+            for (int j = startCol; j < endCol; j+=factor2) {
                 this.correctIndices.add(new TwoDimIndex(i, j));
             }
         }
