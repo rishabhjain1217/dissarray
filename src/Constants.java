@@ -9,10 +9,10 @@ public interface Constants {
 
     String TITLE_OF_GAME = "Diss-Array v1.1";//Title Change
 
-    final int timeForElementQuestion = 10;
+    int timeForElementQuestion = 10;
     final int timeForRangeQuestion = 20;
     final int MAXELEMENTDETRACTION = 05;
-    final int MAXRANGEDDETRACTION = 12;
+    int MAXRANGEDDETRACTION = 12;
 
 
 
@@ -22,11 +22,11 @@ public interface Constants {
 
 
 
-    final int PROBABILITY_BOUNDS = 100;
-    final int MAX_SCORE_FOR_EASY = 25;
-    final int SCORE_DIFFICULTY_MULTIPLIER = 4;
-    final int ONEDIM_ELEMENT_TIME_INCREMENTS = 4;
-    final int ONEDIM_RANGE_TIME_INCREMENTS = 5;
+    int PROBABILITY_BOUNDS = 100;
+    int MAX_SCORE_FOR_EASY = 25;
+    int SCORE_DIFFICULTY_MULTIPLIER = 4;
+    int ONEDIM_ELEMENT_TIME_INCREMENTS = 4;
+    int ONEDIM_RANGE_TIME_INCREMENTS = 5;
 
 
 
