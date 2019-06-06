@@ -23,9 +23,8 @@ public interface Constants {
     int ONEDIM_ELEMENT_TIME_INCREMENTS = 4;
     int ONEDIM_RANGE_TIME_INCREMENTS = 5;
 
-
-
-
+    int MAX_SIZE_ONEDIM = 3;
+    int MIN_SIZE_ONEDIM = 3;
 
 
 
