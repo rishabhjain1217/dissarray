@@ -26,7 +26,6 @@ public class TwoDimIndex extends Index {
     @Override
     boolean equals(Index o)
     {
-
         if (o instanceof TwoDimIndex) {
             if (this.getRowIndex() == ((TwoDimIndex) o).getRowIndex()
                     && this.getColIndex() == ((TwoDimIndex) o).getColIndex()) {
