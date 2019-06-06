@@ -9,24 +9,20 @@ public interface Constants {
 
     String TITLE_OF_GAME = "Diss-Array v1.1";//Title Change
 
-    int timeForElementQuestion = 10;
-    final int timeForRangeQuestion = 20;
-    final int MAXELEMENTDETRACTION = 05;
-    int MAXRANGEDDETRACTION = 12;
 
+    /** OneDimQuestion*/
 
-
-
-
-
-
-
+    int TIME_FOR_ELEMENT_QUESTION_ONEDIM = 10; //Element Question Time TwoDim
+    int TIME_FOR_RANGE_QUESTION_ONEDIM = 20; //Range Question Time TwoDim
+    int MAX_ELEMENT_DETRACTION_ONEDIM = 05;
+    int MAX_RANGED_DETRACTION_ONEDIM = 12; //Max amount of time taken away from questions
 
     int PROBABILITY_BOUNDS = 100;
     int MAX_SCORE_FOR_EASY = 25;
     int SCORE_DIFFICULTY_MULTIPLIER = 4;
     int ONEDIM_ELEMENT_TIME_INCREMENTS = 4;
     int ONEDIM_RANGE_TIME_INCREMENTS = 5;
+
 
 
 
@@ -72,7 +68,7 @@ public interface Constants {
     /**TwoDimQuestion*/
     int TIME_FOR_ELEMENT_QUESTION_TWODIM = 15; //Element Question Time TwoDim
     int TIME_FOR_RANGE_QUESTION_TWODIM = 25; //Range Question Time TwoDim
-    int MAX_RANGED_DETRACTION = 13; //Max amount of time taken away from questions
+    int MAX_RANGED_DETRACTION_TWODIM = 13; //Max amount of time taken away from questions
     int MAX_ROWS_TWODIM = 3;
     int MAX_COLS_TWODIM = 6;
     int MIN_ROWS_TWODIM = 3;

@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
-public class OneDimQuestion extends Question implements  Constants {
+public class OneDimQuestion extends Question implements Constants {
 
     private int arrayLength;
 
@@ -66,9 +66,9 @@ public class OneDimQuestion extends Question implements  Constants {
     {
         int scoreInfluence = score/2;
         if(scoreInfluence <= ONEDIM_ELEMENT_TIME_INCREMENTS)
-        this.timeForQuestion = timeForElementQuestion-(scoreInfluence);
+        this.timeForQuestion = TIME_FOR_ELEMENT_QUESTION_ONEDIM-(scoreInfluence);
         else
-            this.timeForQuestion = timeForElementQuestion - MAXELEMENTDETRACTION;
+            this.timeForQuestion = TIME_FOR_ELEMENT_QUESTION_ONEDIM - MAX_ELEMENT_DETRACTION_ONEDIM;
 
         Random rand = new Random();
         int arrayLength = rand.nextInt(8) + 3;
@@ -86,9 +86,9 @@ public class OneDimQuestion extends Question implements  Constants {
         int scoreInfluence = score/5; //
 
         if(scoreInfluence <= ONEDIM_RANGE_TIME_INCREMENTS)
-            this.timeForQuestion = timeForRangeQuestion - (scoreInfluence*2);
+            this.timeForQuestion = TIME_FOR_RANGE_QUESTION_ONEDIM - (scoreInfluence*2);
         else
-            this.timeForQuestion = timeForRangeQuestion - MAXRANGEDDETRACTION;
+            this.timeForQuestion = TIME_FOR_RANGE_QUESTION_ONEDIM - MAX_RANGED_DETRACTION_ONEDIM;
 
         Random rand = new Random();
         int arrayLength = rand.nextInt(9) + 3;
@@ -111,6 +111,8 @@ public class OneDimQuestion extends Question implements  Constants {
             factor = (r.nextInt(1) + 2);
         else
             factor = (r.nextInt(1) + 1);
+
+        /**String question format */
 
         this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; " + "i+=" + factor + ") \n a[i]";
 
