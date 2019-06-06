@@ -62,7 +62,7 @@ public class TwoDimQuestion extends Question implements Constants {
         if(scoreInfluence <=6)
         this.timeForQuestion = this.TIME_FOR_ELEMENT_QUESTION_TWODIM-(scoreInfluence);//Changes time for question
         else{
-            this.timeForQuestion = this.TIME_FOR_ELEMENT_QUESTION_TWODIM - MAX_RANGED_DETRACTION;
+            this.timeForQuestion = this.TIME_FOR_ELEMENT_QUESTION_TWODIM - MAX_RANGED_DETRACTION_TWODIM;
         }
         Random rand = new Random();
         int rows = rand.nextInt(MAX_ROWS_TWODIM) + MIN_ROWS_TWODIM;

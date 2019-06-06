@@ -8,16 +8,11 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
-public class OneDimQuestion extends Question implements  Constants {
+public class OneDimQuestion extends Question implements Constants {
 
     private int arrayLength;
-    private final int timeForElementQuestion = 10;
-    private final int timeForRangeQuestion = 20;
-    private final int MAXELEMENTDETRACTION = 05;
-    private final int MAXRANGEDDETRACTION = 12;
 
     private int timeForQuestion;
-    private int forEachWritten = 0;
     private int score;
     //private boolean isArrayList;
 
@@ -71,9 +66,9 @@ public class OneDimQuestion extends Question implements  Constants {
     {
         int scoreInfluence = score/2;
         if(scoreInfluence <= ONEDIM_ELEMENT_TIME_INCREMENTS)
-        this.timeForQuestion = timeForElementQuestion-(scoreInfluence);
+        this.timeForQuestion = TIME_FOR_ELEMENT_QUESTION_ONEDIM-(scoreInfluence);
         else
-            this.timeForQuestion = timeForElementQuestion - MAXELEMENTDETRACTION;
+            this.timeForQuestion = TIME_FOR_ELEMENT_QUESTION_ONEDIM - MAX_ELEMENT_DETRACTION_ONEDIM;
 
         Random rand = new Random();
         int arrayLength = rand.nextInt(8) + 3;
@@ -91,15 +86,15 @@ public class OneDimQuestion extends Question implements  Constants {
         int scoreInfluence = score/5; //
 
         if(scoreInfluence <= ONEDIM_RANGE_TIME_INCREMENTS)
-            this.timeForQuestion = timeForRangeQuestion - (scoreInfluence*2);
+            this.timeForQuestion = TIME_FOR_RANGE_QUESTION_ONEDIM - (scoreInfluence*2);
         else
-            this.timeForQuestion = timeForRangeQuestion - MAXRANGEDDETRACTION;
+            this.timeForQuestion = TIME_FOR_RANGE_QUESTION_ONEDIM - MAX_RANGED_DETRACTION_ONEDIM;
 
         Random rand = new Random();
-        int arrayLength = rand.nextInt(9) + 3;
+        int arrayLength = rand.nextInt(MAX_SIZE_ONEDIM) + MIN_SIZE_ONEDIM;
         int bound1 = rand.nextInt(arrayLength);
         int bound2 = rand.nextInt(arrayLength);
-        /* Prevent having the same bounds. */
+        /** Prevent having the same bounds. */
         while (bound1 == bound2) {
             bound2 = rand.nextInt(arrayLength);
         }
@@ -109,13 +104,6 @@ public class OneDimQuestion extends Question implements  Constants {
 
         this.arrayLength = arrayLength;
 
-        /*if(!isForEach) {
-            this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; ++i) \n a[i]";
-        }
-        else{
-            this.question = " int [] a; \nfor(int i : a)";
-
-        }*/
         int factor = 1;
         Random r = new Random();
         int f = r.nextInt(PROBABILITY_BOUNDS);
@@ -124,17 +112,12 @@ public class OneDimQuestion extends Question implements  Constants {
         else
             factor = (r.nextInt(1) + 1);
 
+        /**String question format */
+
         this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; " + "i+=" + factor + ") \n a[i]";
 
 
         setCorrectedIndex(lowerBound,upperBound,factor);
-        /*
-        if(isForEach){
-            this.question = " int [] a; \nfor(int i : a)";
-            for(int i = 0; i <= arrayLength; ++i)
-                this.correctIndices.add(new OneDimIndex(i));
-
-        }*/
     }
 
     public void setCorrectedIndex(int lower, int upper, int factor){

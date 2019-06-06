@@ -40,7 +40,7 @@ public class ArrayListIndex extends Index {
     }
 
     public String toString(){
-        return "a.get" + "(" + index + ")";
+        return "x.get" + "(" + index + ")";
     }
 
 
