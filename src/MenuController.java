@@ -72,7 +72,7 @@ public class MenuController implements Initializable,ColorConstants, Constants {
             if (clickCount == 10) {
                 if(on == false) {
                     SoundLoader.getInstance().useAlternate();
-                    titleText.setTextFill(Color.web(BLACK));
+                    titleText.setTextFill(Color.web(PURPLE));
                     on = true;
                 }
                 else{
