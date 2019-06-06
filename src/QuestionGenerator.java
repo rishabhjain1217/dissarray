@@ -4,7 +4,6 @@ public class QuestionGenerator {
 
     public QuestionGenerator()
     {
-        //PMV PASSIONFRUIT
     }
 
     /**
@@ -25,6 +24,10 @@ public class QuestionGenerator {
         return new TwoDimQuestion(difficulty,score);
     }
 
+    public Question generateArrayList(QuestionType difficulty,int score)
+    {
+        return new ArrayListQuestion(difficulty,score);
+    }
     /**
      * Generates either a one dimension or two dimension question.
      * @return either a OneDimQuestion or a TwoDimQuestion

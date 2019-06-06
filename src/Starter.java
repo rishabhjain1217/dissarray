@@ -42,14 +42,6 @@ public class Starter extends Application {
         BorderPane menuPane = fxmlLoader.load(getClass().getResource("MenuPane.fxml").openStream());
         MenuController menuController = (MenuController) fxmlLoader.getController();
 
-        Text text = new Text();
-        text.setFont(Font.font(14));
-        text.setFill(Color.GOLD);
-        text.setTranslateX(336);
-        text.setTranslateY(350);
-
-        menuPane.getChildren().add(text);
-
         menuController.pStage = primaryStage;
 
         menuController.start();

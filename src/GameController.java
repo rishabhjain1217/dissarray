@@ -291,7 +291,7 @@ public class GameController implements Initializable, KeyListener {
                 this.setMaxSize(400, 50);
                 //this.getStylesheets().add(getClass().getResource("checkBoxStyle.css").toExternalForm());
 
-                int length = ((OneDimQuestion) this.question).getArrayLength();
+                int length = ((ArrayListQuestion) this.question).getArrayLength();
                 for (int i = 0; i < length; ++i) {
                     this.indexButtons.add(new IndexButton(new OneDimIndex(i)));
                     this.add(this.indexButtons.get(i).getButton(), 30 + i, 0);
@@ -304,7 +304,7 @@ public class GameController implements Initializable, KeyListener {
     }
     public int renderArrayList(){
 
-            ArrayListQuestion q = ((ArrayListQuestion) this.generator.generateOneDim(difficulty,score));
+            ArrayListQuestion q = (ArrayListQuestion)this.generator.generateArrayList(difficulty,score);
             this.renderArrayList(q);
             return q.getTimeForQuestion();
 
@@ -424,7 +424,7 @@ public class GameController implements Initializable, KeyListener {
                 return null;
             }
         };
-
+        newGameMenuItem.setDisable(false);
         fiveSecDelay.setOnSucceeded(event -> {
             FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
             fadeOutTransition.setFromValue(1.0);
@@ -432,6 +432,7 @@ public class GameController implements Initializable, KeyListener {
             fadeOutTransition.play();
             fadeOutTransition.setOnFinished((ActionEvent actionEvent) -> finish());
         });
+        newGameMenuItem.setDisable(true);
 
         new Thread(fiveSecDelay).start();
     }

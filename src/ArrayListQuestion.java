@@ -67,9 +67,9 @@ public class ArrayListQuestion extends  Question {
         int listLength = rand.nextInt(8) + 3;
         int correctIndex = rand.nextInt(listLength);
         this.listLength = listLength;
-        OneDimIndex element = new OneDimIndex(correctIndex);
+        ArrayListIndex element = new ArrayListIndex(correctIndex);
         this.question = element.toString();
-        this.correctIndices.add(new OneDimIndex(correctIndex));
+        this.correctIndices.add(new ArrayListIndex(correctIndex));
     }
 
     private void generateRangeQuestion() //Creates a Range question where user selects multiple
