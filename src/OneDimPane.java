@@ -12,9 +12,6 @@ public class OneDimPane extends ArrayPane {
         super(question);
     }
 
-    OneDimPane(ArrayListQuestion question){
-        super(question);
-    }
 
 
     @Override

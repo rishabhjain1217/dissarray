@@ -282,11 +282,13 @@ public class GameController implements Initializable, Constants {
     }
 
     public void renderArrayList(ArrayListQuestion q){
+
+
         double paddingX = (600.0 - q.getArrayLength()*IndexButton.BUTTON_SIZE) / 2;
         double paddingY = (400.0 - IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
-        ArrayPane pane = new ArrayPane(q) {
+        /*ArrayPane pane = new ArrayPane(q) {
             @Override
             void render() {
                 //this.setAlignment(Pos.CENTER);
@@ -299,7 +301,11 @@ public class GameController implements Initializable, Constants {
                     this.add(this.indexButtons.get(i).getButton(), 30 + i, 0);
                 }
             }
-        };
+        };*/
+
+        this.questionLabel.setText(q.question);
+        ArrayListPane pane = new ArrayListPane(q);
+
         currentP = pane;
         this.renderPane.getChildren().setAll(pane);
         this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
@@ -354,7 +360,7 @@ public class GameController implements Initializable, Constants {
     public void nextQuestion(){//Hello
         //if(true); //put check answers here
         nextButton.setOnAction(e -> {
-            //System.out.println(check());
+            System.out.println(check());
             if(check()) {
                 score++;
                 scoreLabel.setText("Score: " + score);

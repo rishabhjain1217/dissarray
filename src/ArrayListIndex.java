@@ -19,8 +19,8 @@ public class ArrayListIndex extends Index {
     @Override
     boolean equals(Index o)
     {
-        if (o instanceof OneDimIndex) {
-            if (this.getIndex() == ((OneDimIndex) o).getIndex()) {
+        if (o instanceof ArrayListIndex) {
+            if (this.getIndex() == ((ArrayListIndex) o).getIndex()) {
                 return true;
             }
         }
@@ -32,7 +32,7 @@ public class ArrayListIndex extends Index {
     public int compareTo(Index o)
     {
         /* Unsafe, but assume same type. */
-        OneDimIndex other = (OneDimIndex) o;
+        ArrayListIndex other = (ArrayListIndex) o;
 
         if (this.equals(other)) return 0;
         if (this.getIndex() < other.getIndex()) return -1;
