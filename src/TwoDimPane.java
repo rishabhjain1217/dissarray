@@ -11,7 +11,7 @@ public class TwoDimPane extends ArrayPane {
         super(question);
     }
 
-
+    /** Create ArrayList with IndexButtons */
     @Override
     void render() {
         int rows = ((TwoDimQuestion) this.question).getRows();

@@ -21,7 +21,7 @@ public class TwoDimIndex extends Index {
     /**
      * Determines if a given Index is equal to this instance.
      * @param o The other index.
-     * @return true if the indices match, otherwise false.
+     * @return true if the indices match, otherwise false.2
      */
     @Override
     boolean equals(Index o)
