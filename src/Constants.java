@@ -9,6 +9,10 @@ public interface Constants {
 
     String TITLE_OF_GAME = "Diss-Array v1.1";//Title Change
 
+    final int timeForElementQuestion = 10;
+    final int timeForRangeQuestion = 20;
+    final int MAXELEMENTDETRACTION = 05;
+    final int MAXRANGEDDETRACTION = 12;
 
 
 
