@@ -27,6 +27,14 @@ public class OneDimQuestion extends Question implements Constants {
         return timeForQuestion;
     }
 
+    public void setTimeForQuestion(int i){
+        timeForQuestion = i;
+    }
+
+    public void setArrayLength(int i){
+        arrayLength = i;
+    }
+
     @Override
     void generateQuestion(QuestionType difficulty,int score) //Selects what type of question is given
     {
@@ -144,5 +152,9 @@ public class OneDimQuestion extends Question implements Constants {
         }
 
         return true;
+    }
+
+    public int getScore() {
+        return score;
     }
 }

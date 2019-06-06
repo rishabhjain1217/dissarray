@@ -454,21 +454,22 @@ public class GameController implements Initializable, Constants {
                 return null;
             }
         };
+        newGameMenuItem.setDisable(false);
         fiveSecDelay.setOnSucceeded(event -> {
             fade();
         });
+        newGameMenuItem.setDisable(true);
 
         new Thread(fiveSecDelay).start();
     }
 
     public void fade(){
-        newGameMenuItem.setDisable(false);
+
         FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
         fadeOutTransition.setFromValue(1.0);
         fadeOutTransition.setToValue(0.0);
         fadeOutTransition.play();
         fadeOutTransition.setOnFinished((ActionEvent actionEvent) -> finish());
-        newGameMenuItem.setDisable(true);
     }
 
     private void finish() {
@@ -518,3 +519,4 @@ public class GameController implements Initializable, Constants {
     }
 
 }
+//b
