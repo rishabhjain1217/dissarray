@@ -1,15 +1,14 @@
 
-import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.net.URL;
 
 public class BackgroundMusic implements Constants {
+    /** Singleton for Background Music*/
     private static BackgroundMusic INSTANCE = new BackgroundMusic();
     private static boolean isRunning = false;
     private static boolean mute = true;
     private static Clip clip;
-    private static AudioInputStream audioInputStream;
     private static long clipTime = 0;
 
     public boolean alternateSounds = false;
@@ -31,7 +30,6 @@ public class BackgroundMusic implements Constants {
         if(!isRunning) {
             try {
                 URL musicURL = getClass().getResource(this.alternateSounds ? NAME_OF_MEME_MUSIC : NAME_OF_MUSIC);
-                //File file = new File(musicURL);//this.alternateSounds ? NAME_OF_MEME_MUSIC : NAME_OF_MUSIC);
                 this.clip = AudioSystem.getClip();
                 clip.open(AudioSystem.getAudioInputStream(musicURL));
                 clip.setMicrosecondPosition(clipTime);
@@ -62,6 +60,8 @@ public class BackgroundMusic implements Constants {
         }
     }
 
+
+    /** Alternative and Regular sound, used when you find an Easter Egg!*/
     public void useAlternate()
     {
         this.alternateSounds = true;

@@ -51,11 +51,18 @@ public interface Constants {
 
 
 
+    /**Button Loader*/
+    boolean ONEDIM_TOGGLE_INITIAL_STATUS = true; //Starts ON
+    boolean TWODIM_TOGGLE_INITIAL_STATUS = false;
+    boolean ARRAYLIST_TOGGLE_INITIAL_STATUS = false;
+    boolean SOUND_TOGGLE_INITIAL_STATUS = true; //Starts ON
+    boolean TIMER_TOGGLE_INITIAL_STATUS = false;
+    boolean LOOPS_TOGGLE_INITIAL_STATUS = false;
 
 
 
 
-    //SoundLoader
+    /**SoundLoader*/
     String CORRECT_ONE = "resources/sounds/correct.wav";
     String CORRECT_TWO = "resources/sounds/correct2.wav";
     String WRONG_ONE = "resources/sounds/wrong.wav";
@@ -65,7 +72,7 @@ public interface Constants {
 
 
 
-    //TwoDimQuestion
+    /**TwoDimQuestion*/
     int TIME_FOR_ELEMENT_QUESTION_TWODIM = 15; //Element Question Time TwoDim
     int TIME_FOR_RANGE_QUESTION_TWODIM = 25; //Range Question Time TwoDim
     int MAX_RANGED_DETRACTION = 13; //Max amount of time taken away from questions
@@ -74,25 +81,5 @@ public interface Constants {
     int MIN_ROWS_TWODIM = 3;
     int MIN_COLS_TWODIM = 3;
     int SWITCH_CASE_SCORE_TWODIM = 10;
-
-
-
-
-
-
-
-
-
-
-
-    final int PROBABILITY_BOUNDS = 100; //The probability range of an easy or hard question being generated.
-    final int MAX_SCORE_FOR_EASY = 25; //Once the score reaches this, it will no longer generate easy questions.
-    final int SCORE_DIFFICULTY_MULTIPLIER = 4;
-
-
-    final int ONEDIM_ELEMENT_TIME_INCREMENTS = 4;//Amount of times the timer will decrease before reaching maximum time decrease
-    final int ONEDIM_RANGE_TIME_INCREMENTS = 5;//Amount of times the timer will decrease before reaching maximum time decrease
-
-
 
 }

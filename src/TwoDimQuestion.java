@@ -38,7 +38,7 @@ public class TwoDimQuestion extends Question implements Constants {
                     generateQuestionBasedOnScore();
                 }
                 break;
-            case Range: //Hard mode, which can have either an element question or a range question
+            case Range: /**Hard mode, which can have either an element question or a range question*/
                 generateQuestionBasedOnScore();
                 break;
         }
@@ -65,8 +65,8 @@ public class TwoDimQuestion extends Question implements Constants {
             this.timeForQuestion = this.TIME_FOR_ELEMENT_QUESTION_TWODIM - MAX_RANGED_DETRACTION;
         }
         Random rand = new Random();
-        int rows = rand.nextInt(3) + 3;
-        int cols = rand.nextInt(6) + 3;
+        int rows = rand.nextInt(MAX_ROWS_TWODIM) + MIN_ROWS_TWODIM;
+        int cols = rand.nextInt(MAX_COLS_TWODIM) + MIN_COLS_TWODIM;
 
         int elementRow = rand.nextInt(rows);
         int elementCol = rand.nextInt(cols);
