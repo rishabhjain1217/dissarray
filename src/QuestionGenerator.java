@@ -52,4 +52,18 @@ public class QuestionGenerator {
         return n == 0? generateTwoDim(difficulty,score) : generateArrayList(difficulty,score);
     }
 
+    public Question generateThree(QuestionType difficulty, int score){
+        Random rand = new Random();
+        int n = rand.nextInt(3);
+
+        if(n == 0){
+            return generateOneDim(difficulty,score);
+
+        } else if(n == 1){
+            return generateTwoDim(difficulty,score);
+        } else{
+            return generateArrayList(difficulty,score);
+        }
+    }
+
 }

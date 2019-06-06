@@ -164,7 +164,9 @@ public class GameController implements Initializable, KeyListener, Constants {
                     break;
 
                 case Three:
-                    //this.timeRemaining =
+                    this.timeRemaining = this.renderThree();
+                    this.timeLabel.setText("Time: " + 0 + ":" + timeRemaining);
+                    break;
 
                 default:
                     this.timeRemaining = (this.renderOneDim());
@@ -342,6 +344,21 @@ public class GameController implements Initializable, KeyListener, Constants {
         Question q = this.generator.generateTwoList(difficulty,score);
 
         if (q instanceof TwoDimQuestion) {
+            this.renderTwoDim(((TwoDimQuestion) q));
+            return ((TwoDimQuestion) q).getTimeForQuestion();
+        } else {
+            this.renderArrayList(((ArrayListQuestion) q));
+            return ((ArrayListQuestion) q).getTimeForQuestion();
+        }
+    }
+
+    private int renderThree() {
+        Question q = this.generator.generateThree(difficulty,score);
+
+        if (q instanceof OneDimQuestion) {
+            this.renderOneDim(((OneDimQuestion) q));
+            return ((OneDimQuestion) q).getTimeForQuestion();
+        } else if (q instanceof TwoDimQuestion) {
             this.renderTwoDim(((TwoDimQuestion) q));
             return ((TwoDimQuestion) q).getTimeForQuestion();
         } else {

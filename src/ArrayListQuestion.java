@@ -108,7 +108,7 @@ public class ArrayListQuestion extends Question implements Constants {
         else
             factor = (r.nextInt(1) + 1);
 
-        this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; " + "i+=" + factor + ") \n a[i]";
+        this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; " + "i+=" + factor + ") \n a.get(i)";
 
 
         setCorrectedIndex(lowerBound,upperBound,factor);
