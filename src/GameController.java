@@ -28,7 +28,7 @@ import java.util.*;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
-public class GameController implements Initializable, KeyListener, Constants {
+public class GameController implements Initializable, Constants {
 
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
@@ -70,7 +70,6 @@ public class GameController implements Initializable, KeyListener, Constants {
     public GameController()
     {
         this.generator = new QuestionGenerator();
-        addKeyListener(this);
     }
 
     public void setGameMode(GameMode mode)
@@ -106,7 +105,6 @@ public class GameController implements Initializable, KeyListener, Constants {
         muteItem();
         menuItem();
 
-        //scoreLabel.textProperty().bind(new SimpleIntegerProperty(score).asString());
     }
 
     private void muteItem() {
@@ -129,7 +127,7 @@ public class GameController implements Initializable, KeyListener, Constants {
             }
                 restart();
         });
-    }//ninja "we be flossin"
+    }
 
     private void newQuestion()
     {
@@ -367,7 +365,6 @@ public class GameController implements Initializable, KeyListener, Constants {
 
             }
         });
-        //nextButton.setOnAction(e -> newQuestion());
     }
 
     private void corrected() {
@@ -498,26 +495,4 @@ public class GameController implements Initializable, KeyListener, Constants {
         }
     }
 
-//Testing key presses
-    @Override
-    public void keyTyped(KeyEvent e) {
-       //System.out.println("hello1wds");
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-
-        System.out.println("hello");
-        int keyCode = e.getKeyCode();
-        if (keyCode == KeyEvent.VK_ENTER){
-
-            System.out.println("You pressed the fire button");
-        }
-
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-
-    }
 }
