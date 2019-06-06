@@ -1,28 +1,35 @@
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
-public class ArrayListQuestion extends  Question {
+public class ArrayListQuestion extends Question {
 
-    private int listLength;
+    private int arrayLength;
     private final int timeForElementQuestion = 10;
     private final int timeForRangeQuestion = 20;
     private final int MAXELEMENTDETRACTION = 05;
-    private final int MAXRANGEDDETRACTION =10;
-
+    private final int MAXRANGEDDETRACTION = 12;
 
     private int timeForQuestion;
-
+    private int forEachWritten = 0;
     private int score;
+    //private boolean isArrayList;
 
-    public int getTimeForQuestion() {
-        return timeForQuestion;
-    }
-
-
-    public ArrayListQuestion(QuestionType difficulty, int score){
+    public ArrayListQuestion(QuestionType difficulty,int score)
+    {
         super();
         this.score = score;
         this.generateQuestion(difficulty,score);
+    }
+
+    public int getTimeForQuestion() {
+        return timeForQuestion;
     }
 
     @Override
@@ -55,6 +62,7 @@ public class ArrayListQuestion extends  Question {
                 break;
         }
     }
+
     private void generateElementQuestion() //Creates a question for a specific cell
     {
         int scoreInfluence = score/2;
@@ -64,9 +72,9 @@ public class ArrayListQuestion extends  Question {
             this.timeForQuestion = timeForElementQuestion -MAXELEMENTDETRACTION;
 
         Random rand = new Random();
-        int listLength = rand.nextInt(8) + 3;
-        int correctIndex = rand.nextInt(listLength);
-        this.listLength = listLength;
+        int arrayLength = rand.nextInt(8) + 3;
+        int correctIndex = rand.nextInt(arrayLength);
+        this.arrayLength = arrayLength;
         ArrayListIndex element = new ArrayListIndex(correctIndex);
         this.question = element.toString();
         this.correctIndices.add(new ArrayListIndex(correctIndex));
@@ -94,7 +102,7 @@ public class ArrayListQuestion extends  Question {
         int lowerBound = Math.min(bound1, bound2);
         int upperBound = Math.max(bound1, bound2);
 
-        this.listLength = arrayLength;
+        this.arrayLength = arrayLength;
 
         /*if(!isForEach) {
             this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; ++i) \n a[i]";
@@ -111,7 +119,7 @@ public class ArrayListQuestion extends  Question {
         else
             factor = (r.nextInt(1) + 1);
 
-        this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; " + "i+=" + factor + ") \n a.get(i)";
+        this.question = "for(int i = " + lowerBound + "; i <= " + upperBound + "; " + "i+=" + factor + ") \n a[i]";
 
 
         setCorrectedIndex(lowerBound,upperBound,factor);
@@ -130,16 +138,23 @@ public class ArrayListQuestion extends  Question {
         }
     }
 
+    public int getArrayLength() {
+        return arrayLength;
+    }
 
     @Override
-    boolean checkAnswer(ArrayList<Index> index){
+    boolean checkAnswer(ArrayList<Index> selectedIndices)
+    {
+        if (this.correctIndices.size() != selectedIndices.size()) {
+            return false;
+        }
 
-        return false;
+        Collections.sort(selectedIndices);
+
+        for (int i = 0; i < this.correctIndices.size(); ++i) {
+            if (!correctIndices.get(i).equals(selectedIndices.get(i))) return false;
+        }
+
+        return true;
     }
-
-    public int getArrayLength() {
-        return listLength;
-    }
-
-
 }
