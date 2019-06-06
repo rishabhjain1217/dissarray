@@ -9,7 +9,6 @@ public class TwoDimQuestion extends Question implements Constants {
     private QuestionType difficulty;
     private int score;
 
-    //private boolean isArrayList;
 
     public TwoDimQuestion(QuestionType difficulty, int score)
     {
