@@ -92,7 +92,7 @@
                            <font>
                               <Font size="18.0" />
                            </font></JFXToggleButton>
-                        <JFXToggleButton fx:id="arraylistToggle" layoutX="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="ArrayList (Coming Soon!)" toggleColor="#673ab7" toggleLineColor="#7e57c2" GridPane.rowIndex="2">
+                        <JFXToggleButton fx:id="arraylistToggle" layoutX="10.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="312.0" text="ArrayList             " toggleColor="#673ab7" toggleLineColor="#7e57c2" GridPane.rowIndex="2">
                            <font>
                               <Font size="18.0" />
                            </font></JFXToggleButton>
