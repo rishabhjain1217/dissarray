@@ -22,6 +22,12 @@ public interface Constants {
 
 
 
+    final int PROBABILITY_BOUNDS = 100;
+    final int MAX_SCORE_FOR_EASY = 25;
+    final int SCORE_DIFFICULTY_MULTIPLIER = 4;
+    final int ONEDIM_ELEMENT_TIME_INCREMENTS = 4;
+    final int ONEDIM_RANGE_TIME_INCREMENTS = 5;
+
 
 
 
