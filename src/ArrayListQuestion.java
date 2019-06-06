@@ -7,10 +7,6 @@ import java.util.Random;
 public class ArrayListQuestion extends Question implements Constants {
 
     private int arrayLength;
-    private final int timeForElementQuestion = 10;
-    private final int timeForRangeQuestion = 20;
-    private final int MAXELEMENTDETRACTION = 05;
-    private final int MAXRANGEDDETRACTION = 12;
 
     private int timeForQuestion;
     private int score;
@@ -31,9 +27,9 @@ public class ArrayListQuestion extends Question implements Constants {
     {
         switch (difficulty) {
             case Element:
-                if(score <= 10)
+                if(score <= SWITCH_CASE_SCORE_LIST)
                     generateElementQuestion();
-                if(score > 10) {
+                if(score > SWITCH_CASE_SCORE_LIST) {
                     Random r = new Random();
                     int nextQ = r.nextInt(PROBABILITY_BOUNDS); //push
 
@@ -60,12 +56,12 @@ public class ArrayListQuestion extends Question implements Constants {
     {
         int scoreInfluence = score/2;
         if(scoreInfluence <= ONEDIM_ELEMENT_TIME_INCREMENTS)
-            this.timeForQuestion = timeForElementQuestion-(scoreInfluence);
+            this.timeForQuestion = TIME_FOR_ELEMENT_QUESTION_LIST-(scoreInfluence);
         else
-            this.timeForQuestion = timeForElementQuestion -MAXELEMENTDETRACTION;
+            this.timeForQuestion = TIME_FOR_ELEMENT_QUESTION_LIST - MAX_ELEMENT_DETRACTION_LIST;
 
         Random rand = new Random();
-        int arrayLength = rand.nextInt(8) + 3;
+        int arrayLength = rand.nextInt(MAX_SIZE_ONELIST) + MIN_SIZE_ONELIST;
         int correctIndex = rand.nextInt(arrayLength);
         this.arrayLength = arrayLength;
         ArrayListIndex element = new ArrayListIndex(correctIndex);
@@ -79,12 +75,12 @@ public class ArrayListQuestion extends Question implements Constants {
         //boolean isForEach = r.nextBoolean();
         int scoreInfluence = score/5;
         if(scoreInfluence <= ONEDIM_RANGE_TIME_INCREMENTS)
-            this.timeForQuestion = timeForRangeQuestion - (scoreInfluence*2);
+            this.timeForQuestion = TIME_FOR_RANGE_QUESTION_LIST - (scoreInfluence*2);
         else
-            this.timeForQuestion = timeForRangeQuestion - MAXRANGEDDETRACTION;
+            this.timeForQuestion = TIME_FOR_RANGE_QUESTION_LIST - MAX_RANGED_DETRACTION_LIST;
 
         Random rand = new Random();
-        int arrayLength = rand.nextInt(9) + 3;
+        int arrayLength = rand.nextInt(MAX_SIZE_ONELIST) + MIN_SIZE_ONELIST;
         int bound1 = rand.nextInt(arrayLength);
         int bound2 = rand.nextInt(arrayLength);
         /* Prevent having the same bounds. */

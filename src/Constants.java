@@ -7,7 +7,7 @@ public interface Constants {
     String NAME_OF_MUSIC = "resources/sounds/Wii Remix.wav"; //Regular music
     String NAME_OF_MEME_MUSIC = "resources/sounds/Wii Remix BOOSTED.wav";//Must add src to the beginning to specify path
 
-    String TITLE_OF_GAME = "Diss-Array v1.1";//Title Change
+    String TITLE_OF_GAME = "Diss-Array v2.0";//Title Change
 
 
     /** OneDimQuestion*/
@@ -23,29 +23,22 @@ public interface Constants {
     int ONEDIM_ELEMENT_TIME_INCREMENTS = 4;
     int ONEDIM_RANGE_TIME_INCREMENTS = 5;
 
-    int MAX_SIZE_ONEDIM = 9;
-    int MIN_SIZE_ONEDIM = 3;
+    int MAX_SIZE_ONELIST = 9;
+    int MIN_SIZE_ONELIST = 3;
+
+
+    /** ArrayList Pane */
+
+    int TIME_FOR_ELEMENT_QUESTION_LIST = 10; //Element Question Time TwoDim
+    int TIME_FOR_RANGE_QUESTION_LIST = 20; //Range Question Time TwoDim
+    int MAX_ELEMENT_DETRACTION_LIST = 05;
+    int MAX_RANGED_DETRACTION_LIST = 12; //Max amount of time taken away from questions
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    int SWITCH_CASE_SCORE_ONEDIM = 10;
+    int SWITCH_CASE_SCORE_LIST = 10;
 
 
 

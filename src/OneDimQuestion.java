@@ -40,9 +40,9 @@ public class OneDimQuestion extends Question implements Constants {
     {
         switch (difficulty) {
             case Element:
-                if(score <= 10)
+                if(score <= SWITCH_CASE_SCORE_ONEDIM)
                     generateElementQuestion();
-                if(score > 10) {
+                if(score > SWITCH_CASE_SCORE_ONEDIM) {
                     Random r = new Random();
                     int nextQ = r.nextInt(PROBABILITY_BOUNDS);
 
@@ -79,7 +79,7 @@ public class OneDimQuestion extends Question implements Constants {
             this.timeForQuestion = TIME_FOR_ELEMENT_QUESTION_ONEDIM - MAX_ELEMENT_DETRACTION_ONEDIM;
 
         Random rand = new Random();
-        int arrayLength = rand.nextInt(8) + 3;
+        int arrayLength = rand.nextInt(MAX_SIZE_ONELIST) + MIN_SIZE_ONELIST;
         int correctIndex = rand.nextInt(arrayLength);
         this.arrayLength = arrayLength;
         OneDimIndex element = new OneDimIndex(correctIndex);
@@ -99,7 +99,7 @@ public class OneDimQuestion extends Question implements Constants {
             this.timeForQuestion = TIME_FOR_RANGE_QUESTION_ONEDIM - MAX_RANGED_DETRACTION_ONEDIM;
 
         Random rand = new Random();
-        int arrayLength = rand.nextInt(MAX_SIZE_ONEDIM) + MIN_SIZE_ONEDIM;
+        int arrayLength = rand.nextInt(MAX_SIZE_ONELIST) + MIN_SIZE_ONELIST;
         int bound1 = rand.nextInt(arrayLength);
         int bound2 = rand.nextInt(arrayLength);
         /** Prevent having the same bounds. */

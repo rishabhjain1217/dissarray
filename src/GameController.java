@@ -2,9 +2,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -19,14 +17,8 @@ import javafx.scene.media.AudioClip;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-//import javazoom.jl.decoder.JavaLayerException;
-
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.net.URL;
 import java.util.*;
-
-import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
 public class GameController implements Initializable, Constants {
 
@@ -377,7 +369,7 @@ public class GameController implements Initializable, Constants {
     public void nextQuestion(){//Hello
         //if(true); //put check answers here
         nextButton.setOnAction(e -> {
-            System.out.println(check());
+            //System.out.println(check());
             if(check()) {
                 score++;
                 scoreLabel.setText("Score: " + score);
