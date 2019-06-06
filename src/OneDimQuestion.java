@@ -46,7 +46,7 @@ public class OneDimQuestion extends Question implements Constants {
 
                 }
                 break;
-            case Range: //Hard mode, which can have either an element question or a range question
+            case Range: /**Hard mode, which can have either an element question or a range question*/
                 Random r = new Random();
                 int nextQ = r.nextInt(PROBABILITY_BOUNDS);
 

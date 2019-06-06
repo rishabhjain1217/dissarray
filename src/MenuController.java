@@ -27,8 +27,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Rishabh Jain AKA CodeGod on 05 24, 2019 at 09:26
  */
-public class MenuController implements Initializable,ColorConstants {
-//comment
+public class MenuController implements Initializable,ColorConstants, Constants {
+
 
     @FXML
     Label titleText;
@@ -150,7 +150,7 @@ public class MenuController implements Initializable,ColorConstants {
                 instructionsController.start();
 
                 Scene scene = new Scene(instructionsPane, 600, 400);
-                pStage.setTitle("Diss-Array V1.0");
+                pStage.setTitle(TITLE_OF_GAME);
 
 
                 pStage.setScene(scene);
@@ -179,7 +179,7 @@ public class MenuController implements Initializable,ColorConstants {
 
                     Scene scene = new Scene(gamePane, 1050, 750);
                     scene.getStylesheets().add("checkBoxStyle.css");
-                    pStage.setTitle("Diss-Array v1.1");
+                    pStage.setTitle(TITLE_OF_GAME);
 
                     scene.setOnKeyPressed(b -> {
                         if (b.getCode() == KeyCode.ENTER) {
@@ -190,6 +190,7 @@ public class MenuController implements Initializable,ColorConstants {
 
                     pStage.setScene(scene);
 
+                    /** Centers game window on user's screen*/
                     Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
                     pStage.setX((primScreenBounds.getWidth() - scene.getWidth()) / 2);
                     pStage.setY((primScreenBounds.getHeight() - scene.getHeight()) / 2);
@@ -224,8 +225,9 @@ public class MenuController implements Initializable,ColorConstants {
         if(!oneDimToggle.isSelected() && twoDimToggle.isSelected() && !arraylistToggle.isSelected()) {
             return GameMode.TwoDim;
         }
-        oneDimToggle.setSelected(false);
+        oneDimToggle.setSelected(true);
         twoDimToggle.setSelected(false);
+        arraylistToggle.setSelected(false);
         try
         {
             Thread.sleep(1000);
@@ -234,7 +236,7 @@ public class MenuController implements Initializable,ColorConstants {
         {
             Thread.currentThread().interrupt();
         }
-        return GameMode.ArrayList;
+        return GameMode.OneDim;
     }
 
     public QuestionType findDifficulty(){
