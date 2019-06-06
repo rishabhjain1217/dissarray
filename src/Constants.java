@@ -57,14 +57,6 @@ public interface Constants {
 
 
 
-    /**Button Loader*/
-    boolean ONEDIM_TOGGLE_INITIAL_STATUS = true; //Starts ON
-    boolean TWODIM_TOGGLE_INITIAL_STATUS = false;
-    boolean ARRAYLIST_TOGGLE_INITIAL_STATUS = false;
-    boolean SOUND_TOGGLE_INITIAL_STATUS = true; //Starts ON
-    boolean TIMER_TOGGLE_INITIAL_STATUS = false;
-    boolean LOOPS_TOGGLE_INITIAL_STATUS = false;
-
 
 
 
@@ -73,7 +65,6 @@ public interface Constants {
     String CORRECT_TWO = "resources/sounds/correct2.wav";
     String WRONG_ONE = "resources/sounds/wrong.wav";
     String WRONG_TWO = "resources/sounds/wrong2.wav";
-
 
 
 

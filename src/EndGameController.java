@@ -44,20 +44,8 @@ public class EndGameController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       // fadeIn();
-        //alex is a homie
-        //h
     }
 
-    private void fadeIn() {
-        FadeTransition fadeInTransition = new FadeTransition(Duration.millis(1500), endGamePane);
-        fadeInTransition.setFromValue(1.0);
-        fadeInTransition.setToValue(0.0);
-        fadeInTransition.play();
-        fadeInTransition.setOnFinished((ActionEvent event) -> {
-           // start();
-        });
-    }
 
     public void start(){
         init();
