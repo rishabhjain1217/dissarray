@@ -338,7 +338,7 @@ public class GameController implements Initializable, KeyListener, Constants {
         }
     }
 
-    private int renderTwoList(){
+    private int renderTwoList(){ //Array List and Two Dim game mode
         Question q = this.generator.generateTwoList(difficulty,score);
 
         if (q instanceof TwoDimQuestion) {
