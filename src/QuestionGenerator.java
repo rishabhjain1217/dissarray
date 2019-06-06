@@ -38,11 +38,18 @@ public class QuestionGenerator {
         return n == 0 ? generateOneDim(difficulty,score) : generateTwoDim(difficulty,score);
     }
 
-public Question generateOneList(QuestionType difficulty, int score){
+    public Question generateOneList(QuestionType difficulty, int score){
         Random rand = new Random();
         int n = rand.nextInt(2);
 
         return n == 0? generateOneDim(difficulty,score) : generateArrayList(difficulty,score);
 }
+
+    public Question generateTwoList(QuestionType difficulty, int score){
+        Random rand = new Random();
+        int n = rand.nextInt(2);
+
+        return n == 0? generateTwoDim(difficulty,score) : generateArrayList(difficulty,score);
+    }
 
 }
