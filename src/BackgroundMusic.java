@@ -7,7 +7,7 @@ import java.net.URL;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-public class BackgroundMusic {
+public class BackgroundMusic implements Constants {
     private static BackgroundMusic INSTANCE = new BackgroundMusic();
     private static boolean isRunning = false;
     private static boolean mute = true;
@@ -17,8 +17,6 @@ public class BackgroundMusic {
 
     public boolean alternateSounds = false;
 
-    private final String nameOfMusic = "resources/sounds/Wii Remix.wav";
-    private final String nameOfMemeMusic = "resources/sounds/Wii Remix BOOSTED.wav";//Must add src to the beginning to specify path
 
     public static BackgroundMusic getInstance() {
         if(INSTANCE == null) {
@@ -49,7 +47,7 @@ public class BackgroundMusic {
             }
         }
         else{
-            System.out.println("Hello");
+            System.out.println("Something went wrong with the background music");
         }
     }
 
