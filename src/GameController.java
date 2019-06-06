@@ -28,7 +28,7 @@ import java.util.*;
 
 import static com.sun.java.accessibility.util.AWTEventMonitor.addKeyListener;
 
-public class GameController implements Initializable, KeyListener {
+public class GameController implements Initializable, KeyListener, Constants {
 
     @FXML
     Label scoreLabel, timeLabel, questionLabel;
@@ -445,7 +445,7 @@ public class GameController implements Initializable, KeyListener {
             endGameController.score = score;
             endGameController.start();
             Scene scene = new Scene(gamePane, 600, 400);
-            pStage.setTitle("Diss-Array v1.0");
+            pStage.setTitle(TITLE_OF_GAME);
             pStage.setScene(scene);
 
             Rectangle2D primScreenBounds = Screen.getPrimary().getVisualBounds();
@@ -454,7 +454,7 @@ public class GameController implements Initializable, KeyListener {
 
             pStage.show();
         } catch (Exception ex) {
-            System.out.println("Wassup");
+            System.out.println("Something went wrong with finishing the game");
         }
 
     }
@@ -482,10 +482,10 @@ public class GameController implements Initializable, KeyListener {
         }
     }
 
-
+//Testing key presses
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println("hello1wds");
+       //System.out.println("hello1wds");
     }
 
     @Override
@@ -495,7 +495,7 @@ public class GameController implements Initializable, KeyListener {
         int keyCode = e.getKeyCode();
         if (keyCode == KeyEvent.VK_ENTER){
 
-            System.out.println("You pressed the fire button"); //Happy Birthday Bill!
+            System.out.println("You pressed the fire button");
         }
 
     }
