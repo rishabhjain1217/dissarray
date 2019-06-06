@@ -1,11 +1,13 @@
 public class ButtonLoader {
 
-    private boolean oneDim = true;
-    private boolean twoDim = false;
-    private boolean arrList = false;
-    private boolean sound = true;
-    private boolean timer = false;
-    private boolean loops = false;
+    /**Singleton for the status for the buttons. Adds button persistence */
+
+    private boolean ONEDIM_Toggle_Status = true; //Starts ON
+    private boolean TWODIM_Toggle_Status  = false;
+    private boolean ARRAYLIST_Toggle_Status  = false;
+    private boolean SOUND_Toggle_Status  = true; //Starts ON
+    private boolean TIMER_Toggle_Status  = false;
+    private boolean LOOPS_Toggle_Status  = false;
 
     private static ButtonLoader ourInstance = new ButtonLoader();
 
@@ -15,42 +17,42 @@ public class ButtonLoader {
 
     }
 
-    public void setOneDim(boolean current){ oneDim = current; }
-    public boolean getOneDim(){ return oneDim; }
+    public void setOneDim(boolean current){ ONEDIM_Toggle_Status = current; }
+    public boolean getOneDim(){ return ONEDIM_Toggle_Status; }
 
     public boolean getArrList() {
-        return arrList;
+        return ARRAYLIST_Toggle_Status;
     }
     public void setArrList(boolean arrList) {
-        this.arrList = arrList;
+        this.ARRAYLIST_Toggle_Status = arrList;
     }
 
     public boolean getSound() {
-        return sound;
+        return SOUND_Toggle_Status;
     }
     public void setSound(boolean sound) {
-        this.sound = sound;
+        this.SOUND_Toggle_Status = sound;
     }
 
     public boolean getTimer() {
-        return timer;
+        return TIMER_Toggle_Status;
     }
     public void setTimer(boolean timer) {
-        this.timer = timer;
+        this.TIMER_Toggle_Status = timer;
     }
 
     public boolean getLoops() {
-        return loops;
+        return LOOPS_Toggle_Status;
     }
     public void setLoops(boolean loops) {
-        this.loops = loops;
+        this.LOOPS_Toggle_Status = loops;
     }
 
     public boolean getTwoDim() {
-        return twoDim;
+        return TWODIM_Toggle_Status;
     }
     public void setTwoDim(boolean twoDim) {
-        this.twoDim = twoDim;
+        this.TWODIM_Toggle_Status = twoDim;
     }
 
 
