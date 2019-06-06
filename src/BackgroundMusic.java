@@ -12,7 +12,6 @@ public class BackgroundMusic {
     private static boolean isRunning = false;
     private static boolean mute = true;
     private static Clip clip;
-    private static AudioInputStream audioInputStream;
     private static long clipTime = 0;
 
     public boolean alternateSounds = false;
@@ -36,7 +35,6 @@ public class BackgroundMusic {
         if(!isRunning) {
             try {
                 URL musicURL = getClass().getResource(this.alternateSounds ? nameOfMemeMusic : nameOfMusic);
-                //File file = new File(musicURL);//this.alternateSounds ? nameOfMemeMusic : nameOfMusic);
                 this.clip = AudioSystem.getClip();
                 clip.open(AudioSystem.getAudioInputStream(musicURL));
                 clip.setMicrosecondPosition(clipTime);
@@ -47,9 +45,6 @@ public class BackgroundMusic {
             } catch (Exception e) {
                 System.err.println(e.getMessage());
             }
-        }
-        else{
-            System.out.println("Hello");
         }
     }
 
