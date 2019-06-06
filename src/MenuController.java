@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Rishabh Jain AKA CodeGod on 05 24, 2019 at 09:26
  */
-public class MenuController implements Initializable {
+public class MenuController implements Initializable,ColorConstants {
 //comment
 
     @FXML
@@ -59,10 +59,10 @@ public class MenuController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         if(SoundLoader.getInstance().alternateSounds){
-            titleText.setTextFill(Color.web("#673ab7"));
+            titleText.setTextFill(Color.web(PURPLE));
         }
         if(BackgroundMusic.getInstance().alternateSounds){
-            titleText.setTextFill(Color.web("#000000"));
+            titleText.setTextFill(Color.web(BLACK));
         }
 
 
@@ -72,13 +72,13 @@ public class MenuController implements Initializable {
             if (clickCount == 10) {
                 if(on == false) {
                     SoundLoader.getInstance().useAlternate();
-                    titleText.setTextFill(Color.web("#673ab7"));
+                    titleText.setTextFill(Color.web(BLACK));
                     on = true;
                 }
                 else{
                     on = false;
                     SoundLoader.getInstance().useRegular();
-                    titleText.setTextFill(Color.web("#000000"));
+                    titleText.setTextFill(Color.web(BLACK));
                 }
                 clickCount = 0;
             }
@@ -89,13 +89,14 @@ public class MenuController implements Initializable {
             if (count == 10) {
                 if(onTwo == false) {
                     BackgroundMusic.getInstance().useAlternate();
-                    soundToggle.setToggleColor(Paint.valueOf("#000000"));
+                    soundToggle.setToggleColor(Paint.valueOf(BLACK));
                     onTwo = true;
                 }
                 else{
                     onTwo = false;
                     BackgroundMusic.getInstance().useRegular();
-                    soundToggle.setToggleColor(Paint.valueOf("#673ab7"));
+                    soundToggle.setToggleColor(Paint.valueOf(PURPLE));
+
                 }
                 count = 0;
             }
@@ -156,7 +157,7 @@ public class MenuController implements Initializable {
                 pStage.show();
 
             } catch (Exception ex) {
-                System.out.println("Game Crashed 1");
+                System.out.println(ex);
             }
         });
     }
