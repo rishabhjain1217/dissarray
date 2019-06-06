@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Rishabh Jain AKA CodeGod on 05 24, 2019 at 09:26
  */
-public class MenuController implements Initializable {
+public class MenuController implements Initializable, Constants {
 //comment
 
     @FXML
@@ -149,7 +149,7 @@ public class MenuController implements Initializable {
                 instructionsController.start();
 
                 Scene scene = new Scene(instructionsPane, 600, 400);
-                pStage.setTitle("Diss-Array V1.0");
+                pStage.setTitle(TITLE_OF_GAME);
 
 
                 pStage.setScene(scene);
@@ -178,7 +178,7 @@ public class MenuController implements Initializable {
 
                     Scene scene = new Scene(gamePane, 1050, 750);
                     scene.getStylesheets().add("checkBoxStyle.css");
-                    pStage.setTitle("Diss-Array v1.1");
+                    pStage.setTitle(TITLE_OF_GAME);
 
                     scene.setOnKeyPressed(b -> {
                         if (b.getCode() == KeyCode.ENTER) {

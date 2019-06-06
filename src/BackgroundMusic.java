@@ -2,10 +2,7 @@
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-import java.io.*;
 import java.net.URL;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
 
 public class BackgroundMusic implements Constants {
     private static BackgroundMusic INSTANCE = new BackgroundMusic();
@@ -33,8 +30,8 @@ public class BackgroundMusic implements Constants {
     public void play() {
         if(!isRunning) {
             try {
-                URL musicURL = getClass().getResource(this.alternateSounds ? nameOfMemeMusic : nameOfMusic);
-                //File file = new File(musicURL);//this.alternateSounds ? nameOfMemeMusic : nameOfMusic);
+                URL musicURL = getClass().getResource(this.alternateSounds ? NAME_OF_MEME_MUSIC : NAME_OF_MUSIC);
+                //File file = new File(musicURL);//this.alternateSounds ? NAME_OF_MEME_MUSIC : NAME_OF_MUSIC);
                 this.clip = AudioSystem.getClip();
                 clip.open(AudioSystem.getAudioInputStream(musicURL));
                 clip.setMicrosecondPosition(clipTime);
@@ -56,7 +53,6 @@ public class BackgroundMusic implements Constants {
         if(!mute){
             isRunning = false;
             mute = true;
-            System.out.println("yo");
             clipTime = clip.getMicrosecondPosition();
             clip.stop();
         }

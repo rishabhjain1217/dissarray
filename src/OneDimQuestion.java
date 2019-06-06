@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
-public class OneDimQuestion extends Question {
+public class OneDimQuestion extends Question implements  Constants {
 
     private int arrayLength;
     private final int timeForElementQuestion = 10;
