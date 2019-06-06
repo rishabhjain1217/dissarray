@@ -28,7 +28,7 @@ import java.rmi.server.ExportException;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Text;
 
-public class Starter extends Application {
+public class Starter extends Application implements Constants{
 
     public static void main(String[] args) {
         launch(args);
@@ -51,7 +51,7 @@ public class Starter extends Application {
         Scene scene = new Scene(menuPane,600, 400);
         scene.getStylesheets().add("checkBoxStyle.css");
 
-        primaryStage.setTitle("Diss-Array v1.0");
+        primaryStage.setTitle(TITLE_OF_GAME);
 
         primaryStage.setScene(scene);
 
