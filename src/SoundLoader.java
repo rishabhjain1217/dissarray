@@ -5,7 +5,7 @@ public class SoundLoader {
     private static String wrong1 = "resources/sounds/wrong.wav";
     private static String wrong2 = "resources/sounds/wrong2.wav";
 
-    private boolean alternateSounds = false;
+    public boolean alternateSounds = false;
 
     private static SoundLoader ourInstance = new SoundLoader();
 

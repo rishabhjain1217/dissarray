@@ -9,10 +9,12 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -46,7 +48,7 @@ public class MenuController implements Initializable {
     private boolean on = false;
 
     private int count = 0;
-    private boolean on2 = false;
+    private boolean onTwo = false;
     private boolean muteText = true; //Unmute is begining statment
 
     public MenuController(){
@@ -55,6 +57,15 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        if(SoundLoader.getInstance().alternateSounds){
+            titleText.setTextFill(Color.web("#673ab7"));
+        }
+        if(BackgroundMusic.getInstance().alternateSounds){
+            titleText.setTextFill(Color.web("#000000"));
+        }
+
+
         defineBeginingMute();
         titleText.setOnMouseClicked(event -> {
             ++clickCount;
@@ -73,23 +84,22 @@ public class MenuController implements Initializable {
             }
         });
 
-        /*soundToggle.setOnMouseClicked(event -> {
+        soundToggle.setOnMouseClicked(event -> {
             ++count;
             if (count == 10) {
-                if(on2 == false) {
-                    SoundLoader.getInstance().useAlternate();
-                    //titleText.setTextFill(Color.web("#673ab7"));
-                    //soundToggle.setToggleColor("#ffffff");
-                    on2 = true;
+                if(onTwo == false) {
+                    BackgroundMusic.getInstance().useAlternate();
+                    soundToggle.setToggleColor(Paint.valueOf("#000000"));
+                    onTwo = true;
                 }
                 else{
-                    on2 = false;
-                    SoundLoader.getInstance().useRegular();
-                    //titleText.setTextFill(Color.web("#000000"));
+                    onTwo = false;
+                    BackgroundMusic.getInstance().useRegular();
+                    soundToggle.setToggleColor(Paint.valueOf("#673ab7"));
                 }
                 count = 0;
             }
-        });*/
+        });
     }
 
     public void start(){
@@ -170,6 +180,12 @@ public class MenuController implements Initializable {
                     scene.getStylesheets().add("checkBoxStyle.css");
                     pStage.setTitle("Diss-Array v1.1");
 
+                    scene.setOnKeyPressed(b -> {
+                        if (b.getCode() == KeyCode.ENTER) {
+                            gameController.nextButton.fire();
+                        }
+                    });
+                    //hi
 
                     pStage.setScene(scene);
 
@@ -268,4 +284,3 @@ public class MenuController implements Initializable {
         }
     }
 }
-//boi
