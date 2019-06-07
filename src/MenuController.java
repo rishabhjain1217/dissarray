@@ -62,7 +62,7 @@ public class MenuController implements Initializable,ColorConstants, Constants {
             titleText.setTextFill(Color.web(PURPLE));
         }
         if(BackgroundMusic.getInstance().alternateSounds){
-            titleText.setTextFill(Color.web(BLACK));
+            soundToggle.setToggleColor(Color.web(BLACK));
         }
 
 
