@@ -4,7 +4,9 @@ import javafx.scene.layout.GridPane;
 import java.util.ArrayList;
 
 abstract class ArrayPane extends GridPane {
-//quicktest
+
+    /**GridPane used for our Game*/
+
     protected Question question;
     protected ArrayList<IndexButton> indexButtons;
 

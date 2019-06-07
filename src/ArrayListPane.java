@@ -9,7 +9,7 @@ public class ArrayListPane extends ArrayPane {
     }
 
 
-
+/**This method is used to create the pane, it creates a number of indexButtons*/
     @Override
     void render() {
         this.setMaxSize(400, 50);

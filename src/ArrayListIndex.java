@@ -31,7 +31,7 @@ public class ArrayListIndex extends Index {
     @Override
     public int compareTo(Index o)
     {
-        /* Unsafe, but assume same type. */
+        /** Unsafe, but assume same type. */
         ArrayListIndex other = (ArrayListIndex) o;
 
         if (this.equals(other)) return 0;

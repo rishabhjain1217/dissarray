@@ -4,7 +4,9 @@ import javax.sound.sampled.Clip;
 import java.net.URL;
 
 public class BackgroundMusic implements Constants {
+
     /** Singleton for Background Music*/
+
     private static BackgroundMusic INSTANCE = new BackgroundMusic();
     private static boolean isRunning = false;
     private static boolean mute = true;
