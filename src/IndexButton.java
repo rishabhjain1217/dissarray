@@ -1,12 +1,8 @@
 import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXToggleButton;
 import javafx.geometry.Pos;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ToggleButton;
 
 import java.util.Random;
-
-import static javafx.application.Application.setUserAgentStylesheet;
 
 public class IndexButton extends JFXCheckBox {
 
@@ -26,7 +22,7 @@ public class IndexButton extends JFXCheckBox {
         this.setPrefSize(BUTTON_SIZE, BUTTON_SIZE);
         this.setAlignment(Pos.CENTER);
         this.setStyle( "-jfx-checked-color:"+ getRandomColor() + ";" +
-                "-jfx-unchecked-color:white;" + "-fx-padding: 10 10 10 10;" );// + "-fx-border-color: #ffffff !important;");
+                "-jfx-unchecked-color:white;" + "-fx-padding: 10 10 10 10;" );
 
     }
 
@@ -37,7 +33,7 @@ public class IndexButton extends JFXCheckBox {
     public Index getIndex() {
         return index;
     }
-    //hi -Marcos
+
     public String getRandomColor(){
         Random r = new Random();
         return colors[r.nextInt(10)];
