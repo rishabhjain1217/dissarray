@@ -4,8 +4,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.stage.Stage;
-
-import javax.swing.plaf.nimbus.State;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -58,7 +56,7 @@ public class InstructionsController implements Initializable {
                     s.start(new Stage());
                 }
                 catch (Exception e){
-                    System.out.println("Wassup 2.0");
+                    System.out.println("Error in InstructionsController" + e.getMessage());
                 }
             }
         });
