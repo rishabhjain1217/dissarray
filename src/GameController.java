@@ -242,10 +242,6 @@ public class GameController implements Initializable, Constants {
         double paddingY = (400.0 - q.getRows()*IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
         this.questionLabel.setText(q.question);
-        /*
-        questionLabel.setStyle("-fx-font: 32 Nirmala_UI;" +
-                "-fx-text-fill: black;");
-        */
         if(q.getDifficulty().equals(QuestionType.Range)){
             questionLabel.setStyle("-fx-font-size: 32");
         }
@@ -256,21 +252,12 @@ public class GameController implements Initializable, Constants {
         currentP = pane;
 
         this.renderPane.getChildren().setAll(pane);
-        //this.renderPane.setPadding(new Insets(paddingY, paddingX, paddingY, paddingX));
         this.renderPane.setPadding(new Insets(10, 10, 20, 10));
     }
 
     private int renderTwoDim()
     {
         TwoDimQuestion q = ((TwoDimQuestion) this.generator.generateTwoDim(difficulty,score));
-        /*if(q.getDifficulty().equals(QuestionType.Range)){
-            questionLabel.setStyle("-fx-font: 38 Nirmala_UI;" +
-                    "-fx-text-fill: black;");
-        }
-        else{
-            questionLabel.setStyle("-fx-font: 43 Nirmala_UI;" +
-                    "-fx-text-fill: black;");
-        }*/
         this.renderTwoDim(q);
         return q.getTimeForQuestion();
     }
@@ -281,22 +268,6 @@ public class GameController implements Initializable, Constants {
         double paddingX = (600.0 - q.getArrayLength()*IndexButton.BUTTON_SIZE) / 2;
         double paddingY = (400.0 - IndexButton.BUTTON_SIZE) / 2;
         currentQ = q;
-        this.questionLabel.setText(q.question);
-        /*ArrayPane pane = new ArrayPane(q) {
-            @Override
-            void render() {
-                //this.setAlignment(Pos.CENTER);
-                this.setMaxSize(400, 50);
-                //this.getStylesheets().add(getClass().getResource("checkBoxStyle.css").toExternalForm());
-
-                int length = ((ArrayListQuestion) this.question).getArrayLength();
-                for (int i = 0; i < length; ++i) {
-                    this.indexButtons.add(new IndexButton(new OneDimIndex(i)));
-                    this.add(this.indexButtons.get(i).getButton(), 30 + i, 0);
-                }
-            }
-        };*/
-
         this.questionLabel.setText(q.question);
         ArrayListPane pane = new ArrayListPane(q);
 
@@ -362,14 +333,9 @@ public class GameController implements Initializable, Constants {
             return ((ArrayListQuestion) q).getTimeForQuestion();
         }
     }
-   // public boolean checkIndex(){
 
-    //}
-
-    public void nextQuestion(){//Hello
-        //if(true); //put check answers here
+    public void nextQuestion(){
         nextButton.setOnAction(e -> {
-            //System.out.println(check());
             if(check()) {
                 score++;
                 scoreLabel.setText("Score: " + score);
@@ -407,10 +373,8 @@ public class GameController implements Initializable, Constants {
         for (Index x : correct) {
             for (Node node : currentP.getChildren()) {
                 if (((IndexButton) (node)).getIndex().equals(x)) {
-                    //((IndexButton) (node)).getButton().setSelected(true);
                     ((IndexButton) (node)).getButton().getStyleClass().removeAll();
                     ((IndexButton) (node)).getButton().getStyleClass().add("correct");
-                   // Index i = ((IndexButton)(node)).getIndex();
                     ((IndexButton) (node)).getButton().setSelected(true);
                 }
             }
@@ -429,8 +393,6 @@ public class GameController implements Initializable, Constants {
     }
 
     public void restart(){
-        //pStage.close();
-        //timer = null;
         Platform.runLater(new Runnable() {
             @Override public void run() {
                 try{
@@ -444,6 +406,8 @@ public class GameController implements Initializable, Constants {
         });
         pStage.close();
     }
+
+    /**Called when game is over*/
 
     private void endGame(){
         if(ended == true){
@@ -472,6 +436,8 @@ public class GameController implements Initializable, Constants {
         new Thread(fiveSecDelay).start();
     }
 
+    /**Transition when switching out of current scene*/
+
     public void fade(){
 
         FadeTransition fadeOutTransition = new FadeTransition(Duration.millis(1500), GamePane);
@@ -480,6 +446,8 @@ public class GameController implements Initializable, Constants {
         fadeOutTransition.play();
         fadeOutTransition.setOnFinished((ActionEvent actionEvent) -> finish());
     }
+
+    /**Switches scenes*/
 
     private void finish() {
         FXMLLoader fxmlLoader = new FXMLLoader();
@@ -516,6 +484,8 @@ public class GameController implements Initializable, Constants {
         }
     }
 
+    /**Sees if music is on or muted*/
+
     public void defineBeginingMute(){
         if(BackgroundMusic.getInstance().isRunning()){
             muteItem.setText("Mute");
@@ -528,4 +498,3 @@ public class GameController implements Initializable, Constants {
     }
 
 }
-//b

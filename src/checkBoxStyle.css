@@ -8,11 +8,3 @@
     -fx-max-width: 25;
     -fx-max-height: 20;
 }
-
-.jfx-check-box {
-    //-jfx-unchecked-color:white;
-}
-
-.correct{
-   // -jfx-checked-color:white;
-}

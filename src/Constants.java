@@ -3,7 +3,7 @@
  */
 public interface Constants {
 
-    //Backgroundmusic
+    /**BackgroundMusic*/
     String NAME_OF_MUSIC = "resources/sounds/Wii Remix.wav"; //Regular music
     String NAME_OF_MEME_MUSIC = "resources/sounds/Wii Remix BOOSTED.wav";//Must add src to the beginning to specify path
 
@@ -49,6 +49,8 @@ public interface Constants {
 
 
     /**SoundLoader*/
+
+    //Locations of music
     String CORRECT_ONE = "resources/sounds/correct.wav";
     String CORRECT_TWO = "resources/sounds/correct2.wav";
     String WRONG_ONE = "resources/sounds/wrong.wav";

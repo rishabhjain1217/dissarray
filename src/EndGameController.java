@@ -1,9 +1,7 @@
 /**
  * Created by Rishabh Jain AKA CodeGod on 05 30, 2019 at 13:33
  */
-import javafx.animation.FadeTransition;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,9 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-
-import javax.swing.plaf.nimbus.State;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -83,7 +78,7 @@ public class EndGameController implements Initializable {
                     s.start(new Stage());
                 }
                 catch (Exception e){
-                    System.out.println("Wassup ENDGAME");
+                    System.out.println("Error in EndGameController: " + e.getMessage());
                 }
             }
         });
