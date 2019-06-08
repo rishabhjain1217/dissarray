@@ -9,7 +9,7 @@ public class ArrayListIndex extends Index {
     public int getIndex()
     {
         return index;
-    } //hi
+    }
 
     /**
      * Determines if a given Index is equal to this instance.
